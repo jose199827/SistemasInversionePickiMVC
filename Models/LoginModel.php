@@ -14,7 +14,7 @@ class LoginModel extends Mysql
   {
     $this->strUsuario = $usuario;
     $this->strPassword = $password;
-    $sql = "SELECT `id_persona`,`activacion` FROM `usuario` WHERE `nom_usuario`= '$this->strUsuario' AND `pass_usuario` ='$this->strPassword' AND `activacion` !=0;";
+    $sql = "SELECT `id_persona`,`activacion` FROM `usuario` WHERE `nom_usuario`= '$this->strUsuario' AND `pass_usuario` ='$this->strPassword' ;";
     $request = $this->select($sql);
     return $request;
   }

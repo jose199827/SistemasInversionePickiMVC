@@ -7,6 +7,15 @@ function controlTag(e) {
     return patron.test(n);
 }
 
+function controlTagEspacio(e) {
+    tecla = (document.all) ? e.keyCode : e.which;
+    if (tecla == 8) return true;
+    else if (tecla == 0 || tecla == 9) return true;
+    patron = /[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9]/;
+    n = String.fromCharCode(tecla);
+    return patron.test(n);
+}
+/* Valida que solo sea texto ingresado */
 function testText(txtString) {
     var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/);
     if (stringText.test(txtString)) {
@@ -15,7 +24,26 @@ function testText(txtString) {
         return false;
     }
 }
+/* Valida que solo sea texto con Numero ingresado */
+function testTextNumero(txtString) {
+    var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/);
+    if (stringText.test(txtString)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+/* Valida que no ingrese campos en blanco */
+function testBlanco(intCant) {
+    var intCantidad = new RegExp(/^([^ \t\r\n\f])*$/);
+    if (intCantidad.test(intCant)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
+/* Valida que solo sea numeros ingresado */
 function testEntero(intCant) {
     var intCantidad = new RegExp(/^([0-9])*$/);
     if (intCantidad.test(intCant)) {
@@ -40,6 +68,20 @@ function fntValidText() {
         validText.addEventListener('keyup', function() {
             let inputValue = this.value;
             if (!testText(inputValue)) {
+                this.classList.add('form-control-danger');
+            } else {
+                this.classList.remove('form-control-danger');
+            }
+        });
+    });
+}
+
+function fntValidTextNumber() {
+    let validText = document.querySelectorAll(".validTextNumber");
+    validText.forEach(function(validText) {
+        validText.addEventListener('keyup', function() {
+            let inputValue = this.value;
+            if (!testTextNumero(inputValue)) {
                 this.classList.add('form-control-danger');
             } else {
                 this.classList.remove('form-control-danger');
@@ -76,10 +118,25 @@ function fntvalidEmail() {
     });
 }
 
+function fntvalidBlanco() {
+    let validNumber = document.querySelectorAll(".validBlanco");
+    validNumber.forEach(function(validNumber) {
+        validNumber.addEventListener('keyup', function() {
+            let inputValue = this.value;
+            if (!testBlanco(inputValue)) {
+                this.classList.add('form-control-danger');
+            } else {
+                this.classList.remove('form-control-danger');
+            }
+        });
+    });
+}
 
 
 window.addEventListener('load', function() {
     fntValidText();
     fntvalidNumber();
     fntvalidEmail();
+    fntvalidBlanco();
+    fntValidTextNumber();
 }, false);

@@ -30,6 +30,9 @@ class Login extends Controllers
         $strPassword = hash("SHA256", ($_POST['txtPassword']));
         $requestUser = $this->model->loginUser($strUsuario, $strPassword);
         if (empty($requestUser)) {
+          /* if ($intentos == 3) {
+            $arrResponse = array('status' => false, 'msg' => 'Cuenta Bloqueada.');
+          } */
           $arrResponse = array('status' => false, 'msg' => 'El usuario o la contraseña es incorrecta.');
         } else {
           $arrData = $requestUser;
@@ -38,7 +41,7 @@ class Login extends Controllers
             $_SESSION['login'] = true;
             $arrData = $this->model->sessionLogin($_SESSION['idUser']);
             sessionUser($_SESSION['idUser']);
-            $arrResponse = array('status' => true, 'msg' => 'ok.');
+            $arrResponse = array('status' => true, 'msg' => $arrData['nom_persona'] . " " . $arrData['ape_persona'] );
           } else {
             $arrResponse = array('status' => false, 'msg' => 'El usuario esta inactivo.');
           }

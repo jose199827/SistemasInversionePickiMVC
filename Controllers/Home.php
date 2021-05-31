@@ -10,7 +10,7 @@ class Home extends Controllers
     session_start();
     session_regenerate_id(true);
     if (empty($_SESSION['login'])) {
-      header('location: ' . Base_URL() . '/login');
+      header('location: ' . Base_URL() . '/Login');
     }
   }
   //Se crea el método Home

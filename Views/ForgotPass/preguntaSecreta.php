@@ -44,16 +44,26 @@
                   <div class="login-title">
                      <h2 class="text-center text-primary">Has olvidado tu contraseña</h2>
                   </div>
-                  <h6 class="mb-20">Introduzce tu dirección de correo electrónico para restablecer tu contraseña</h6>
+                  <h6 class="mb-20">Introduzce tu dirección de correo</h6>
                   <form id="formResetPass" name="formResetPass" action="">
                      <div class="input-group custom">
-                        <input type="email" class="form-control form-control-lg valid validEmail" id="txtEmailReset"
-                           name="txtEmailReset" placeholder="Email" minlength="10" maxlength="40">
-
+                        <input type="email" class="form-control " id="txtEmailReset" name="txtEmailReset"
+                           placeholder="Email" minlength="10" maxlength="40">
                         <div class="input-group-append custom">
                            <span class="input-group-text"><i class="dw dw-email1" aria-hidden="true"></i></span>
                         </div>
                      </div>
+                     <h6 class="mb-20">Introduzce tu dirección de correo</h6>
+                     <div class="input-group custom">
+                        <select id="my-select" class="form-control selectpicker" name="" data-live-search="true">
+                           <option>Text</option>
+                        </select>
+                     </div>
+                     <div class="input-group custom">
+                        <input class="form-control" type="text" name="">
+
+                     </div>
+
                      <div class="row align-items-center">
                         <div class="col-6">
                            <div class="input-group mb-0">
@@ -86,7 +96,6 @@
    <script src="<?= media(); ?>/plugins/sweetalert2/sweetalert2.all.js"></script>
    <script src="<?= media(); ?>/plugins/sweetalert2/sweet-alert.init.js"></script>
    <script src="<?= media(); ?>/js/<?= $data['page_funtions_js']; ?>"></script>
-   <script src="<?= media(); ?>/js/funtions_admin.js"></script>
 </body>
 
 </html>

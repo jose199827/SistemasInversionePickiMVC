@@ -88,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     swal("Atención", "Por favor verifique los campos en rojo.", "error");
                     return false;
                 }
-
             }
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');

@@ -18,5 +18,12 @@ class ForgotPass extends Controllers
     $data['page_name'] = "login";
     $data['page_funtions_js'] = "funtions_login.js";
     $this->views->getView($this, "forgotPass", $data);
+  }public function preguntaSecreta()
+  {
+    $data['page_tag'] = "Login - Tienda Virtual";
+    $data['page_title'] = "Login";
+    $data['page_name'] = "login";
+    $data['page_funtions_js'] = "funtions_login.js";
+    $this->views->getView($this, "preguntaSecreta", $data);
   }
 }

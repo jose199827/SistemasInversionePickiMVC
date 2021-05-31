@@ -10,6 +10,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 swal("Atención", "Escribe un correo y contraseña.", "error");
                 return false;
             } else {
+                let elemtedValid = document.getElementsByClassName("valid");
+                for (let i = 0; i < elemtedValid.length; i++) {
+                    if (elemtedValid[i].classList.contains('form-control-danger')) {
+                        swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                        return false;
+                    }
+                }
                 divLoading.style.display = "flex";
                 var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
                 var ajaxUrl = base_url + '/Login/loginUser';
@@ -24,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
                             /* window.location = base_url + '/Dashboard'; */
                             swal({
                                 position: 'center',
-                                type: 'success',
                                 title: 'Bienvenido al Sistema',
+                                text: objData.msg,
+                                type: 'success',
                                 showConfirmButton: false,
                                 timer: 1000
                             });
-
                             window.location.reload(false);
                         } else {
                             swal("Atención", objData.msg, "error");
@@ -55,6 +62,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 swal("Atención", "Escribe tu correo electrónico.", "error");
                 return false;
             } else {
+                let elemtedValid = document.getElementsByClassName("valid");
+                for (let i = 0; i < elemtedValid.length; i++) {
+                    if (elemtedValid[i].classList.contains('form-control-danger')) {
+                        swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                        return false;
+                    }
+                }
                 divLoading.style.display = "flex";
                 var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
                 var ajaxUrl = base_url + '/Login/resetPass';
@@ -79,9 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
                             })
                         } else {
                             swal("Atención", objData.msg, "error");
+                            document.querySelector('#txtEmailReset').value = "";
                         }
                     } else {
                         swal("Atención", "Error en el proceso.", "error");
+                        document.querySelector('#txtEmailReset').value = "";
                     }
                     divLoading.style.display = "none";
                     return false;
@@ -133,9 +149,13 @@ document.addEventListener('DOMContentLoaded', function() {
                             })
                         } else {
                             swal("Atención", objData.msg, "error");
+                            document.querySelector('#txtPassword').value = "";
+                            document.querySelector('#txtPasswordConfirm').value = "";
                         }
                     } else {
                         swal("Atención", "Error en el proceso.", "error");
+                        document.querySelector('#txtPassword').value = "";
+                        document.querySelector('#txtPasswordConfirm').value = "";
                     }
                     divLoading.style.display = "none";
                 }
