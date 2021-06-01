@@ -17,9 +17,9 @@
                         <label for="RTN">RTN Empresa: <span class="text-red-50">*</span> </label>
                         <input type="text" id="rtn_empresa" name="rtn_empresa" class="form-control valid validNumber"
                            required minlength="14" maxlength="14">
-                        <span class="msj"></span>
-                        <div class="valid-feedback">Valido</div>
-                        <div class="invalid-feedback">Por favor, rellena el campo</div>
+                        <span class="msj" style="display:none;">
+                           <div class="">Por favor, rellena el campo</div>
+                        </span>
                      </div>
                      <div class="form-group">
                         <label for="empresa">Empresa: <span class="text-red-50">*</span> </label>

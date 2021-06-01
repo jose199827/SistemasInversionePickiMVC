@@ -41,14 +41,15 @@
             <div class="col-md-6 col-lg-5">
                <div class="login-box bg-white box-shadow border-radius-10">
                   <div class="login-title">
-                     <h2 class="text-center text-primary">Inicio de Sesión</h2>
+                     <h2 class="text-center text-primary">
+                        Iniciar sesión</h2>
                   </div>
                   <form class="login-form" id="formLogin" name="formLogin" action="">
                      <div class="input-group custom">
                         <input type="email" class="form-control form-control-lg valid validEmail" id="txtEmail"
-                           name="txtEmail" placeholder="Email" minlength="10" maxlength="40">
+                           name="txtEmail" placeholder="Usuario" minlength="10" maxlength="40">
                         <div class="input-group-append custom">
-                           <span class="input-group-text"><i class="dw dw-email1"></i></span>
+                           <span class="input-group-text"><i class="dw dw-user1"></i></span>
                         </div>
                      </div>
                      <div class="input-group custom">
@@ -61,17 +62,17 @@
                      </div>
                      <div class="row pb-30">
                         <div class="col">
-                           <div class="forgot-password text-rigth"><a href="<?= base_url(); ?>/forgotPass">¿Has
+                           <div class="forgot-password text-rigth"><a href="javascript:void(0);"
+                                 onclick="fntRecuperar();">¿Has
                                  olvidado tu
                                  contraseña?</a>
                            </div>
-                           <a href="javascript:void(0);" onclick="fntRecuperar();">hfghfhgghfh</a>
                         </div>
                      </div>
                      <div class="row">
                         <div class="col-sm-12">
                            <div class="input-group mb-0">
-                              <input class="btn btn-primary btn-lg btn-block" type="submit" value="Iniciar Sección">
+                              <input class="btn btn-primary btn-lg btn-block" type="submit" value="Iniciar sesión">
                            </div>
                         </div>
                      </div>
@@ -86,10 +87,10 @@
    //Auto Close Timer sa-close
    function fntRecuperar() {
       swal({
-         title: 'Metodo de Recuperación',
+         title: 'Método de Recuperación',
          type: 'info',
-         html: '<a href="<?= base_url(); ?>/forgotPass" class="text-dark">Mediante Correo.</a><br>' +
-            '<a href="<?= base_url(); ?>/forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>',
+         html: '<a href="<?= base_url(); ?>/forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>' +
+            '<a href="<?= base_url(); ?>/forgotPass" class="text-dark">Mediante Correo.</a><br>',
          showCancelButton: false,
          showConfirmButton: false
       })
@@ -116,7 +117,7 @@
             txtPassword.type = "text";
             verPas.classList.remove("fa-eye");
             verPas.classList.add("fa-eye-slash");
-            setTimeout("ocultarPass()", 1500);
+            setTimeout("ocultarPass()", 2000);
          } else {
             txtPassword.type = "password";
             verPas.classList.remove("fa-eye-slash");

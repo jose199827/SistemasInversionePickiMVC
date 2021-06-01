@@ -118,7 +118,7 @@
             <!-- Menu Clientes -->
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
-                  <span class="micon dw dw-group"></span><span class="mtext">Empleados</span>
+                  <span class="micon dw dw-id-card1 "></span><span class="mtext">Empleados</span>
                </a>
                <ul class="submenu">
                   <li> <a href="<?= Base_URL(); ?>/Empleados" class="dropdown-toggle no-arrow">
@@ -144,7 +144,7 @@
             <!-- Menu Empleados -->
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
-                  <span class="micon dw dw-id-card1"></span><span class="mtext">Empleados</span>
+                  <span class="micon dw dw-group"></span><span class="mtext">Clientes</span>
                </a>
                <ul class="submenu">
                   <li><a href="#">Registrar</a></li>
