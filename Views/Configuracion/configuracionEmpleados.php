@@ -1,6 +1,6 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
-getModal("modalUsuarios", $data);
+getModal("modalEmpleados", $data);
 ?>
 
 <div class="main-container">
@@ -49,7 +49,7 @@ getModal("modalUsuarios", $data);
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaCargos" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -93,7 +93,7 @@ getModal("modalUsuarios", $data);
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaEmpleados" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -144,7 +144,7 @@ getModal("modalUsuarios", $data);
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaRol" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -178,37 +178,7 @@ getModal("modalUsuarios", $data);
                </div>
             </div>
          </div>
-         <!--MODAL CARGO-->
-         <div class="modal fade" id="modalCargo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar cargo</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_cargo.php" id="formCargo" name="formCargo" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="cargo">Cargo: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="cargo" name="cargo" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!--MODAL EDITAR CARGO-->
          <div class="modal fade" id="modalCargoEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -223,37 +193,7 @@ getModal("modalUsuarios", $data);
                </div>
             </div>
          </div>
-         <!--MODAL TIPO DE EMPLEADO-->
-         <div class="modal fade" id="modalTipoEm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Empleado</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_tipo_empleado.php" id="formTipoEmpleado" name="formTipoEmpleado" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="tipo_empleado">Tipo de Empleado: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="tipo_empleado" name="tipo_empleado" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!--MODAL EDITAR TIPO DE EMPLEADO-->
          <div class="modal fade" id="modalTipoEmEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -268,36 +208,7 @@ getModal("modalUsuarios", $data);
                </div>
             </div>
          </div>
-         <!--MODAL TIPO ROL-->
-         <div class="modal fade" id="modalRol" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Rol</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate id="Agregargrupo" action="bd/insert_rol.php" id="formRol" name="formRol" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="rol">Rol: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="rol" name="rol" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!--MODAL EDITAR TIPO ROL-->
          <div class="modal fade" id="modalRolEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">

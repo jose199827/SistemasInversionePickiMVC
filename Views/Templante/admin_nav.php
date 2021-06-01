@@ -107,7 +107,7 @@
 
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
-                  <span class="micon dw dw-edit-file"></span><span class="mtext">Facturacción</span>
+                  <span class="micon dw dw-edit-file"></span><span class="mtext">Facturación</span>
                </a>
                <ul class="submenu">
                   <li><a href="#">Facturar</a></li>
@@ -118,13 +118,18 @@
             <!-- Menu Clientes -->
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
-                  <span class="micon dw dw-group"></span><span class="mtext">Clientes</span>
+                  <span class="micon dw dw-group"></span><span class="mtext">Empleados</span>
                </a>
                <ul class="submenu">
-                  <li><a href="#">Registrar</a></li>
-                  <li><a href="#">Tabla</a></li>
+                  <li> <a href="<?= Base_URL(); ?>/Empleados" class="dropdown-toggle no-arrow">
+                        <span class="mtext">Registrar</span>
+                     </a></li>
+                  <li> <a href="<?= Base_URL(); ?>/Empleados/Tabla" class="dropdown-toggle no-arrow">
+                        <span class="mtext">Tabla</span>
+                     </a></li>
                </ul>
             </li>
+
             <!-- Menu Proveedores -->
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
@@ -166,7 +171,8 @@
                <ul class="submenu">
                   <li><a href="<?= Base_URL(); ?>/Configuracion">Productos</a></li>
                   <li><a href="<?= Base_URL(); ?>/Configuracion/Empleados">Empleados</a></li>
-                  <li><a href="<?= Base_URL(); ?>/About">About</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Configuracion/Facturacion">Factura</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Configuracion/Empresa">Empresa</a></li>
                </ul>
             </li>
 

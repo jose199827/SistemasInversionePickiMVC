@@ -19,7 +19,14 @@ class Home extends Controllers
     $data['page_tag'] = NOMBRE_EMPRESA;
     $data['page_title'] = NOMBRE_EMPRESA;
     $data['page_name'] = "home";
-    /* $data['page_funtions_js'] = "funtions_login.js"; */
+    $data['page_funtions_js'] = "funtions_dashoard.js";
     $this->views->getView($this, "home", $data);
+  }
+  public function getMsg(){
+    if ($_SESSION['userData']['pass_request']==0) {
+      $arrResponse = array('status' => true, 'msg' => 'Primera Vez.');
+    }
+    echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+    die();
   }
 }

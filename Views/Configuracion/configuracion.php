@@ -1,6 +1,6 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
-/* getModal("modalUsuarios", $data); */
+ getModal("modalProductos", $data); 
 ?>
 
 <div class="main-container">
@@ -53,7 +53,7 @@
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaMarcas" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -105,7 +105,7 @@
 
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaCategorias" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -158,7 +158,7 @@
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaGrupos" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -205,7 +205,7 @@
                            </div>
                         </div>
                         <div class="pb-20">
-                           <table class="data-table table stripe hover nowrap">
+                           <table id="TablaUnidades" class="data-table table stripe hover nowrap">
                               <thead>
                                  <tr>
                                     <th class="table-plus">N.º</th>
@@ -258,7 +258,7 @@
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap">
+                        <table id="TablaImpuestos" class="data-table table stripe hover nowrap">
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
@@ -296,36 +296,7 @@
          <!-- </div> -->
 
          <!-- Apartado de modales -->
-         <!-- Modal de Marca -->
-         <div class="modal fade" id="marca-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Marca</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_marcas.php" id="formMarca" name="formMarca" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="marca">Marca: <span class="text-red-50">*</span> </label>
-                                 <input type="text" id="marca" name="marca" class="form-control" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!-- Modal de Editar Marca -->
          <div class="modal fade" id="marca-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -341,36 +312,7 @@
             </div>
          </div>
 
-         <!-- Modal de Categoria -->
-         <div class="modal fade" id="categoria-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Categoria</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_categoria.php" id="fromCategoria" name="fromCategoria" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="categoria">Categorias: <span class="text-red-50">*</span> </label>
-                                 <input type="text" id="categoria" name="categoria" class="form-control" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!-- Modal de Editar Categoria -->
          <div class="modal fade" id="categoria-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -385,37 +327,7 @@
                </div>
             </div>
          </div>
-         <!-- Modal de Grupo -->
-         <div class="modal fade" id="grupo-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Grupo</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_grupos.php" id="formGrupo" name="formGrupo" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="grupo">Grupo: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="grupo" name="grupo" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!-- Modal de Editar Grupo -->
          <div class="modal fade" id="grupo-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -432,36 +344,7 @@
          </div>
 
          <!-- Modal de Unidad Medida -->
-         <!-- Modal de Unidad Medida -->
-         <div class="modal fade" id="unidadMedida-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Unidad Medida</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate id="formMedida" name="formMedida" action="bd/insert_uni_medidas.php" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <div class="form-group">
-                                 <label for="uni_medida">Unidad: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="uni_medida" name="uni_medida" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+        
          <!-- Modal de Editar Unidades Medidas -->
          <div class="modal fade" id="uni_medidas-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
@@ -477,46 +360,7 @@
             </div>
          </div>
 
-         <!-- Modal de Impuestos -->
-         <div class="modal fade" id="impuesto-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm modal-dialog-centered">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Impuestos</h5>
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                  </div>
-                  <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_impuestos.php" id="formImpuesto" name="formImpuesto" method="POST">
-                        <div class="row">
-                           <div class="col-md-12 col-sm-12">
-                              <!-- Nombre del producto -->
-                              <div class="form-group">
-                                 <label for="nom_isv">Nombre de Impuesto: <span class="text-red-50">*</span> </label>
-                                 <input type="text" id="nom_isv" name="nom_isv" class="form-control" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, rellena el campo</div>
-
-                              </div>
-                              <div class="form-group">
-                                 <label for="porcentaje">Porcentaje Impuesto: <span class="text-red-50">*</span> </label>
-                                 <input type="number" id="porcentaje" name="porcentaje" class="form-control" min="0" max="100" required>
-                                 <span class="msj"></span>
-                                 <div class="valid-feedback">Valido</div>
-                                 <div class="invalid-feedback">Por favor, valores mayores a 0</div>
-
-                              </div>
-                           </div>
-                        </div>
-                        <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
-                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
+         
 
          <!-- Modal de Editar Impuestos -->
          <div class="modal fade" id="impuesto-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

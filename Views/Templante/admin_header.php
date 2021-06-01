@@ -1,5 +1,5 @@
 <?php $nombre  = explode(" ", $_SESSION['userData']['nom_persona']);
-$apellido  = explode(" ", $_SESSION['userData']['ape_persona']);?>
+$apellido  = explode(" ", $_SESSION['userData']['ape_persona']); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -21,10 +21,6 @@ $apellido  = explode(" ", $_SESSION['userData']['ape_persona']);?>
    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet">
    <!-- CSS -->
-
-   <script src="sweetalert2.min.js"></script>
-   <link rel="stylesheet" href="sweetalert2.min.css">
-
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/core.css">
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/icon-font.min.css">
    <link rel="stylesheet" type="text/css" href="<?= media(); ?>/plugins/sweetalert2/sweetalert2.css">

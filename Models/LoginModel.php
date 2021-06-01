@@ -21,7 +21,24 @@ class LoginModel extends Mysql
   public function sessionLogin(int $idUsuario)
   {
     $this->intIdUsuario = $idUsuario;
-    $sql = "SELECT p.id_persona, p.num_id_persona, p.nom_persona, p.ape_persona, t.telefono, d.direccion, c.correo, tr.id_rol, tr.rol, u.nom_usuario, u.activacion FROM personas p INNER JOIN rel_telefonos_persona rtp ON rtp.id_persona = p.id_persona INNER JOIN rel_direcciones_persona rdp ON rdp.id_persona = p.id_persona INNER JOIN rel_correos_persona rcp ON rcp.id_persona = p.id_persona INNER JOIN usuario u ON u.id_persona=p.id_persona INNER JOIN tipo_rol tr ON tr.id_rol= u.id_rol INNER JOIN telefonos t ON t.id_telefono= rtp.id_telefono INNER JOIN direcciones d ON d.id_direccion= rdp.id_direccion INNER JOIN correos c ON c.id_correo = rcp.id_correo WHERE p.id_persona =$this->intIdUsuario";
+    $sql = "SELECT p.id_persona, p.num_id_persona, p.nom_persona, p.ape_persona, t.telefono, d.direccion, c.correo, tr.id_rol, tr.rol, u.nom_usuario, u.activacion,u.pass_request
+    FROM personas p 
+    INNER JOIN rel_telefonos_persona rtp 
+    ON rtp.id_persona = p.id_persona 
+    INNER JOIN rel_direcciones_persona rdp 
+    ON rdp.id_persona = p.id_persona 
+    INNER JOIN rel_correos_persona rcp 
+    ON rcp.id_persona = p.id_persona 
+    INNER JOIN usuario u 
+    ON u.id_persona=p.id_persona 
+    INNER JOIN tipo_rol tr 
+    ON tr.id_rol= u.id_rol 
+    INNER JOIN telefonos t
+    ON t.id_telefono= rtp.id_telefono 
+    INNER JOIN direcciones d 
+    ON d.id_direccion= rdp.id_direccion 
+    INNER JOIN correos c 
+    ON c.id_correo = rcp.id_correo WHERE p.id_persona =$this->intIdUsuario";
     $request = $this->select($sql);
     $_SESSION['userData'] = $request;
     return $request;

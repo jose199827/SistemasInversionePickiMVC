@@ -19,13 +19,13 @@
                   </div>
                </h4>
                <p class="font-18" id="txtMsg">
-
-
+                  En el mundo de los negocios, las cosas importantes no son hechas por una sola persona. Son hechas por
+                  un grupo de personas.
                </p>
             </div>
          </div>
       </div>
-
+      <?= dep($_SESSION['userData'])?>
       <div class="card-box">
          <h2 class="h4 pd-20">Best Selling Products</h2>
          <table class="data-table table nowrap">

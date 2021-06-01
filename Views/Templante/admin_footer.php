@@ -1,7 +1,7 @@
 <!-- js -->
 <script>
-  const base_url = "<?= Base_URL(); ?>";
-  const smony = "<?= SMONEY; ?>";
+const base_url = "<?= Base_URL(); ?>";
+const smony = "<?= SMONEY; ?>";
 </script>
 
 
@@ -31,14 +31,14 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
-<script src="https://cdnjs.com/libraries/Chart.js"></script>
+<!-- <script src="https://cdnjs.com/libraries/Chart.js"></script>
 <script src="https://www.jsdelivr.com/package/npm/chart.js?path=dist"></script>
-
+ -->
 
 
 <?php if ($data['page_name'] == "dashboard") { ?>
-  <script src="<?= media(); ?>/plugins/apexcharts/apexcharts.min.js"></script>
-  <script src="<?= vendors(); ?>/scripts/dashboard.js"></script>
+<script src="<?= media(); ?>/plugins/apexcharts/apexcharts.min.js"></script>
+<script src="<?= vendors(); ?>/scripts/dashboard.js"></script>
 <?php } ?>
 
 
