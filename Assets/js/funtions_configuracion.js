@@ -927,6 +927,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } //fin del if de rol
     if (document.querySelector("#formRegimen")) {
+
         //MODAL DE FACTURACION
         let formRegimen = document.querySelector("#formRegimen");
         formRegimen.onsubmit = function(e) {
@@ -970,6 +971,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     } //fin del if de FACTURACION
     if (document.querySelector("#formEmpresa")) {
+
         //MODAL DE EMPRESAS
         let formEmpresa = document.querySelector("#formEmpresa");
         formEmpresa.onsubmit = function(e) {
@@ -980,6 +982,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 swal("Atención", "Todos los campos son obligatorios.", "error");
                 return false;
 
+            }
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifique los campos en rojo.", "error");
+                    return false;
+                }
             }
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');

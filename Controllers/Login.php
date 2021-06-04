@@ -13,7 +13,7 @@ class Login extends Controllers
   //Se crea el método Home
   public function login()
   {
-    $data['page_tag'] = "Login - Tienda Virtual";
+    $data['page_tag'] = "Login - Inversiones Picky";
     $data['page_title'] = "Login";
     $data['page_name'] = "login";
     $data['page_funtions_js'] = "funtions_login.js";
@@ -41,7 +41,7 @@ class Login extends Controllers
             $_SESSION['login'] = true;
             $arrData = $this->model->sessionLogin($_SESSION['idUser']);
             sessionUser($_SESSION['idUser']);
-            $arrResponse = array('status' => true, 'msg' => $arrData['nom_persona'] . " " . $arrData['ape_persona'] );
+            $arrResponse = array('status' => true, 'msg' => $arrData['nom_persona'] . " " . $arrData['ape_persona']);
           } else {
             $arrResponse = array('status' => false, 'msg' => 'El usuario esta inactivo.');
           }
@@ -64,7 +64,7 @@ class Login extends Controllers
         if (empty($arrData)) {
           $arrResponse = array('status' => false, 'msg' => 'Usuario no existente.');
         } else {
-          $idPersona = $arrData['id_persona'];
+          $idPersona = $arrData['id_usuario'];
           $nombreUsuario = $arrData['nom_persona'] . ' ' . $arrData['ape_persona'];
           $url_recovery = Base_URL() . '/Login/confirmUser/' . $strEmail . '/' . $token;
           $requestUpdate = $this->model->setTokenUser($idPersona, $token);
@@ -91,6 +91,74 @@ class Login extends Controllers
     }
     die();
   }
+  public function getUsuarioPreguntas()
+  {
+    if ($_POST) {
+      if (empty($_POST['nombreUsuario'])) {
+        $arrResponse = array('status' => false, 'msg' => 'Error de Datos.');
+      } else {
+        $nombreUsuario = strClean($_POST['nombreUsuario']);
+        $arraResponseUser = $this->model->getUsuarioPreguntas($nombreUsuario);
+        if ($arraResponseUser) {
+          $arrResponse = array('status' => true, 'msg' => 'Usuario Encontrado.', 'data' => $arraResponseUser);
+        } else if (empty($arraResponseUser)) {
+          $arrResponse = array('status' => false, 'msg' => 'Usuario no existe.');
+        } else {
+          $arrResponse = array('status' => false, 'msg' => 'No es posible realizar el proceso, intenta más tarde.');
+        }
+      }
+    }
+    echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+    die();
+  }
+  public function buscarPreguntaUser()
+  {
+    $htmlOptions = "";
+    if ($_POST) {
+      if (empty($_POST['idUser']) || !intval($_POST['idUser'])) {
+        $arrResponse = array('status' => false, 'msg' => 'Error de Datos.');
+      } else {
+        $idUser = intval($_POST['idUser']);
+        $arraResponseUser = $this->model->buscarPreguntaUser($idUser);
+        /* dep($arraResponseUser);
+        exit(); */
+        if ($arraResponseUser) {
+          for ($i = 0; $i < count($arraResponseUser); $i++) {
+            $htmlOptions .= '<option value ="' . $arraResponseUser[$i]['id_preg_seg'] . '">' . $arraResponseUser[$i]['preguntas'] . '</option>';
+          }
+          $arrResponse = array('status' => true, 'data' => $htmlOptions);
+        } else if (empty($arraResponseUser)) {
+          $arrResponse = array('status' => false, 'msg' => 'Usuario no cuenta con preguntas de seguridad.');
+        } else {
+          $arrResponse = array('status' => false, 'msg' => 'No es posible realizar el proceso, intenta más tarde.');
+        }
+      }
+    }
+    echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+    die();
+  }
+
+  public function confirmUserPregunta(string $params)
+  {
+    if (empty($params)) {
+      header('Location: ' . Base_URL());
+    } else {
+      $strToken = strClean($params);
+      $arraResponse = $this->model->getUsuarioPregunta($strToken);
+      if (empty($arraResponse)) {
+        header('Location: ' . Base_URL());
+      } else {
+        $data['page_tag'] = "Cambiar Contraseña";
+        $data['page_title'] = "Login";
+        $data['page_name'] = "login";
+        $data['idpersona'] = $arraResponse['id_persona'];
+        $data['token'] = $strToken;
+        $data['page_funtions_js'] = "funtions_login.js";
+        $this->views->getView($this, "cambiarPass", $data);
+      }
+    }
+  }
+
   public function confirmUser(string $params)
   {
     if (empty($params)) {
@@ -99,7 +167,7 @@ class Login extends Controllers
       $arrParams = explode(',', $params);
       $strEmail = strClean($arrParams[0]);
       $strToken = strClean($arrParams[1]);
-      $arraResponse = $this->model->getUsuario($strEmail, $strToken);
+      $arraResponse = $this->model->getUsuario($strToken);
       if (empty($arraResponse)) {
         header('Location: ' . Base_URL());
       } else {
@@ -117,18 +185,17 @@ class Login extends Controllers
   }
   public function setPass()
   {
-    if (empty($_POST['idUsuario']) || empty($_POST['txtPassword']) || empty($_POST['txtPasswordConfirm']) || empty($_POST['txtEmail']) || empty($_POST['txtToken'])) {
+    if (empty($_POST['idUsuario']) || empty($_POST['txtPassword']) || empty($_POST['txtPasswordConfirm']) ||  empty($_POST['txtToken'])) {
       $arrResponse = array('status' => false, 'msg' => 'Error de Datos.');
     } else {
       $intIdPersona = intval($_POST['idUsuario']);
       $strPassword = $_POST['txtPassword'];
       $strPasswordConfirm = $_POST['txtPasswordConfirm'];
-      $strEmail = strtolower(strClean($_POST['txtEmail']));
       $strToken = strClean($_POST['txtToken']);
       if ($strPassword != $strPasswordConfirm) {
         $arrResponse = array('status' => false, 'msg' => 'Las contraseñas no son iguales.');
       } else {
-        $arraResponseUser = $this->model->getUsuario($strEmail, $strToken);
+        $arraResponseUser = $this->model->getUsuario($strToken);
         if (empty($arraResponseUser)) {
           $arrResponse = array('status' => false, 'msg' => 'Error de Datos.');
         } else {
@@ -144,6 +211,37 @@ class Login extends Controllers
       }
     }
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+    die();
+  }
+
+  public function resetPassPregunta()
+  {
+    if ($_POST) {
+      if (empty($_POST['txtUsuaioReset']) || empty($_POST['iduser']) || empty($_POST['listPregunta']) || empty($_POST['txtRespuesta'])) {
+        $arrResponse = array('status' => false, 'msg' => 'Error de Datos.');
+      } else {
+        $token = token();
+        $idUser = intval($_POST['iduser']);
+        $pregunta = intval($_POST['listPregunta']);
+        $usuaioReset = strClean($_POST['txtUsuaioReset']);
+        $respuesta = strClean($_POST['txtRespuesta']);
+        $arraResponseUser = $this->model->setPreguntaUser($idUser, $pregunta, $respuesta);
+        /* dep($arraResponseUser);
+        exit(); */
+        if (empty($arraResponseUser)) {
+          $arrResponse = array('status' => false, 'msg' => 'No ha coicidencia.');
+        } else {
+          $url_recovery = Base_URL() . '/Login/confirmUserPregunta/' . $token;
+          $requestUpdate = $this->model->setTokenUser($idUser, $token);
+          if ($requestUpdate) {
+            $arrResponse = array('status' => true, 'msg' => 'Respuesta Correcta.', 'url' => $url_recovery);
+          } else {
+            $arrResponse = array('status' => false, 'msg' => 'No se ha podido realizar el proceso, intenta más tarde.');
+          }
+        }
+      }
+      echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+    }
     die();
   }
 }

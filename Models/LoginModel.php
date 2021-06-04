@@ -50,6 +50,7 @@ class LoginModel extends Mysql
         p.nom_persona, 
         p.ape_persona,
         u.nom_usuario,
+        u.id_usuario,
         u.activacion 
       FROM personas p 
       INNER JOIN usuario u 
@@ -62,17 +63,37 @@ class LoginModel extends Mysql
   {
     $this->intIdUsuario = $idPersona;
     $this->strToken = $token;
-    $sql = "UPDATE `usuario` SET `token`=? WHERE `id_persona`= $this->intIdUsuario";
+    $sql = "UPDATE `usuario` SET `token`=? WHERE `id_usuario`= $this->intIdUsuario";
     $arrData = array($this->strToken);
     $request = $this->update($sql, $arrData);
     return $request;
   }
-  public function getUsuario(string $email, string $token)
+  public function getUsuario(string $token)
   {
-    $this->strUsuario = $email;
     $this->strToken = $token;
-    $sql = "SELECT `id_persona`FROM `usuario` WHERE `nom_usuario`='$this->strUsuario' AND `token`= '$this->strToken' AND `activacion`=1";
+    $sql = "SELECT `id_persona`FROM `usuario` WHERE `token`= '$this->strToken' AND `activacion`=1";
     $request = $this->select($sql);
+    return $request;
+  }
+  public function getUsuarioPregunta(string $token)
+  {
+    $this->strToken = $token;
+    $sql = "SELECT `id_persona`FROM `usuario` WHERE `token`= '$this->strToken' AND `activacion`=1";
+    $request = $this->select($sql);
+    return $request;
+  }
+  public function getUsuarioPreguntas($nombreUsuario)
+  {
+    $this->strUsuario = $nombreUsuario;
+    $sql = "SELECT p.id_persona,p.nom_persona, p.ape_persona, c.correo, u.nom_usuario, u.id_usuario FROM personas p INNER JOIN rel_correos_persona rcp ON rcp.id_persona = p.id_persona INNER JOIN usuario u ON u.id_persona=p.id_persona INNER JOIN tipo_rol tr ON tr.id_rol= u.id_rol INNER JOIN correos c ON c.id_correo = rcp.id_correo WHERE u.nom_usuario ='$this->strUsuario'";
+    $request = $this->select($sql);
+    return $request;
+  }
+  public function buscarPreguntaUser($idUser)
+  {
+    $this->intIdUsuario = $idUser;
+    $sql = "SELECT * FROM `preguntas_seguridad` WHERE `id_user`=$this->intIdUsuario ";
+    $request = $this->selectAll($sql);
     return $request;
   }
   public function insertPass($idUsuario, $password)
@@ -82,6 +103,14 @@ class LoginModel extends Mysql
     $sql = "UPDATE `usuario`SET `pass_usuario`=?, `token`=? WHERE `id_persona`= $this->intIdUsuario;";
     $arrData = array($this->strPassword, "");
     $request = $this->update($sql, $arrData);
+    return $request;
+  }
+
+  public function setPreguntaUser($idUser, $pregunta, $respuesta)
+  {
+    $this->intIdUsuario = $idUser;
+    $sql = "SELECT * FROM `respuestas_seguridad` WHERE `id_usuario`=$this->intIdUsuario AND `id_preg_seg`=$pregunta AND `respuesta`='$respuesta'";
+    $request = $this->select($sql);
     return $request;
   }
 }

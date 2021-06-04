@@ -16,8 +16,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
    <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
    <!-- CSS -->
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/core.css">
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/icon-font.min.css">
@@ -44,36 +43,45 @@
                   <div class="login-title">
                      <h2 class="text-center text-primary">Has olvidado tu contraseña</h2>
                   </div>
-                  <h6 class="mb-20">Introduzce tu dirección de correo</h6>
-                  <form id="formResetPass" name="formResetPass" action="">
-                     <div class="input-group custom">
-                        <input type="email" class="form-control " id="txtEmailReset" name="txtEmailReset"
-                           placeholder="Email" minlength="10" maxlength="40">
-                        <div class="input-group-append custom">
-                           <span class="input-group-text"><i class="dw dw-email1" aria-hidden="true"></i></span>
+                  <h6 class="mb-20">Introduzce tu Usuario</h6>
+                  <form id="formResetPassPregunta" name="formResetPassPregunta" action="">
+                     <div class="row">
+                        <div class="col-9">
+                           <div class="input-group custom">
+                              <input type="email" class="form-control " id="txtUsuaioReset" name="txtUsuaioReset" placeholder="Usuario" minlength="10" maxlength="20">
+                              <div class=" input-group-append custom">
+                                 <span class="input-group-text"><i class="dw dw-user1" aria-hidden="true"></i></span>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-3">
+                           <button class="btn btn-primary btn-block" type="button" onclick="buscarUser();"><i class="icon-copy dw dw-search2 font-20"></i></button>
                         </div>
                      </div>
-                     <h6 class="mb-20">Introduzce tu dirección de correo</h6>
-                     <div class="input-group custom">
-                        <select id="my-select" class="form-control selectpicker" name="" data-live-search="true">
-                           <option>Text</option>
-                        </select>
-                     </div>
-                     <div class="input-group custom">
-                        <input class="form-control" type="text" name="">
 
+                     <div id="divPregunta" style="display: none;">
+                        <h6 class="mb-20">Tus Preguntas de Seguridad</h6>
+                        <div class="form-group">
+                           <input type="hidden" name="iduser" id="iduser">
+                           <label>Preguntas de Seguridad:</label>
+                           <select id="listPregunta" name="listPregunta" class="form-control selectpicker" name="" data-live-search="true">
+                           </select>
+                        </div>
+                        <div class="form-group">
+                           <label>Respuesta de Seguridad: </label>
+                           <input class="form-control" type="text" name="txtRespuesta" id="txtRespuesta">
+                        </div>
                      </div>
 
                      <div class="row align-items-center">
-                        <div class="col-6">
+                        <div id="divPreguntaEnviar" class="col-6 notblock">
                            <div class="input-group mb-0">
                               <input class="btn btn-primary btn-lg btn-block" type="submit" value="Enviar">
                            </div>
                         </div>
                         <div class="col-6">
                            <div class="input-group mb-0">
-                              <a class="btn btn-outline-primary btn-lg btn-block"
-                                 href="<?= Base_URL(); ?>/login">Iniciar Sesión</a>
+                              <a class="btn btn-outline-primary btn-lg btn-block" href="<?= Base_URL(); ?>/login">Iniciar Sesión</a>
                            </div>
                         </div>
                      </div>
@@ -85,7 +93,7 @@
    </div>
    <!-- js -->
    <script>
-   const base_url = "<?= Base_URL(); ?>"
+      const base_url = "<?= Base_URL(); ?>"
    </script>
    <script src="<?= vendors(); ?>/scripts/core.js"></script>
    <script src="<?= vendors(); ?>/scripts/script.min.js"></script>
