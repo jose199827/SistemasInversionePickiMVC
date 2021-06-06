@@ -181,7 +181,6 @@ class Empleados extends Controllers
                                                </div>';
       }
 
-
       echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
       die();
    }

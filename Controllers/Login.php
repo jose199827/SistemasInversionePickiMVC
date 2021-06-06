@@ -30,7 +30,7 @@ class Login extends Controllers
         $strPassword = hash("SHA256", ($_POST['txtPassword']));
         $requestUser = $this->model->loginUser($strUsuario, $strPassword);
         if (empty($requestUser)) {
-          /* if ($intentos == 3) {
+          /* if ($this->intentos == 3) {
             $arrResponse = array('status' => false, 'msg' => 'Cuenta Bloqueada.');
           } */
           $arrResponse = array('status' => false, 'msg' => 'El usuario o la contraseña es incorrecta.');
@@ -201,9 +201,12 @@ class Login extends Controllers
         } else {
           $strPass = hash("SHA256", $strPassword);
           $requestPass = $this->model->insertPass($intIdPersona, $strPass);
-
-          if ($requestPass) {
+          /* dep($requestPass);
+          exit(); */
+          if ($requestPass > 0) {
             $arrResponse = array('status' => true, 'msg' => 'Contraseña actualizada con éxito.');
+          } else if ($requestPass == 'exist') {
+            $arrResponse = array('status' => false, 'msg' => 'La contraseña no puede ser igual a la anterior.');
           } else {
             $arrResponse = array('status' => false, 'msg' => 'No es posible realizar el proceso, intenta más tarde.');
           }

@@ -13,7 +13,8 @@
    <!-- Mobile Specific Metas -->
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
    <!-- CSS -->
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/core.css">
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/icon-font.min.css">
@@ -44,21 +45,29 @@
                         Iniciar sesión</h2>
                   </div>
                   <form class="login-form" id="formLogin" name="formLogin" action="">
+
                      <div class="input-group custom">
-                        <input type="email" class="form-control form-control-lg valid validEmail" id="txtEmail" name="txtEmail" placeholder="Usuario" minlength="10" maxlength="40">
+                        <input type="text" class="form-control form-control-lg valid validTextNumMayus"
+                           onkeypress="return controlTagEspacio(event);" id="txtEmail" name="txtEmail"
+                           placeholder="Usuario" minlength="5" maxlength="20">
                         <div class="input-group-append custom">
                            <span class="input-group-text"><i class="dw dw-user1"></i></span>
                         </div>
                      </div>
+
+
                      <div class="input-group custom">
-                        <input type="password" class="form-control form-control-lg valid" onkeypress="return controlTagEspacio(event);" id="txtPassword" name="txtPassword" placeholder="**********" minlength="5" maxlength="20">
+                        <input type="password" class="form-control form-control-lg valid"
+                           onkeypress="return controlTagEspacio(event);" id="txtPassword" name="txtPassword"
+                           placeholder="**********" minlength="5" maxlength="20">
                         <div class="input-group-append custom">
                            <span class="input-group-text"><i id="verPass" class="fa fa-eye"></i></span>
                         </div>
                      </div>
                      <div class="row pb-30">
                         <div class="col">
-                           <div class="forgot-password text-rigth"><a href="javascript:void(0);" onclick="fntRecuperar();">¿Has
+                           <div class="forgot-password text-rigth"><a href="javascript:void(0);"
+                                 onclick="fntRecuperar();">¿Has
                                  olvidado tu
                                  contraseña?</a>
                            </div>
@@ -80,19 +89,18 @@
    </div>
    <!-- js -->
    <script>
-      //Auto Close Timer sa-close
-      function fntRecuperar() {
-         swal({
-            title: 'Método de Recuperación',
-            type: 'info',
-            html: '<a href="<?= base_url(); ?>/forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>' +
-               '<a href="<?= base_url(); ?>/forgotPass" class="text-dark">Mediante Correo.</a><br>',
-            showCancelButton: false,
-            showConfirmButton: false
-         })
-      }
-
-      const base_url = "<?= Base_URL(); ?>"
+   //Auto Close Timer sa-close
+   function fntRecuperar() {
+      swal({
+         title: 'Método de Recuperación',
+         type: 'info',
+         html: '<a href="<?= base_url(); ?>/forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>' +
+            '<a href="<?= base_url(); ?>/forgotPass" class="text-dark">Mediante Correo.</a><br>',
+         showCancelButton: false,
+         showConfirmButton: false
+      })
+   }
+   const base_url = "<?= Base_URL(); ?>"
    </script>
    <script src="<?= vendors(); ?>/scripts/core.js"></script>
    <script src="<?= vendors(); ?>/scripts/script.min.js"></script>
@@ -105,28 +113,28 @@
    <script src="<?= media(); ?>/js/<?= $data['page_funtions_js']; ?>"></script>
    <script src="<?= media(); ?>/js/funtions_admin.js"></script>
    <script>
-      let verPas = document.querySelector("#verPass");
-      let txtPassword = document.querySelector('#txtPassword');
-      verPas.addEventListener('click', function() {
-         if (txtPassword.value != "") {
-            if (txtPassword.type == "password") {
-               txtPassword.type = "text";
-               verPas.classList.remove("fa-eye");
-               verPas.classList.add("fa-eye-slash");
-               setTimeout("ocultarPass()", 2000);
-            } else {
-               txtPassword.type = "password";
-               verPas.classList.remove("fa-eye-slash");
-               verPas.classList.add("fa-eye");
-            }
+   let verPas = document.querySelector("#verPass");
+   let txtPassword = document.querySelector('#txtPassword');
+   verPas.addEventListener('click', function() {
+      if (txtPassword.value != "") {
+         if (txtPassword.type == "password") {
+            txtPassword.type = "text";
+            verPas.classList.remove("fa-eye");
+            verPas.classList.add("fa-eye-slash");
+            setTimeout("ocultarPass()", 2000);
+         } else {
+            txtPassword.type = "password";
+            verPas.classList.remove("fa-eye-slash");
+            verPas.classList.add("fa-eye");
          }
-      });
-
-      function ocultarPass() {
-         txtPassword.type = "password";
-         verPas.classList.remove("fa-eye-slash");
-         verPas.classList.add("fa-eye");
       }
+   });
+
+   function ocultarPass() {
+      txtPassword.type = "password";
+      verPas.classList.remove("fa-eye-slash");
+      verPas.classList.add("fa-eye");
+   }
    </script>
 
 

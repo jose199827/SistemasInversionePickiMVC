@@ -137,10 +137,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         var objData = JSON.parse(request.responseText);
                         if (objData.status) {
                             swal({
-                                title: 'Iniciar sección',
+                                title: 'Iniciar sesión',
                                 text: objData.msg,
                                 type: 'success',
-                                confirmButtonText: "Iniciar sección",
+                                confirmButtonText: "Iniciar sesión",
                                 preConfirm: false
                             }).then((result) => {
                                 if (result.value) {

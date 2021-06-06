@@ -14,7 +14,7 @@ function fntMensajePrimerIngreso() {
             if (objData.status) {
                 swal({
                     title: 'Sistema',
-                    input: 'email',
+                    html: 'email',
                     showCancelButton: true,
                     confirmButtonText: 'Submit',
                     showLoaderOnConfirm: true,

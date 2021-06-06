@@ -11,10 +11,11 @@ function controlTagEspacio(e) {
     tecla = (document.all) ? e.keyCode : e.which;
     if (tecla == 8) return true;
     else if (tecla == 0 || tecla == 9) return true;
-    patron = /[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9]/;
+    patron = /[a-zA-ZÑñÁáÉéÍíÓóÚúÜü!#$%&*@0-9]/;
     n = String.fromCharCode(tecla);
     return patron.test(n);
 }
+
 /* Valida que solo sea texto ingresado */
 function testText(txtString) {
     var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/);
@@ -24,19 +25,76 @@ function testText(txtString) {
         return false;
     }
 }
-/* Valida que solo sea texto con Numero ingresado */
-function testTextNumero(txtString) {
-    var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/);
+
+function fntValidText() {
+    let validText = document.querySelectorAll(".validText");
+    validText.forEach(function(validText) {
+        validText.addEventListener('keyup', function() {
+            let inputValue = this.value;
+            if (!testText(inputValue)) {
+
+                this.classList.add('form-control-danger');
+            } else {
+                this.classList.remove('form-control-danger');
+            }
+        });
+    });
+}
+
+
+
+/* Valida que solo sea texto ingresado */
+function testTextMayus(txtString) {
+    var stringText = new RegExp(/^[A-Z\s]+$/);
     if (stringText.test(txtString)) {
         return true;
     } else {
         return false;
     }
 }
-/* Valida que no ingrese campos en blanco */
-function testBlanco(intCant) {
-    var intCantidad = new RegExp(/^([^ \t\r\n\f])*$/);
-    if (intCantidad.test(intCant)) {
+
+function fntValidTextMayus() {
+    let validText = document.querySelectorAll(".validTextMayus");
+    validText.forEach(function(validText) {
+        validText.addEventListener('keyup', function() {
+            let inputValue = this.value;
+            if (!testTextMayus(inputValue)) {
+                this.classList.add('form-control-danger');
+            } else {
+                this.classList.remove('form-control-danger');
+            }
+        });
+    });
+}
+
+/* Valida que solo sea texto ingresado */
+function testTextNumMayus(txtString) {
+    var stringText = new RegExp(/^[A-Z0-9-_\s]+$/);
+    if (stringText.test(txtString)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function fntValidTextNumMayus() {
+    let validText = document.querySelectorAll(".validTextNumMayus");
+    validText.forEach(function(validText) {
+        validText.addEventListener('keyup', function() {
+            let inputValue = this.value;
+            if (!testTextNumMayus(inputValue)) {
+                this.classList.add('form-control-danger');
+            } else {
+                this.classList.remove('form-control-danger');
+            }
+        });
+    });
+}
+
+/* Valida que solo sea texto con Numero ingresado */
+function testTextNumero(txtString) {
+    var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/);
+    if (stringText.test(txtString)) {
         return true;
     } else {
         return false;
@@ -60,20 +118,6 @@ function fntEmailValidate(email) {
     } else {
         return true;
     }
-}
-
-function fntValidText() {
-    let validText = document.querySelectorAll(".validText");
-    validText.forEach(function(validText) {
-        validText.addEventListener('keyup', function() {
-            let inputValue = this.value;
-            if (!testText(inputValue)) {
-                this.classList.add('form-control-danger');
-            } else {
-                this.classList.remove('form-control-danger');
-            }
-        });
-    });
 }
 
 function fntValidTextNumber() {
@@ -118,25 +162,11 @@ function fntvalidEmail() {
     });
 }
 
-function fntvalidBlanco() {
-    let validNumber = document.querySelectorAll(".validBlanco");
-    validNumber.forEach(function(validNumber) {
-        validNumber.addEventListener('keyup', function() {
-            let inputValue = this.value;
-            if (!testBlanco(inputValue)) {
-                this.classList.add('form-control-danger');
-            } else {
-                this.classList.remove('form-control-danger');
-            }
-        });
-    });
-}
-
-
 window.addEventListener('load', function() {
     fntValidText();
     fntvalidNumber();
     fntvalidEmail();
-    fntvalidBlanco();
     fntValidTextNumber();
+    fntValidTextMayus();
+    fntValidTextNumMayus();
 }, false);
