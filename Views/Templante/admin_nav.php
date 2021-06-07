@@ -175,12 +175,23 @@
                   <li><a href="<?= Base_URL(); ?>/Configuracion/Empresa">Empresa</a></li>
                </ul>
             </li>
+            <!-- Menu de repositorio -->
 
+            <li class="dropdown">
+               <a href="javascript:;" class="dropdown-toggle">
+                  <span class="micon fa fa-database"></span><span class="mtext">Repositorio</span>
+               </a>
+               <ul class="submenu">
+                  <li><a href="<?= Base_URL();  ?>/Configuracion/Repositorio">Bitácora</a></li>
+                  <li><a href="#">Copias de Seguridad</a></li>
+               </ul>
+            </li>
             <li>
                <a href="<?= Base_URL(); ?>/logout" class="dropdown-toggle no-arrow">
-                  <span class="micon dw dw-logout1"></span><span class="mtext">Cerrar Sección</span>
+                  <span class="micon dw dw-logout1"></span><span class="mtext">Cerrar Sesión</span>
                </a>
             </li>
+
          </ul>
       </div>
    </div>

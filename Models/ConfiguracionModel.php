@@ -71,6 +71,13 @@ class ConfiguracionModel extends Mysql
     return $request;
   }
 
+  public function selectBitacora()
+  {
+    $sql = "SELECT * FROM `bitacora`";
+    $request = $this->selectAll($sql);
+    return $request;
+  }
+
   public function insertMarcas($InsertaMarcas)
   {
     $return = "";

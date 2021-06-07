@@ -14,21 +14,21 @@
                               <!-- Nombre del banco-->
                               <div class="form-group">
                                  <label for="cai">CAI: <span class="text-red-50">*</span> </label>
-                                 <input type="text" id="cai" name="cai" class="form-control" required>
+                                 <input type="text" id="cai" name="cai" minlength="3" maxlength="14" class="form-control valid validNumber" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
                               </div>
                               <div class="form-group">
                                  <label for="cor_inicial">Correlativo Inicial: <span class="text-red-50">*</span> </label>
-                                 <input type="text" id="cor_inic" name="cor_inic" class="form-control" required>
+                                 <input type="text" id="cor_inic" name="cor_inic" minlength="3" maxlength="5" class="form-control valid validNumber" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
                               </div>
                               <div class="form-group">
                                  <label for="cor_final">Correlativo Final: <span class="text-red-50">*</span> </label>
-                                 <input type="text" id="cor_final" name="cor_final" class="form-control" required>
+                                 <input type="text" id="cor_final" name="cor_final" minlength="3" maxlength="4" class="form-control valid validNumber" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>

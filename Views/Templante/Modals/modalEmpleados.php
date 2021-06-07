@@ -13,7 +13,7 @@
                            <div class="col-md-12 col-sm-12">
                               <div class="form-group">
                                  <label for="cargo">Cargo: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="cargo" name="cargo" required>
+                                 <input type="text" class="form-control valid validText" minlength="3" maxlength="20" id="cargo" name="cargo" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -45,7 +45,7 @@
                            <div class="col-md-12 col-sm-12">
                               <div class="form-group">
                                  <label for="tipo_empleado">Tipo de Empleado: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="tipo_empleado" name="tipo_empleado" required>
+                                 <input type="text" class="form-control valid validText" minlength="3" maxlength="20" id="tipo_empleado" name="tipo_empleado" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -77,7 +77,7 @@
                            <div class="col-md-12 col-sm-12">
                               <div class="form-group">
                                  <label for="rol">Rol: <span class="text-red-50">*</span> </label>
-                                 <input type="text" class="form-control" id="rol" name="rol" required>
+                                 <input type="text" class="form-control valid validText" minlength="3" maxlength="20" id="rol" name="rol" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>

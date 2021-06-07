@@ -43,6 +43,41 @@ class Configuracion extends Controllers
     $data['page_funtions_js'] = "funtions_configuracion.js";
     $this->views->getView($this, "configuracionEmpresa", $data);
   }
+  public function Repositorio()
+  {
+    $data['page_tag'] = "Repositorio - Inversiones Picky";
+    $data['page_title'] = "Configuración";
+    $data['page_name'] = "Repositorio de datos";
+    $data['page_funtions_js'] = "funtions_configuracion.js";
+    $this->views->getView($this, "configuracionbitacora", $data);
+  }
+  public function getBitacora()
+  {
+    $arrData = $this->model->selectBitacora();
+    //dep($arrData);//
+    for ($i = 0; $i < count($arrData); $i++) {
+      $btnView = '';
+      $btnEdit = '';
+      $btnDel = '';
+      $btnEdit = '<a class="dropdown-item btnEditRepositorio" href="javascript:;" onClick="fntEditRepositorio(' . $arrData[$i]['id_bitacora'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
+      $btnDel = '<a class="dropdown-item btnDelRepositorio" href="javascript:;" onClick="fntDelRepositorio(' . $arrData[$i]['id_bitacora'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
+      $arrData[$i]['options'] = '<div class="dropdown ">
+                                                 <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
+                                                   data-toggle="dropdown">
+                                                   <i class="dw dw-more"></i>
+                                                 </a>
+                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                   
+                                                   ' . $btnView . '
+                                                   ' . $btnEdit . '
+                                                   ' . $btnDel . '    
+                                                   
+                                                 </div>
+                                               </div>';
+    }
+    echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+    die();
+  }
   public function getMarcas()
   {
     $arrData = $this->model->selectMarcas();

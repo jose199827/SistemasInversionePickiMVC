@@ -15,7 +15,7 @@
                      <!-- Nombre del banco-->
                      <div class="form-group">
                         <label for="RTN">RTN Empresa: <span class="text-red-50">*</span> </label>
-                        <input type="text" id="rtn_empresa" name="rtn_empresa" class="form-control valid validNumber"
+                        <input type="text" id="rtn_empresa" name="rtn_empresa" minlength="3" maxlength="20" class="form-control valid validNumber"
                            required minlength="14" maxlength="14">
                         <span class="msj" style="display:none;">
                            <div class="">Por favor, rellena el campo</div>
@@ -23,7 +23,7 @@
                      </div>
                      <div class="form-group">
                         <label for="empresa">Empresa: <span class="text-red-50">*</span> </label>
-                        <input type="text" id="nom_empresa" name="nom_empresa" class="form-control" required>
+                        <input type="text" id="nom_empresa" name="nom_empresa" class="form-control valid validTextNumber" required>
                         <span class="msj"></span>
                         <div class="valid-feedback">Valido</div>
                         <div class="invalid-feedback">Por favor, rellena el campo</div>
