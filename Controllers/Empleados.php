@@ -10,6 +10,7 @@ class Empleados extends Controllers
       if (empty($_SESSION['login'])) {
          header('location: ' . Base_URL() . '/login');
       }
+      getPermisos(3);
    }
 
    public function empleados()
@@ -87,12 +88,9 @@ class Empleados extends Controllers
    {
       $htmlOptions = "";
       $arrData = $this->model->SelectCargo();
-
       /*  dep($arrData); */
-
       if (count($arrData) > 0) {
          for ($i = 0; $i < count($arrData); $i++) {
-
             $htmlOptions .= '<option value ="' . $arrData[$i]['id_cargo'] . '">' . $arrData[$i]['cargo'] . '</option>';
          }
       }
@@ -105,12 +103,9 @@ class Empleados extends Controllers
    {
       $htmlOptions = "";
       $arrData = $this->model->SelectTipo_empleado();
-
       /*  dep($arrData); exit(); */
-
       if (count($arrData) > 0) {
          for ($i = 0; $i < count($arrData); $i++) {
-
             $htmlOptions .= '<option value ="' . $arrData[$i]['id_tip_empleado'] . '">' . $arrData[$i]['tipo_empleado'] . '</option>';
          }
       }
@@ -118,18 +113,13 @@ class Empleados extends Controllers
       die();
    }
 
-
-
    public function getSelectRol()
    {
       $htmlOptions = "";
       $arrData = $this->model->SelectRol();
-
       /* dep($arrData); exit();  */
-
       if (count($arrData) > 0) {
          for ($i = 0; $i < count($arrData); $i++) {
-
             $htmlOptions .= '<option value ="' . $arrData[$i]['id_rol'] . '">' . $arrData[$i]['rol'] . '</option>';
          }
       }
@@ -142,12 +132,9 @@ class Empleados extends Controllers
    {
       $htmlOptions = "";
       $arrData = $this->model->SelectPregunta();
-
       /*  dep($arrData);  */
-
       if (count($arrData) > 0) {
          for ($i = 0; $i < count($arrData); $i++) {
-
             $htmlOptions .= '<option value ="' . $arrData[$i]['id_preg_seg'] . '">' . $arrData[$i]['preguntas'] . '</option>';
          }
       }
@@ -158,17 +145,18 @@ class Empleados extends Controllers
 
    public function  getEmpleados()
    {
-
       $arrData = $this->model->selectEmpleados();
 
       /* dep( $arrData); exit(); */
       for ($i = 0; $i < count($arrData); $i++) {
          $btnEdit = '';
          $btnDel = '';
-
-         $btnEdit = '<a class="dropdown-item btnEditEmpleados" href="' . Base_URL() . '/Empleados/updateEmpleado/' . $arrData[$i]['id_persona'] . '" ><i class="dw dw-edit2"></i> Editar</a>';
-         $btnDel = '<a class="dropdown-item btnDelEmpleados" href="javascript:;" onClick="fntDelEmpleados(' . $arrData[$i]['id_persona'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
-
+         if ($_SESSION['permisosMod']['u']) {
+            $btnEdit = '<a class="dropdown-item btnEditEmpleados" href="' . Base_URL() . '/Empleados/updateEmpleado/' . $arrData[$i]['id_persona'] . '" ><i class="dw dw-edit2"></i> Editar</a>';
+         }
+         if ($_SESSION['permisosMod']['d']) {
+            $btnDel = '<a class="dropdown-item btnDelEmpleados" href="javascript:;" onClick="fntDelEmpleados(' . $arrData[$i]['id_persona'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
+         }
          $arrData[$i]['options'] = '<div class="dropdown ">
          <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
                                                    data-toggle="dropdown">
@@ -187,20 +175,16 @@ class Empleados extends Controllers
 
    public function updateEmpleado($params)
    {
-
       if (empty($params)) {
          header('location: ' . Base_URL() . '/Empleados/Tabla');
       } else {
          $arrData = explode(",", $params);
          $id_empleado = $arrData[0];
          $request = $this->model->SelectEmpleado($id_empleado);
-
-
          if (empty($request)) {
             header('location: ' . Base_URL() . '/Empleados/Tabla');
          }
       }
-
       $data['empleados'] = $request;
       $data['page_tag'] = "Empleados - Inversiones Picky";
       $data['page_title'] = "Empleados";

@@ -2,7 +2,7 @@
 <?php headerAdmin($data);
 getModal("modalEmpleados", $data);
 ?>
-
+<div id="contentAjax"></div>
 <div class="main-container">
    <div class="pd-ltr-20 xs-pd-20-10">
       <div class="min-height-200px">
@@ -24,8 +24,10 @@ getModal("modalEmpleados", $data);
                         Registrar
                      </a>
                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalCargo">Tipos de Cargos</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTipoEm">Tipos de Empleados</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalCargo">Tipos de
+                           Cargos</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTipoEm">Tipos de
+                           Empleados</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalRol">Tipos de Roles</a>
                      </div>
                   </div>
@@ -44,7 +46,8 @@ getModal("modalEmpleados", $data);
                               <h4 class="text-blue h4">Tipos de Cargos</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCargo">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#modalCargo">Registrar</button>
                            </div>
                         </div>
                      </div>
@@ -63,12 +66,15 @@ getModal("modalEmpleados", $data);
                                  <td></td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                          <a class="dropdown-item editar_cargo" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_cargo.php?id_cargo="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item editar_cargo" id=""><i class="dw dw-edit2"></i>
+                                             Editar</a>
+                                          <a class="dropdown-item" href="bd/delete_cargo.php?id_cargo="><i
+                                                class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -88,7 +94,8 @@ getModal("modalEmpleados", $data);
                               <h4 class="text-blue h4">Tipos de Empleados</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTipoEm">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#modalTipoEm">Registrar</button>
                            </div>
                         </div>
                      </div>
@@ -110,12 +117,16 @@ getModal("modalEmpleados", $data);
                                  </td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                          <a class="dropdown-item editar_tip_empleado" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_tip_empleados.php?id_tip_empleado="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item editar_tip_empleado" id=""><i class="dw dw-edit2"></i>
+                                             Editar</a>
+                                          <a class="dropdown-item"
+                                             href="bd/delete_tip_empleados.php?id_tip_empleado="><i
+                                                class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -139,7 +150,8 @@ getModal("modalEmpleados", $data);
                               <h4 class="text-blue h4">Tipos de Roles</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRol">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#modalRol">Registrar</button>
                            </div>
                         </div>
                      </div>
@@ -161,12 +173,15 @@ getModal("modalEmpleados", $data);
                                  </td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                          <a class="dropdown-item editar_rol" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_rol.php?id_rol="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item editar_rol" id=""><i class="dw dw-edit2"></i>
+                                             Editar</a>
+                                          <a class="dropdown-item" href="bd/delete_rol.php?id_rol="><i
+                                                class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -178,9 +193,10 @@ getModal("modalEmpleados", $data);
                </div>
             </div>
          </div>
-        
+
          <!--MODAL EDITAR CARGO-->
-         <div class="modal fade" id="modalCargoEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="modalCargoEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -193,9 +209,10 @@ getModal("modalEmpleados", $data);
                </div>
             </div>
          </div>
-        
+
          <!--MODAL EDITAR TIPO DE EMPLEADO-->
-         <div class="modal fade" id="modalTipoEmEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="modalTipoEmEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -208,9 +225,10 @@ getModal("modalEmpleados", $data);
                </div>
             </div>
          </div>
-        
+
          <!--MODAL EDITAR TIPO ROL-->
-         <div class="modal fade" id="modalRolEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="modalRolEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">

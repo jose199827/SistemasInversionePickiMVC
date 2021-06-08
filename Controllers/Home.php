@@ -12,6 +12,7 @@ class Home extends Controllers
     if (empty($_SESSION['login'])) {
       header('location: ' . Base_URL() . '/Login');
     }
+    getPermisos(1);
   }
   //Se crea el método Home
   public function home()
@@ -22,8 +23,9 @@ class Home extends Controllers
     $data['page_funtions_js'] = "funtions_dashoard.js";
     $this->views->getView($this, "home", $data);
   }
-  public function getMsg(){
-    if ($_SESSION['userData']['pass_request']==0) {
+  public function getMsg()
+  {
+    if ($_SESSION['userData']['pass_request'] == 0) {
       $arrResponse = array('status' => true, 'msg' => 'Primera Vez.');
     }
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);

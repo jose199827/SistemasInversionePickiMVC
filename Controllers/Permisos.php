@@ -51,7 +51,7 @@ class Permisos extends Controllers
 
       $this->model->deletePermisos($intIdrol);
       foreach ($modulos as $modulo) {
-        $idModulo = $modulo['idmodulo'];
+        $idModulo = $modulo['Idmodulo'];
         $r = empty($modulo['r']) ? 0 : 1;
         $w = empty($modulo['w']) ? 0 : 1;
         $u = empty($modulo['u']) ? 0 : 1;

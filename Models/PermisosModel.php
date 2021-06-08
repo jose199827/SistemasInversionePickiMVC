@@ -16,21 +16,21 @@ class PermisosModel extends Mysql
   }
   public function selectModulos()
   {
-    $sql = "SELECT * FROM `modulo` WHERE `status` !=0";
+    $sql = "SELECT * FROM `modulos` WHERE `Estatus` !=0 ";
     $request = $this->selectAll($sql);
     return $request;
   }
   public function selectPermisosRol(int $idrol)
   {
     $this->intRolid = $idrol;
-    $sql = "SELECT * FROM `permisos` WHERE `rolid`= $this->intRolid";
+    $sql = "SELECT * FROM `permisos` WHERE `idrol`= $this->intRolid";
     $request = $this->selectAll($sql);
     return $request;
   }
   public function deletePermisos(int $idrol)
   {
     $this->intRolid = $idrol;
-    $sql = "DELETE FROM `permisos` WHERE `rolid` = $this->intRolid;";
+    $sql = "DELETE FROM `permisos` WHERE `idrol` = $this->intRolid;";
     $request = $this->delete($sql);
     return $request;
   }
@@ -42,7 +42,7 @@ class PermisosModel extends Mysql
     $this->w = $w;
     $this->u = $u;
     $this->d = $d;
-    $query_insert  = "INSERT INTO `permisos` (`rolid`, `moduloid`, `r`, `w`, `u`, `d`) VALUES (?, ?, ?, ?, ?, ?)";
+    $query_insert  = "INSERT INTO `permisos` (`idrol`, `idmodulo`, `r`, `w`, `u`, `d`) VALUES (?, ?, ?, ?, ?, ?)";
     $arrData = array($this->intRolid, $this->intModuloid, $this->r, $this->w, $this->u, $this->d);
     $request_insert = $this->insert($query_insert, $arrData);
     return $request_insert;
@@ -50,11 +50,14 @@ class PermisosModel extends Mysql
   public function  permisosModulo(int $idrol)
   {
     $this->intRolid = $idrol;
-    $sql = "SELECT p.rolid,p.moduloid,m.titulo AS modulo, p.r,p.w,p.u,p.d FROM permisos p INNER JOIN modulo m ON p.moduloid =m.idmodulo WHERE p.rolid=$this->intRolid ";
+    $sql = "SELECT p.idrol, p.idmodulo, m.Nombre AS modulo, p.r,p.w,p.u,p.d FROM permisos p 
+INNER JOIN modulos m 
+ON p.idmodulo =m.Idmodulo 
+WHERE p.idrol=$this->intRolid ";
     $request = $this->selectAll($sql);
     $arrPermisos = array();
     for ($i = 0; $i < count($request); $i++) {
-      $arrPermisos[$request[$i]['moduloid']] = $request[$i];
+      $arrPermisos[$request[$i]['idmodulo']] = $request[$i];
     }
     return $arrPermisos;
   }

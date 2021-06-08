@@ -10,6 +10,7 @@ class Configuracion extends Controllers
     if (empty($_SESSION['login'])) {
       header('location: ' . Base_URL() . '/login');
     }
+    getPermisos(7);
   }
   public function configuracion()
   {
@@ -312,26 +313,19 @@ class Configuracion extends Controllers
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
-
-
-
+      $btnView = '<a class="dropdown-item btnPermisosRol" href="javascript:;" onClick="fntPermisos(' . $arrData[$i]['id_rol'] . ')"><i class="dw dw-key1"></i> Permisos</a>';
       $btnEdit = '<a class="dropdown-item btnEditRol" href="javascript:;" onClick="fntEditRol(' . $arrData[$i]['id_rol'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
 
-
       $btnDel = '<a class="dropdown-item btnDelRol" href="javascript:;" onClick="fntDelRol(' . $arrData[$i]['id_rol'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
-
-
       $arrData[$i]['options'] = '<div class="dropdown ">
                                                  <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
                                                    data-toggle="dropdown">
                                                    <i class="dw dw-more"></i>
                                                  </a>
                                                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                                   
                                                    ' . $btnView . '
                                                    ' . $btnEdit . '
-                                                   ' . $btnDel . '    
-                                                   
+                                                   ' . $btnDel . '
                                                  </div>
                                                </div>';
     }

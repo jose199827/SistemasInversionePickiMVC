@@ -20,7 +20,7 @@
                   </nav>
                </div>
                <div class="col-6 text-right">
-                 
+
                </div>
             </div>
          </div>
@@ -36,7 +36,7 @@
                            <div class="col-6">
                               <h4 class="text-blue h4">Bitácora</h4>
                            </div>
-                          
+
                         </div>
                      </div>
                      <div class="pb-20">
@@ -44,13 +44,13 @@
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Tabla modificada</th>
-                                 <th>Fila modificada</th>
-                                 <th>Campo modificado</th>
+                                 <th>Tabla</th>
+                                 <th>Fila</th>
+                                 <th>Campo</th>
                                  <th>Registro actual</th>
                                  <th>Registro anterior</th>
-                                 <th>Acción realizada</th>
-                                 <th>Fecha de registro</th>
+                                 <th>Acción</th>
+                                 <th>Fecha</th>
                                  <th>Usuario registro</th>
                                  <th>Usuario anterior</th>
                               </tr>
@@ -61,7 +61,7 @@
                                  <td></td>
                                  <td></td>
                                  <td>
-                                    
+
                                  </td>
                               </tr>
 
@@ -79,7 +79,7 @@
 
          <!-- </div> -->
 
-         
+
       </div>
       <?php footer($data); ?>
    </div>

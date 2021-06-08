@@ -658,7 +658,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "fec_registro" },
                 { "data": "usr_registro" },
                 { "data": "usr_anterior" }
-               // { "data": "options" }
+                // { "data": "options" }
             ],
             'dom': 'lBfrtip',
             'buttons': [
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     return false;
                 }
             }
-                
+
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setMarcas';
@@ -729,14 +729,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
 
 
             divLoading.style.display = "flex";
@@ -778,14 +778,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
 
 
             divLoading.style.display = "flex";
@@ -827,14 +827,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
 
 
             divLoading.style.display = "flex";
@@ -877,14 +877,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setImpuestos';
@@ -924,14 +924,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setCargos';
@@ -971,14 +971,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setEmpleados';
@@ -1019,14 +1019,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setRol';
@@ -1070,14 +1070,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 return false;
 
             }
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setFacturacion';
@@ -1121,14 +1121,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             }
 
-                 //linea nueva agregada para validar
-        let elemtedValid = document.getElementsByClassName("valid");
-        for (let i = 0; i < elemtedValid.length; i++) {
-            if (elemtedValid[i].classList.contains('form-control-danger')) {
-                swal("Atención", "Por favor verifica los campos en rojo.", "error");
-                return false;
-            }
-        }//cierra aqui y se coloca arriba de divLoading.style.display
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
             let ajaxUrl = base_url + '/Configuracion/setEmpresa';
@@ -1724,4 +1724,45 @@ function fntDelEmpresas(id_empresa) { //se obtiene del inspeccionar
             }
         }
     })
+}
+
+function fntPermisos(idRol) {
+    var idrol = idRol;
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var ajaxUrl = base_url + '/Permisos/getPermisosRol/' + idrol;
+    request.open("GET", ajaxUrl, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            document.querySelector('#contentAjax').innerHTML = request.responseText;
+            $('#permisos-modal').modal('show');
+            document.querySelector('#formPermisos').addEventListener('submit', fntSavePermisos, false);
+        }
+    }
+}
+
+function fntSavePermisos(evnet) {
+    evnet.preventDefault();
+    divLoading.style.display = "flex";
+    var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    var ajaxUrl = base_url + '/Permisos/setPermisos';
+    var formElement = document.querySelector("#formPermisos");
+    var formData = new FormData(formElement);
+    request.open("POST", ajaxUrl, true);
+    request.send(formData);
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            var objData = JSON.parse(request.responseText);
+            if (objData.status) {
+                swal("Permisos de usuario", objData.msg, "success");
+                $('#permisos-modal').modal("hide");
+            } else {
+                swal("Error", objData.msg, "error");
+            }
+        }
+        divLoading.style.display = "none";
+        return false;
+    }
+
+
 }

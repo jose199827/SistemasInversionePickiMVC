@@ -43,8 +43,8 @@ $empleado = $data['empleados'];
                         <!-- Nombre -->
                         <div class="form-group">
                            <label for="nombreEmpleado">Nombre: <span class="danger">*</span></label>
-                           <input class="form-control " type="text" value="<?= $empleado['nom_persona'] ?>"
-                              id="nombreEmpleado" name="nombreEmpleado" required required pattern="^[A-Za-z ]*$">
+                           <input class="form-control valid validText" type="text" value="<?= $empleado['nom_persona'] ?>"
+                              id="nombreEmpleado" name="nombreEmpleado" required minlength="3" maxlength="50" pattern="^[A-Za-z ]*$">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -52,8 +52,8 @@ $empleado = $data['empleados'];
                         <!-- Num ID -->
                         <div class="form-group">
                            <label for="identidad">Num. Identidad:</label>
-                           <input type="text" class="form-control " id="identidad"
-                              value="<?= $empleado['num_id_persona'] ?>" name="identidad" required required
+                           <input type="text" class="form-control valid validNumber" id="identidad"
+                              value="<?= $empleado['num_id_persona'] ?>" name="identidad" required minlength="13" maxlength="15"
                               pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -71,7 +71,7 @@ $empleado = $data['empleados'];
                         <!--Correo -->
                         <div class="form-group">
                            <label for="correo">Correo Electrónico: </label>
-                           <input type="email" class="form-control " value="<?= $empleado['correo'] ?>" id="correo"
+                           <input type="email" class="form-control valid validEmail" value="<?= $empleado['correo'] ?>" id="correo"
                               name="correo" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -82,8 +82,8 @@ $empleado = $data['empleados'];
                         <!-- Apellido -->
                         <div class="form-group">
                            <label for="apellido">Apellido:</label>
-                           <input type="text" class="form-control " value="<?= $empleado['ape_persona'] ?>"
-                              id="apellido" name="apellido" required required pattern="^[A-Za-z ]*$">
+                           <input type="text" class="form-control valid validText" value="<?= $empleado['ape_persona'] ?>"
+                              id="apellido" name="apellido" required minlength="3" maxlength="50" pattern="^[A-Za-z ]*$">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -91,8 +91,8 @@ $empleado = $data['empleados'];
                         <!-- Edad -->
                         <div class="form-group">
                            <label for="edad">Edad:</label>
-                           <input type="number" class="form-control " value="<?= $empleado['eda_persona'] ?>" id="edad"
-                              name="edad" required required pattern="[0-9]+">
+                           <input type="number" class="form-control valid validNumber" value="<?= $empleado['eda_persona'] ?>" id="edad"
+                              name="edad" required minlength="1" maxlength="3"pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -113,8 +113,8 @@ $empleado = $data['empleados'];
                         <!-- Telefono -->
                         <div class="form-group">
                            <label for="telefono">Teléfono: </label>
-                           <input type="text" class="form-control " value="<?= $empleado['telefono'] ?>" id="telefono"
-                              name="telefono" required required pattern="[0-9]+">
+                           <input type="text" class="form-control valid validNumber" value="<?= $empleado['telefono'] ?>" id="telefono"
+                              name="telefono" required minlength="8" maxlength="12" pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -124,8 +124,8 @@ $empleado = $data['empleados'];
                         <!-- Direccion -->
                         <div class="form-group">
                            <label for="direccion">Dirección:</label>
-                           <textarea class="form-control" name="direccion" id="direccion" cols="30" rows="10"
-                              style="resize:vertical; height: 140px;" required required
+                           <textarea class="form-control valid validTextNumber" name="direccion" id="direccion" cols="30" rows="10"
+                              style="resize:vertical; height: 140px;" required minlength="3" maxlength="250"
                               pattern="^[A-Za-z ]*$"><?= $empleado['direccion'] ?></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -140,8 +140,8 @@ $empleado = $data['empleados'];
                         <!-- Salario -->
                         <div class="form-group">
                            <label for="salario">Salario: </label>
-                           <input type="text" class="form-control " value="<?= $empleado['sal_empleado'] ?>"
-                              id="salario" name="salario" required required pattern="[0-9]+">
+                           <input type="text" class="form-control valid validNumber" value="<?= $empleado['sal_empleado'] ?>"
+                              id="salario" name="salario" required minlength="3" maxlength="7" pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>

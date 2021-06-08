@@ -19,10 +19,11 @@
                      </ol>
                   </nav>
                </div>
-               <div class="col-6 text-right">
-                  <a href="<?= Base_URL(); ?>/Empleados"><button type="submit"
-                        class="btn btn-primary float-right">Registrar</button></a>
-               </div>
+               <?php if ($_SESSION['permisosMod']['w']) { ?>
+                  <div class="col-6 text-right">
+                     <a href="<?= Base_URL(); ?>/Empleados"><button type="submit" class="btn btn-primary float-right">Registrar</button></a>
+                  </div>
+               <?php } ?>
             </div>
          </div>
          <!-- Inicio del Contenido -->
@@ -69,8 +70,7 @@
                                  </td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                                          href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">

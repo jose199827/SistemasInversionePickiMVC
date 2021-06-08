@@ -98,72 +98,109 @@
       <div class="sidebar-menu">
          <ul id="accordion-menu">
             <!-- Menu Inicio -->
+            <?php if (!empty($_SESSION['permisos'][1]['r'])) { ?>
             <li>
                <a href="<?= Base_URL(); ?>" class="dropdown-toggle no-arrow">
                   <span class="micon dw dw-house1"></span><span class="mtext">Inicio</span>
                </a>
             </li>
+            <?php } ?>
             <!-- Menu Facturacción -->
-
+            <?php if (!empty($_SESSION['permisos'][2]['r']) || !empty($_SESSION['permisos'][2]['w'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon dw dw-edit-file"></span><span class="mtext">Facturación</span>
                </a>
                <ul class="submenu">
+                  <?php if (!empty($_SESSION['permisos'][2]['w'])) { ?>
                   <li><a href="#">Facturar</a></li>
+                  <?php } ?>
+                  <?php if (!empty($_SESSION['permisos'][2]['r'])) { ?>
                   <li><a href="#">Tabla</a></li>
+                  <?php } ?>
                </ul>
             </li>
+            <?php } ?>
 
-            <!-- Menu Clientes -->
+            <!-- Menu Empleados -->
+            <?php if (!empty($_SESSION['permisos'][3]['r']) || !empty($_SESSION['permisos'][3]['w'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon dw dw-id-card1 "></span><span class="mtext">Empleados</span>
                </a>
                <ul class="submenu">
-                  <li> <a href="<?= Base_URL(); ?>/Empleados" class="dropdown-toggle no-arrow">
+                  <?php if (!empty($_SESSION['permisos'][3]['w'])) { ?>
+                  <li>
+                     <a href="<?= Base_URL(); ?>/Empleados" class="dropdown-toggle no-arrow">
                         <span class="mtext">Registrar</span>
-                     </a></li>
-                  <li> <a href="<?= Base_URL(); ?>/Empleados/Tabla" class="dropdown-toggle no-arrow">
+                     </a>
+                  </li>
+                  <?php } ?>
+                  <?php if (!empty($_SESSION['permisos'][3]['r'])) { ?>
+                  <li>
+                     <a href="<?= Base_URL(); ?>/Empleados/Tabla" class="dropdown-toggle no-arrow">
                         <span class="mtext">Tabla</span>
-                     </a></li>
+                     </a>
+                  </li>
+                  <?php } ?>
                </ul>
             </li>
+            <?php } ?>
 
             <!-- Menu Proveedores -->
+            <?php if (!empty($_SESSION['permisos'][4]['r']) || !empty($_SESSION['permisos'][4]['w'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon dw dw-truck"></span><span class="mtext">Proveedores</span>
                </a>
                <ul class="submenu">
-                  <li><a href="#">Registrar</a></li>
-                  <li><a href="#">Tabla</a></li>
+                  <?php if (!empty($_SESSION['permisos'][4]['w'])) { ?>
+                  <li><a href="<?= Base_URL(); ?>/Proveedores">Registrar</a></li>
+                  <?php } ?>
+                  <?php if (!empty($_SESSION['permisos'][4]['r'])) { ?>
+                  <li><a href="<?= Base_URL(); ?>/Proveedores/Tabla">Tabla</a></li>
+                  <?php } ?>
                </ul>
             </li>
+            <?php } ?>
 
             <!-- Menu Empleados -->
+            <?php if (!empty($_SESSION['permisos'][5]['r']) || !empty($_SESSION['permisos'][5]['w'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon dw dw-group"></span><span class="mtext">Clientes</span>
                </a>
                <ul class="submenu">
+                  <?php if (!empty($_SESSION['permisos'][5]['w'])) { ?>
                   <li><a href="#">Registrar</a></li>
+                  <?php } ?>
+                  <?php if (!empty($_SESSION['permisos'][5]['r'])) { ?>
                   <li><a href="#">Tabla</a></li>
+                  <?php } ?>
                </ul>
             </li>
+            <?php } ?>
+
             <!-- Menu Inventario -->
+            <?php if (!empty($_SESSION['permisos'][6]['r']) || !empty($_SESSION['permisos'][6]['w'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon dw dw-book1"></span><span class="mtext">Inventario</span>
-
                </a>
                <ul class="submenu">
                   <li><a href="#">Inventario</a></li>
+                  <?php if (!empty($_SESSION['permisos'][6]['w'])) { ?>
                   <li><a href="#">Registrar</a></li>
+                  <?php } ?>
+                  <?php if (!empty($_SESSION['permisos'][6]['r'])) { ?>
                   <li><a href="#">Tabla</a></li>
+                  <?php } ?>
                </ul>
             </li>
+            <?php } ?>
 
+            <!-- Menu Configuración -->
+            <?php if (!empty($_SESSION['permisos'][7]['r'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon dw dw-settings1"></span><span class="mtext">Configuración</span>
@@ -175,8 +212,9 @@
                   <li><a href="<?= Base_URL(); ?>/Configuracion/Empresa">Empresa</a></li>
                </ul>
             </li>
+            <?php } ?>
             <!-- Menu de repositorio -->
-
+            <?php if (!empty($_SESSION['permisos'][7]['r'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon fa fa-database"></span><span class="mtext">Repositorio</span>
@@ -186,12 +224,12 @@
                   <li><a href="#">Copias de Seguridad</a></li>
                </ul>
             </li>
+            <?php } ?>
             <li>
                <a href="<?= Base_URL(); ?>/logout" class="dropdown-toggle no-arrow">
                   <span class="micon dw dw-logout1"></span><span class="mtext">Cerrar Sesión</span>
                </a>
             </li>
-
          </ul>
       </div>
    </div>
