@@ -25,7 +25,7 @@
             </div>
          </div>
       </div>
-
+      <?php dep($_SESSION['userData']); ?>
       <div class="card-box">
          <h2 class="h4 pd-20">Best Selling Products</h2>
          <table class="data-table table nowrap">

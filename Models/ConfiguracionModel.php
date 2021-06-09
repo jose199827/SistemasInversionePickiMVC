@@ -73,7 +73,7 @@ class ConfiguracionModel extends Mysql
 
   public function selectBitacora()
   {
-    $sql = "SELECT * FROM `bitacora`";
+    $sql = "SELECT * FROM `bitacora` ORDER BY `bitacora`.`id_bitacora` DESC";
     $request = $this->selectAll($sql);
     return $request;
   }
@@ -92,7 +92,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaMarcas, $Fecha, 'Franklin');
+      $array = array($InsertaMarcas, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertMarca, $array);
       $return = $requestInsert;
     } else {
@@ -114,7 +114,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaCategorias, $Fecha, 'Franklin');
+      $array = array($InsertaCategorias, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertCategorias, $array);
       $return = $requestInsert;
     } else {
@@ -136,7 +136,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaGrupos, $Fecha, 'Franklin');
+      $array = array($InsertaGrupos, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertGrupos, $array);
       $return = $requestInsert;
     } else {
@@ -158,7 +158,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaUnidades, $Fecha, 'Franklin');
+      $array = array($InsertaUnidades, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertUnidades, $array);
       $return = $requestInsert;
     } else {
@@ -182,7 +182,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?,?);";
 
-      $array = array($InsertaImpuestos, $InsertaImpuestosP, $Fecha, 'Franklin');
+      $array = array($InsertaImpuestos, $InsertaImpuestosP, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertImpuestos, $array);
       $return = $requestInsert;
     } else {
@@ -205,7 +205,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaCargos, $Fecha, 'Franklin');
+      $array = array($InsertaCargos, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertCargos, $array);
       $return = $requestInsert;
     } else {
@@ -227,7 +227,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaEmpleados, $Fecha, 'Franklin');
+      $array = array($InsertaEmpleados, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertEmpleados, $array);
       $return = $requestInsert;
     } else {
@@ -250,7 +250,7 @@ class ConfiguracionModel extends Mysql
    `usr_registro`)
      VALUES (?,?,?);";
 
-      $array = array($InsertaRol, $Fecha, 'Franklin');
+      $array = array($InsertaRol, $Fecha, $_SESSION['userData']['nom_usuario']);
       $requestInsert = $this->insert($sqlInsertRol, $array);
       $return = $requestInsert;
     } else {

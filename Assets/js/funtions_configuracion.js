@@ -613,6 +613,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 targets: "datatable-nosort",
                 orderable: false,
             }],
+            "scrollX": true,
+            order: [
+                [0, 'desc']
+            ],
             "lengthMenu": [
                 [5, 10, 15, -1],
                 [5, 10, 15, "Todos"]

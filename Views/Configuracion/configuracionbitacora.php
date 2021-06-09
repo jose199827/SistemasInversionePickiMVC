@@ -36,7 +36,6 @@
                            <div class="col-6">
                               <h4 class="text-blue h4">Bitácora</h4>
                            </div>
-
                         </div>
                      </div>
                      <div class="pb-20">

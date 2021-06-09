@@ -1,11 +1,17 @@
 <?php
 const BASE_URL = "http://localhost/SistemasInversionePickiMVC";
 //Conexion a la base de datos
-const DB_HOST = "142.44.161.115";
+const DB_HOST = "127.0.0.1";
+const DB_NAME = "inversionespickyevaluacion";
+const DB_USER = "root";
+const DB_PASSWORD = "";
+const DB_CHARSET = "utf8";
+
+/* const DB_HOST = "142.44.161.115";
 const DB_NAME = "PI-INVERPIKY";
 const DB_USER = "INPIKI2";
 const DB_PASSWORD = "eGZTD5Kx6ZrAzhxk##30";
-const DB_CHARSET = "utf8";
+const DB_CHARSET = "utf8"; */
 // Variables para las conversion de modeda
 const SPD = ".";
 const SPM = ",";

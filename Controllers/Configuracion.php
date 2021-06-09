@@ -236,7 +236,6 @@ class Configuracion extends Controllers
     echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
     die();
   }
-
   public function getCargos()
   {
     $arrData = $this->model->selectCargos();
