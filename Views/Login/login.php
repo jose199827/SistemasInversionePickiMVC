@@ -22,8 +22,6 @@
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/style.css">
    <link rel="stylesheet" type="text/css" href="<?= media(); ?>/css/estilos.css">
 
-
-
 </head>
 
 <body class="login-page">
@@ -55,7 +53,6 @@
                         </div>
                      </div>
 
-
                      <div class="input-group custom">
                         <input type="password" class="form-control form-control-lg valid"
                            onkeypress="return controlTagEspacio(event);" id="txtPassword" name="txtPassword"
@@ -64,6 +61,7 @@
                            <span class="input-group-text"><i id="verPass" class="fa fa-eye"></i></span>
                         </div>
                      </div>
+
                      <div class="row pb-30">
                         <div class="col">
                            <div class="forgot-password text-rigth"><a href="javascript:void(0);"
@@ -81,7 +79,6 @@
                         </div>
                      </div>
                   </form>
-                  <strong></strong>
                </div>
             </div>
          </div>
@@ -136,8 +133,6 @@
       verPas.classList.add("fa-eye");
    }
    </script>
-
-
 
 </body>
 

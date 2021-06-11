@@ -29,11 +29,14 @@ class Login extends Controllers
         $strUsuario = strtolower(strClean($_POST['txtEmail']));
         $strPassword = hash("SHA256", ($_POST['txtPassword']));
         $requestUser = $this->model->loginUser($strUsuario, $strPassword);
-        if (empty($requestUser)) {
-          /* if ($this->intentos == 3) {
-            $arrResponse = array('status' => false, 'msg' => 'Cuenta Bloqueada.');
-          } */
+        /* dep($requestUser);
+        exit(); */
+        if ($requestUser == 'NoExiste') {
           $arrResponse = array('status' => false, 'msg' => 'El usuario o la contraseña es incorrecta.');
+        } else if ($requestUser == 'UsuarioBloqueado') {
+          $arrResponse = array('status' => false, 'msg' => 'El usuario esta inactivo.');
+        } else if ($requestUser == 'UsuarioIntento') {
+          $arrResponse = array('status' => false, 'msg' => 'Intento fallido');
         } else {
           $arrData = $requestUser;
           if ($arrData['activacion'] == 1) {

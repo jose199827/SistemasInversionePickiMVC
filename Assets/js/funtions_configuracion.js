@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_marca" },
+                { "data": "numRegistro" },
                 { "data": "marca" },
                 { "data": "options" }
             ],
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_categoria" },
+                { "data": "numRegistro" },
                 { "data": "categoria" },
                 { "data": "options" }
             ],
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_grupo" },
+                { "data": "numRegistro" },
                 { "data": "grupo" },
                 { "data": "options" }
             ],
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_uni_medida" },
+                { "data": "numRegistro" },
                 { "data": "uni_medida" },
                 { "data": "options" }
             ],
@@ -290,7 +290,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_tip_impuestos" },
+                { "data": "numRegistro" },
                 { "data": "nom_isv" },
                 { "data": "porcentaje" },
                 { "data": "options" }
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_cargo" },
+                { "data": "numRegistro" },
                 { "data": "cargo" },
                 { "data": "options" }
             ],
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_tip_empleado" },
+                { "data": "numRegistro" },
                 { "data": "tipo_empleado" },
                 { "data": "options" }
             ],
@@ -468,7 +468,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_rol" },
+                { "data": "numRegistro" },
                 { "data": "rol" },
                 { "data": "options" }
             ],
@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_regi_fact" },
+                { "data": "numRegistro" },
                 { "data": "cai" },
                 { "data": "cor_inic" },
                 { "data": "cor_fin" },
@@ -588,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_empresa" },
+                { "data": "numRegistro" },
                 { "data": "rtn_empresa" },
                 { "data": "nom_empresa" },
                 { "data": "options" }
@@ -614,9 +614,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 orderable: false,
             }],
             "scrollX": true,
-            order: [
-                [0, 'desc']
-            ],
             "lengthMenu": [
                 [5, 10, 15, -1],
                 [5, 10, 15, "Todos"]
@@ -652,7 +649,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 "dataSrc": ""
             },
             "columns": [
-                { "data": "id_bitacora" },
+                { "data": "numRegistro" },
                 { "data": "tabla_modificada" },
                 { "data": "fila_modificada" },
                 { "data": "cam_modificado" },

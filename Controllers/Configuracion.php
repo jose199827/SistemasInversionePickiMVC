@@ -57,6 +57,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectBitacora();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -84,6 +85,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectMarcas();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -112,6 +114,7 @@ class Configuracion extends Controllers
     /* dep($arrData);
     exit(); */
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -139,6 +142,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectGrupos();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -173,6 +177,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectUnidades();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -207,6 +212,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectImpuestos();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -241,6 +247,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectCargos();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -275,6 +282,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectEmpleados();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -309,6 +317,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectRol();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
@@ -337,6 +346,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectFacturacion();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnEdit = '';
       $btnEdit = '<a class="dropdown-item btnEditFacturacion" href="javascript:;" onClick="fntEditFacturacion(' . $arrData[$i]['id_regi_fact'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
       $arrData[$i]['options'] = '<div class="dropdown ">
@@ -358,6 +368,7 @@ class Configuracion extends Controllers
     $arrData = $this->model->selectEmpresas();
     //dep($arrData);//
     for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
       $btnView = '';
       $btnEdit = '';
       $btnDel = '';
