@@ -303,3 +303,12 @@ textarea.form-control {
     /* background-color: aqua; */
     padding: 10px 0px 10px 10px;
 }
+
+.msj {
+    margin-top: 5px;
+}
+
+.msj p {
+    margin: 0;
+    font-size: 13px !important;
+}

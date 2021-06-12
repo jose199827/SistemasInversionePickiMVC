@@ -121,7 +121,6 @@
                </ul>
             </li>
             <?php } ?>
-
             <!-- Menu Empleados -->
             <?php if (!empty($_SESSION['permisos'][3]['r']) || !empty($_SESSION['permisos'][3]['w'])) { ?>
             <li class="dropdown">
@@ -146,7 +145,6 @@
                </ul>
             </li>
             <?php } ?>
-
             <!-- Menu Proveedores -->
             <?php if (!empty($_SESSION['permisos'][4]['r']) || !empty($_SESSION['permisos'][4]['w'])) { ?>
             <li class="dropdown">

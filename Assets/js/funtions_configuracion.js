@@ -593,7 +593,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "nom_empresa" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
+            'dom': 'Bfrtip',
             'buttons': [
                 'copyHtml5',
                 'excelHtml5',

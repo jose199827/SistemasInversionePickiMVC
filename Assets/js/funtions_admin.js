@@ -127,8 +127,10 @@ function fntValidTextNumber() {
             let inputValue = this.value;
             if (!testTextNumero(inputValue)) {
                 this.classList.add('form-control-danger');
+                document.querySelector(".msj").classList.remove('notblock');
             } else {
                 this.classList.remove('form-control-danger');
+                document.querySelector(".msj").classList.add('notblock');
             }
         });
     });

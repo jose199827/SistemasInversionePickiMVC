@@ -19,17 +19,7 @@ getModal("modalEmpresa", $data);
                      </ol>
                   </nav>
                </div>
-               <div class="col-6 text-right">
-                  <div class="dropdown">
-                     <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        Registrar
-                     </a>
-                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#" data-toggle="modal"
-                           data-target="#small-modaladdEmpresa">Empresa</a>
-                     </div>
-                  </div>
-               </div>
+
             </div>
          </div>
          <!-- Inicio del Contenido -->
@@ -43,10 +33,6 @@ getModal("modalEmpresa", $data);
                         <div class="row">
                            <div class="col-6">
                               <h4 class="text-blue h4">Tabla de Empresas</h4>
-                           </div>
-                           <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#small-modaladdEmpresa">Registrar</button>
                            </div>
                         </div>
                      </div>

@@ -14,10 +14,12 @@
                      <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                            <label for="marca">Marca: <span class="text-red-50">*</span> </label>
-                           <input type="text" id="marca" name="marca" minlength="1" maxlength="20" class="form-control valid validTextNumber " required>
-                           <span class="msj"></span>
-                           <div class="valid-feedback">Valido</div>
-                           <div class="invalid-feedback">Por favor, rellena el campo</div>
+                           <input type="text" id="marca" name="marca" minlength="1" maxlength="20"
+                              class="form-control valid validTextNumber " required>
+                           <div class="msj notblock">
+                              <p>Campo basio</p>
+                              <p>Solo se permite letras y numeros</p>
+                           </div>
                         </div>
                      </div>
                   </div>
@@ -47,7 +49,8 @@
                      <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                            <label for="categoria">Categorias: <span class="text-red-50">*</span> </label>
-                           <input type="text" id="categoria" name="categoria" minlength="3" maxlength="20" class="form-control valid validText " required>
+                           <input type="text" id="categoria" name="categoria" minlength="3" maxlength="20"
+                              class="form-control valid validText " required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -79,7 +82,8 @@
                      <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                            <label for="grupo">Grupo: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validText" id="grupo" name="grupo" minlength="3" maxlength="20" required>
+                           <input type="text" class="form-control valid validText" id="grupo" name="grupo" minlength="3"
+                              maxlength="20" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -112,7 +116,8 @@
                      <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                            <label for="uni_medida">Unidad: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validTextNumber" id="uni_medida" name="uni_medida" minlength="5" maxlength="8" required>
+                           <input type="text" class="form-control valid validTextNumber" id="uni_medida"
+                              name="uni_medida" minlength="5" maxlength="8" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -145,7 +150,8 @@
                         <!-- Nombre del producto -->
                         <div class="form-group">
                            <label for="nom_isv">Nombre de Impuesto: <span class="text-red-50">*</span> </label>
-                           <input type="text" id="nom_isv" name="nom_isv" class="form-control valid validText" minlength="3" maxlength="10" required>
+                           <input type="text" id="nom_isv" name="nom_isv" class="form-control valid validText"
+                              minlength="3" maxlength="10" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -153,8 +159,8 @@
                         </div>
                         <div class="form-group">
                            <label for="porcentaje">Porcentaje Impuesto: <span class="text-red-50">*</span> </label>
-                           <input type="number" id="porcentaje" name="porcentaje" class="form-control valid validNumber"  min="0" max="100"
-                              required>
+                           <input type="number" id="porcentaje" name="porcentaje" class="form-control valid validNumber"
+                              min="0" max="100" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, valores mayores a 0</div>
@@ -187,7 +193,8 @@
                      <div class="col-md-12 col-sm-12">
                         <div class="form-group">
                            <label for="cargo">Cargo: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validText" id="cargo" name="cargo" minlength="3" maxlength="20" required>
+                           <input type="text" class="form-control valid validText" id="cargo" name="cargo" minlength="3"
+                              maxlength="20" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>

@@ -373,13 +373,7 @@ class Configuracion extends Controllers
       $btnEdit = '';
       $btnDel = '';
 
-
-
       $btnEdit = '<a class="dropdown-item btnEditEmpresas" href="javascript:;" onClick="fntEditEmpresas(' . $arrData[$i]['id_empresa'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
-
-
-      $btnDel = '<a class="dropdown-item btnDelEmpresas" href="javascript:;" onClick="fntDelEmpresas(' . $arrData[$i]['id_empresa'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
-
 
       $arrData[$i]['options'] = '<div class="dropdown ">
                                                  <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
