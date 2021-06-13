@@ -26,14 +26,12 @@
          <div class="row">
             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 mb-30">
                <div class="pd-20 card-box height-100-p">
-                  <div class="profile-photo">
-                     <img src="<?= media(); ?>/img/avatar.png" alt="" class="avatar-photo">
-                  </div>
+
                   <h5 class="text-center h5 mb-0">
                      <?= $_SESSION['userData']['nom_persona']  . "  " . $_SESSION['userData']['ape_persona'] ?></h5>
                   <p class="text-center text-muted font-14"><?= $_SESSION['userData']['rol'] ?></p>
                   <div class="profile-info">
-                     <h5 class="mb-20 h5 text-blue">Información del contacto</h5>
+                     <h5 class="mb-20 h5 text-blue">Información de contacto</h5>
                      <ul>
                         <li>
                            <span>Correo Electronico:</span>
@@ -85,7 +83,7 @@
                                              <label>Identificación: <span class="text-red-50">*</span> </label>
                                              <input type="text" id="txtIdentificacion" name="txtIdentificacion"
                                                 placeholder="Identificación" class="form-control "
-                                                value="<?= $_SESSION['userData']['indentificacion'] ?>" required>
+                                                value="<?= $_SESSION['userData']['num_id_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
@@ -93,7 +91,7 @@
                                              <label>Nombres: <span class="text-red-50">*</span> </label>
                                              <input type="text" id="txtNombre" name="txtNombre"
                                                 placeholder="Nombres del Usuario" class="form-control valid validText"
-                                                value="<?= $_SESSION['userData']['nombres'] ?>" required>
+                                                value="<?= $_SESSION['userData']['nom_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
@@ -101,7 +99,7 @@
                                              <label>Apellidos: <span class="text-red-50">*</span> </label>
                                              <input type="text" id="txtApellido" name="txtApellido"
                                                 placeholder="Apellidos del Usuario" class="form-control valid validText"
-                                                value="<?= $_SESSION['userData']['apellidos'] ?>" required>
+                                                value="<?= $_SESSION['userData']['ape_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-12 col-sm-12">
@@ -109,7 +107,7 @@
                                              <label>Email: <span class="text-red-50">*</span> </label>
                                              <input type="email" id="txtEmail" name="txtEmail"
                                                 placeholder="Email del Usuario" class="form-control valid validEmail"
-                                                value="<?= $_SESSION['userData']['email_user'] ?>" required readonly
+                                                value="<?= $_SESSION['userData']['correo'] ?>" required readonly
                                                 disabled>
                                           </div>
                                        </div>

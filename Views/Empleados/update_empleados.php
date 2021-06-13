@@ -23,6 +23,9 @@ $empleado = $data['empleados'];
             </div>
          </div>
          <!-- Simple Datatable End -->
+         <?php dep($empleado);
+         dep($data['cargos']);
+         ?>
          <div class="card-box mb-30">
             <div class="pd-20">
                <form class="needs-validation" id="formEditarEmpleado" name="formEditarEmpleado" method="POST">
@@ -177,6 +180,18 @@ $empleado = $data['empleados'];
                               <label for="cargo">Cargo:</label>
                               <select class="form-control  selectpicker" data-live-search="true" id="cargo" name="cargo"
                                  required>
+                                 <?php
+                                 for ($i = 0; $i < count($data['cargos']); $i++) {
+                                    $select = "";
+                                    if ($data['cargos'][$i]['id_cargo'] == $empleado['id_cargo']) {
+                                       $select = "selected";
+                                    }
+                                 ?>
+                                 <option value="<?= $data['cargos'][$i]['id_cargo']; ?>" <?= $select ?>>
+                                    <?= $data['cargos'][$i]['cargo']; ?>JJJ</option>
+                                 <?php
+                                 }
+                                 ?>
                               </select>
                               <span class="msj"></span>
                               <div class="valid-feedback">Valido</div>

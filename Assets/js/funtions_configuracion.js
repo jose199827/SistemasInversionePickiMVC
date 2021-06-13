@@ -1767,3 +1767,15 @@ function fntSavePermisos(evnet) {
 
 
 }
+
+function seleccionar_todo() {
+    for (i = 0; i < document.formPermisos.elements.length; i++)
+        if (document.formPermisos.elements[i].type == "checkbox")
+            document.formPermisos.elements[i].checked = 1
+}
+
+function deseleccionar_todo() {
+    for (i = 0; i < document.formPermisos.elements.length; i++)
+        if (document.formPermisos.elements[i].type == "checkbox")
+            document.formPermisos.elements[i].checked = 0
+}

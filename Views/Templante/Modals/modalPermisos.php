@@ -1,10 +1,11 @@
 <!-- Modal de Permisos -->
 <div class="modal fade" id="permisos-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
    aria-hidden="true">
-   <div class="modal-dialog modal-lg modal-dialog-centered">
+   <div class="modal-dialog modal-dialog-scrollable  modal-lg modal-dialog-centered">
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="titleModal">Permisos de Rol</h5>
+
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                <i class="font-16 icon-copy dw dw-cancel"></i>
             </button>
@@ -13,11 +14,24 @@
             <form action="" id="formPermisos" name="formPermisos">
                <input type="hidden" id="idrol" name="idrol" value="<?= $data['idrol']; ?>" required>
                <div class="row">
+
+                  <input type="hidden" id="idrol" name="idrol" value="<?= $data['idrol']; ?>" required>
                   <div class="table-responsive">
                      <table class="table">
+                        <div class="text-center mb-10">
+                           <strong>
+                              <a class=" text-dark" href="javascript:seleccionar_todo()">Marcar todos los
+                                 Permisos</a>
+                           </strong>
+                           |
+                           <strong>
+                              <a class=" text-dark" href="javascript:deseleccionar_todo()">Desmarcar todos los
+                                 Permisos</a>
+                           </strong>
+                        </div>
                         <thead>
                            <tr>
-                              <th scope="col">Id</th>
+                              <th scope="col">N.º</th>
                               <th scope="col">Módulos</th>
                               <th scope="col" class="text-center">Ver</th>
                               <th scope="col" class="text-center">Crear</th>
@@ -27,18 +41,16 @@
                         </thead>
                         <tbody>
                            <?php
-                  $no = 1;
-                  $modulos = $data['modulos'];
-                  for ($i = 0; $i < count($modulos); $i++) {
-
-                    $permisos = $modulos[$i]['permisos'];
-                    $rCheck = $permisos['r'] == 1 ? " checked " : "";
-                    $wCheck = $permisos['w'] == 1 ? " checked " : "";
-                    $uCheck = $permisos['u'] == 1 ? " checked " : "";
-                    $dCheck = $permisos['d'] == 1 ? " checked " : "";
-
-                    $idmod = $modulos[$i]['Idmodulo'];
-                  ?>
+                           $no = 1;
+                           $modulos = $data['modulos'];
+                           for ($i = 0; $i < count($modulos); $i++) {
+                              $permisos = $modulos[$i]['permisos'];
+                              $rCheck = $permisos['r'] == 1 ? " checked " : "";
+                              $wCheck = $permisos['w'] == 1 ? " checked " : "";
+                              $uCheck = $permisos['u'] == 1 ? " checked " : "";
+                              $dCheck = $permisos['d'] == 1 ? " checked " : "";
+                              $idmod = $modulos[$i]['Idmodulo'];
+                           ?>
                            <tr>
                               <th scope="row">
                                  <?= $no ?>
@@ -53,7 +65,6 @@
                                     <input type="checkbox" name="modulos[<?= $i; ?>][r]" <?= $rCheck ?>
                                        class="custom-control-input" id="modulos[<?= $i; ?>][r]">
                                     <label class="custom-control-label" for="modulos[<?= $i; ?>][r]"></label>
-
                                  </div>
                               </th>
                               <th scope="row">
@@ -79,9 +90,9 @@
                               </th>
                            </tr>
                            <?php
-                    $no++;
-                  }
-                  ?>
+                              $no++;
+                           }
+                           ?>
                         </tbody>
                      </table>
                   </div>

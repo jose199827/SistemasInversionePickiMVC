@@ -32,6 +32,27 @@ class Empleados extends Controllers
       $this->views->getView($this, "lista_empleados", $data);
    }
 
+   public function updateEmpleado($params)
+   {
+      if (empty($params)) {
+         header('location: ' . Base_URL() . '/Empleados/Tabla');
+      } else {
+         $arrData = explode(",", $params);
+         $id_empleado = $arrData[0];
+         $request = $this->model->SelectEmpleado($id_empleado);
+         if (empty($request)) {
+            header('location: ' . Base_URL() . '/Empleados/Tabla');
+         }
+      }
+      $data['empleados'] = $request;
+      $data['cargos'] = $this->model->SelectCargo();
+      $data['page_tag'] = "Empleados - Inversiones Picky";
+      $data['page_title'] = "Empleados";
+      $data['page_name'] = "Editar Empleados";
+      $data['page_funtions_js'] = "funtions_empleados.js";
+      $this->views->getView($this, "update_empleados", $data);
+   }
+
 
    /*  INSERT DATOS EMPLEADOS */
    public function setEmpleado()
@@ -173,25 +194,7 @@ class Empleados extends Controllers
       die();
    }
 
-   public function updateEmpleado($params)
-   {
-      if (empty($params)) {
-         header('location: ' . Base_URL() . '/Empleados/Tabla');
-      } else {
-         $arrData = explode(",", $params);
-         $id_empleado = $arrData[0];
-         $request = $this->model->SelectEmpleado($id_empleado);
-         if (empty($request)) {
-            header('location: ' . Base_URL() . '/Empleados/Tabla');
-         }
-      }
-      $data['empleados'] = $request;
-      $data['page_tag'] = "Empleados - Inversiones Picky";
-      $data['page_title'] = "Empleados";
-      $data['page_name'] = "Editar Empleados";
-      $data['page_funtions_js'] = "funtions_empleados.js";
-      $this->views->getView($this, "update_empleados", $data);
-   }
+
 
 
    /*  update DATOS EMPLEADOS */
