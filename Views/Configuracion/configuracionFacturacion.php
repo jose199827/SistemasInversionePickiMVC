@@ -1,6 +1,7 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
 getModal("modalFactura", $data);
+getModal("modalPrimerInicioLogin", $data);
 ?>
 
 <div class="main-container">
@@ -52,15 +53,13 @@ getModal("modalFactura", $data);
                                  <td></td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                                          href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 
                                           <a class="dropdown-item editar" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_marcas.php?id_marca="><i
-                                                class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item" href="bd/delete_marcas.php?id_marca="><i class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -81,8 +80,7 @@ getModal("modalFactura", $data);
          <!-- </div> -->
 
          <!-- Apartado de modales -->
-         <div class="modal fade" id="small-modaladdbanco" tabindex="-1" role="dialog"
-            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="small-modaladdbanco" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -90,8 +88,7 @@ getModal("modalFactura", $data);
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_regimen_facturacion.php"
-                        id="formRegimen" name="formRegimen" method="POST">
+                     <form class="needs-validation" novalidate action="bd/insert_regimen_facturacion.php" id="formRegimen" name="formRegimen" method="POST">
                         <div class="row">
                            <div class="col-md-12 col-sm-12">
                               <!-- Nombre del banco-->
@@ -119,8 +116,7 @@ getModal("modalFactura", $data);
                               </div>
                               <div class="form-group">
                                  <label for="fecha_limite">Fecha Límite:<span class="text-red-50">*</span></label>
-                                 <input class="form-control" type="date" name="fecha_limite" id="fecha_limite"
-                                    placeholder:="00/00/000" id="example-date-input" required>
+                                 <input class="form-control" type="date" name="fecha_limite" id="fecha_limite" placeholder:="00/00/000" id="example-date-input" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -128,8 +124,7 @@ getModal("modalFactura", $data);
                            </div>
                         </div>
                         <div class="text-right">
-                           <button id="btnActionForm" type="submit" class="btn btn-success"><span
-                                 id="btnTex">Registrar</span></button>
+                           <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Registrar</span></button>
                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
                   </div>
@@ -139,8 +134,7 @@ getModal("modalFactura", $data);
 
             </div>
          </div>
-         <div class="modal fade" id="small-modaladdbancoEditar" tabindex="-1" role="dialog"
-            aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="small-modaladdbancoEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">

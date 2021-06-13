@@ -1,6 +1,7 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
 $empleado = $data['empleados'];
+getModal("modalPrimerInicioLogin", $data);
 ?>
 <div class="mobile-menu-overlay"></div>
 <div class="main-container">

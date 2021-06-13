@@ -1,6 +1,7 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
 /* getModal("modalRoles", $data); */
+getModal("modalPrimerInicioLogin", $data);
 ?>
 <div class="mobile-menu-overlay"></div>
 <div class="main-container">
@@ -32,8 +33,7 @@
                         <!-- Nombre -->
                         <div class="form-group">
                            <label for="nombreEmpleado">Nombre: <span class="text-red-50">*</span> </label>
-                           <input class="form-control valid validText" type="text" id="nombreEmpleado"
-                              name="nombreEmpleado" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+                           <input class="form-control valid validText" type="text" id="nombreEmpleado" name="nombreEmpleado" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -41,8 +41,7 @@
                         <!-- Num ID -->
                         <div class="form-group">
                            <label for="identidad">Num. Identidad: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validNumber" id="identidad" name="identidad"
-                              minlength="13" maxlength="15" pattern="[0-9]+" required>
+                           <input type="text" class="form-control valid validNumber" id="identidad" name="identidad" minlength="13" maxlength="15" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -68,8 +67,7 @@
                         <!-- Apellido -->
                         <div class="form-group">
                            <label for="apellido">Apellido:<span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validText " id="apellido" name="apellido"
-                              minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+                           <input type="text" class="form-control valid validText " id="apellido" name="apellido" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -77,8 +75,7 @@
                         <!-- Edad -->
                         <div class="form-group">
                            <label for="edad">Edad:<span class="text-red-50">*</span> </label>
-                           <input type="number" value="" class="form-control valid validNumber" id="edad" name="edad"
-                              minlength="1" maxlength="3" required pattern="[0-9]+">
+                           <input type="number" value="" class="form-control valid validNumber" id="edad" name="edad" minlength="1" maxlength="3" required pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -98,8 +95,7 @@
                         <!-- Telefono -->
                         <div class="form-group">
                            <label for="telefono">Teléfono: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validNumber" id="telefono" name="telefono"
-                              minlength="8" maxlength="12" pattern="[0-9]+" required>
+                           <input type="text" class="form-control valid validNumber" id="telefono" name="telefono" minlength="8" maxlength="12" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -109,9 +105,7 @@
                         <!-- Direccion -->
                         <div class="form-group">
                            <label for="direccion">Dirección: <span class="text-red-50">*</span> </label>
-                           <textarea class="form-control valid validTextNumber" name="direccion" id="direccion"
-                              minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;"
-                              pattern="^[A-Za-z ]*$" required></textarea>
+                           <textarea class="form-control valid validTextNumber" name="direccion" id="direccion" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -125,8 +119,7 @@
                         <!-- Salario -->
                         <div class="form-group">
                            <label for="salario">Salario:<span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validNumber" id="salario" name="salario"
-                              minlength="3" maxlength="7" pattern="[0-9]+" required>
+                           <input type="text" class="form-control valid validNumber" id="salario" name="salario" minlength="3" maxlength="7" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -134,8 +127,7 @@
                         <!-- Tipo Empleado -->
                         <div class="form-group">
                            <label for="tipo">Tipo de Empleado:<span class="text-red-50">*</span> </label>
-                           <select class="form-control selectpicker" data-live-search="true" id="tipo" name="tipo"
-                              required>
+                           <select class="form-control selectpicker" data-live-search="true" id="tipo" name="tipo" required>
                               <option selected=""></option>
                               <!--Jalar datos de db -->
                            </select>
@@ -155,8 +147,7 @@
                         <div class="form-group">
                            <div class="form-group">
                               <label for="cargo">Cargo:<span class="text-red-50">*</span> </label>
-                              <select class="form-control  selectpicker" data-live-search="true" id="cargo" name="cargo"
-                                 required>
+                              <select class="form-control  selectpicker" data-live-search="true" id="cargo" name="cargo" required>
 
                               </select>
                               <span class="msj"></span>
@@ -185,9 +176,7 @@
                         <!-- Motivo de salida -->
                         <div class="form-group">
                            <label for="motivo">Motivo de salida:</label>
-                           <textarea class="form-control valid validTextNumber" name="motivo" id="motivo" minlength="3"
-                              maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;"
-                              pattern="^[A-Za-z ]*$" required></textarea>
+                           <textarea class="form-control valid validTextNumber" name="motivo" id="motivo" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -201,9 +190,7 @@
                         <!-- Usuario -->
                         <div class="form-group">
                            <label for="usuario">Nombre de Usuario: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validTextNumber" id="usuario" name="usuario"
-                              minlength="3" maxlength="50" required
-                              onkeyup="javascript:this.value=this.value.toUpperCase();">
+                           <input type="text" class="form-control valid validTextNumber" id="usuario" name="usuario" minlength="3" maxlength="50" required onkeyup="javascript:this.value=this.value.toUpperCase();">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -211,8 +198,7 @@
                         <!-- Rol -->
                         <div class="form-group">
                            <label for="rol">Rol de Usuario:<span class="text-red-50">*</span> </label>
-                           <select class="form-control selectpicker" data-live-search="true" id="rol" name="rol"
-                              required>
+                           <select class="form-control selectpicker" data-live-search="true" id="rol" name="rol" required>
                            </select>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -223,9 +209,7 @@
                         <!-- Contraseña -->
                         <div class="form-group">
                            <label for="password">Password: </label>
-                           <input type="password" class="form-control valid validTextNumber" id="password"
-                              name="password" minlength="5" maxlength="20"
-                              pattern="[[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9- ]+(?:\.[a-zA-Z0-9-]+)$]+" required>
+                           <input type="password" class="form-control valid validTextNumber" id="password" name="password" minlength="5" maxlength="20" pattern="[[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9- ]+(?:\.[a-zA-Z0-9-]+)$]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -234,8 +218,7 @@
                   </div>
                   <div class="row">
                      <div class="col-md-12 col-md-offset-2">
-                        <button type="submit" class="btn btn-primary float-right"
-                           name="GuardarEmpleado">Registrar</button>
+                        <button type="submit" class="btn btn-primary float-right" name="GuardarEmpleado">Registrar</button>
                      </div>
                   </div>
                </form>

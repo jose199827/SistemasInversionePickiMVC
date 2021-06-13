@@ -1,6 +1,7 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
- getModal("modalProductos", $data); 
+getModal("modalProductos", $data);
+getModal("modalPrimerInicioLogin", $data);
 ?>
 
 <div class="main-container">
@@ -26,9 +27,11 @@
                      </a>
                      <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#marca-modal">Marca</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#categoria-modal">Categoria</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal"
+                           data-target="#categoria-modal">Categoria</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#grupo-modal">Grupo</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#unidadMedida-modal">Unidad Medida</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#unidadMedida-modal">Unidad
+                           Medida</a>
                         <a class="dropdown-item" href="#" data-toggle="modal" data-target="#impuesto-modal">Impuesto</a>
                      </div>
                   </div>
@@ -48,7 +51,8 @@
                               <h4 class="text-blue h4">Tabla de Marcas</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#marca-modal">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#marca-modal">Registrar</button>
                            </div>
                         </div>
                      </div>
@@ -68,13 +72,15 @@
                                  <td></td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 
                                           <a class="dropdown-item editar" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_marcas.php?id_marca="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item" href="bd/delete_marcas.php?id_marca="><i
+                                                class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -99,7 +105,8 @@
                               <h4 class="text-blue h4">Tabla de Categorías</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#categoria-modal">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#categoria-modal">Registrar</button>
                            </div>
                         </div>
 
@@ -122,13 +129,16 @@
                                  </td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 
-                                          <a class="dropdown-item editar_categoria" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_categoria.php?id_categoria="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item editar_categoria" id=""><i class="dw dw-edit2"></i>
+                                             Editar</a>
+                                          <a class="dropdown-item" href="bd/delete_categoria.php?id_categoria="><i
+                                                class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -153,7 +163,8 @@
                               <h4 class="text-blue h4">Tabla de Grupos</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#grupo-modal">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#grupo-modal">Registrar</button>
                            </div>
                         </div>
                      </div>
@@ -173,13 +184,16 @@
                                  <td></td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 
-                                          <a class="dropdown-item editar_grupos" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_grupos.php?id_grupo="><i class="dw dw-delete-3"></i> Eliminar</a>
+                                          <a class="dropdown-item editar_grupos" id=""><i class="dw dw-edit2"></i>
+                                             Editar</a>
+                                          <a class="dropdown-item" href="bd/delete_grupos.php?id_grupo="><i
+                                                class="dw dw-delete-3"></i> Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -200,7 +214,8 @@
                                  <h4 class="text-blue h4">Tabla de Unidades Medidas</h4>
                               </div>
                               <div class="col-6 text-right">
-                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#unidadMedida-modal">Registrar</button>
+                                 <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#unidadMedida-modal">Registrar</button>
                               </div>
                            </div>
                         </div>
@@ -222,13 +237,16 @@
                                     </td>
                                     <td>
                                        <div class="dropdown">
-                                          <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                          <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                             href="#" role="button" data-toggle="dropdown">
                                              <i class="dw dw-more"></i>
                                           </a>
                                           <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 
-                                             <a class="dropdown-item editar_uni_medidas" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                             <a class="dropdown-item" href="bd/delete_uni_medidas.php?id_uni_medida="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                             <a class="dropdown-item editar_uni_medidas" id=""><i
+                                                   class="dw dw-edit2"></i> Editar</a>
+                                             <a class="dropdown-item" href="bd/delete_uni_medidas.php?id_uni_medida="><i
+                                                   class="dw dw-delete-3"></i>Eliminar</a>
                                           </div>
                                        </div>
                                     </td>
@@ -253,7 +271,8 @@
                               <h4 class="text-blue h4">Tabla de Impuestos</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#impuesto-modal">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal"
+                                 data-target="#impuesto-modal">Registrar</button>
                            </div>
                         </div>
                      </div>
@@ -274,13 +293,16 @@
                                  <td></td>
                                  <td>
                                     <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
+                                          href="#" role="button" data-toggle="dropdown">
                                           <i class="dw dw-more"></i>
                                        </a>
                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
 
-                                          <a class="dropdown-item editar_impuestos" id=""><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href="bd/delete_impuestos.php?id_tip_impuestos="><i class="dw dw-delete-3"></i>Eliminar</a>
+                                          <a class="dropdown-item editar_impuestos" id=""><i class="dw dw-edit2"></i>
+                                             Editar</a>
+                                          <a class="dropdown-item" href="bd/delete_impuestos.php?id_tip_impuestos="><i
+                                                class="dw dw-delete-3"></i>Eliminar</a>
                                        </div>
                                     </div>
                                  </td>
@@ -296,9 +318,10 @@
          <!-- </div> -->
 
          <!-- Apartado de modales -->
-        
+
          <!-- Modal de Editar Marca -->
-         <div class="modal fade" id="marca-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="marca-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -312,9 +335,10 @@
             </div>
          </div>
 
-        
+
          <!-- Modal de Editar Categoria -->
-         <div class="modal fade" id="categoria-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="categoria-modalEditar" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -327,9 +351,10 @@
                </div>
             </div>
          </div>
-        
+
          <!-- Modal de Editar Grupo -->
-         <div class="modal fade" id="grupo-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="grupo-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -344,9 +369,10 @@
          </div>
 
          <!-- Modal de Unidad Medida -->
-        
+
          <!-- Modal de Editar Unidades Medidas -->
-         <div class="modal fade" id="uni_medidas-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="uni_medidas-modalEditar" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
@@ -360,10 +386,11 @@
             </div>
          </div>
 
-         
+
 
          <!-- Modal de Editar Impuestos -->
-         <div class="modal fade" id="impuesto-modalEditar" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+         <div class="modal fade" id="impuesto-modalEditar" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">

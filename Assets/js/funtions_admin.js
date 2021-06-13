@@ -18,7 +18,7 @@ function controlTagEspacio(e) {
 
 /* Valida que solo sea texto ingresado */
 function testText(txtString) {
-    var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/);
+    let stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü\s]+$/);
     if (stringText.test(txtString)) {
         return true;
     } else {
@@ -41,11 +41,9 @@ function fntValidText() {
     });
 }
 
-
-
 /* Valida que solo sea texto ingresado */
 function testTextMayus(txtString) {
-    var stringText = new RegExp(/^[A-Z\s]+$/);
+    let stringText = new RegExp(/^[A-Z\s]+$/);
     if (stringText.test(txtString)) {
         return true;
     } else {
@@ -69,7 +67,7 @@ function fntValidTextMayus() {
 
 /* Valida que solo sea texto ingresado */
 function testTextNumMayus(txtString) {
-    var stringText = new RegExp(/^[A-Z0-9-_\s]+$/);
+    let stringText = new RegExp(/^[A-Z0-9-_\s]+$/);
     if (stringText.test(txtString)) {
         return true;
     } else {
@@ -93,7 +91,7 @@ function fntValidTextNumMayus() {
 
 /* Valida que solo sea texto con Numero ingresado */
 function testTextNumero(txtString) {
-    var stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/);
+    let stringText = new RegExp(/^[a-zA-ZÑñÁáÉéÍíÓóÚúÜü0-9\s]+$/);
     if (stringText.test(txtString)) {
         return true;
     } else {
@@ -103,7 +101,7 @@ function testTextNumero(txtString) {
 
 /* Valida que solo sea numeros ingresado */
 function testEntero(intCant) {
-    var intCantidad = new RegExp(/^([0-9])*$/);
+    let intCantidad = new RegExp(/^([0-9])*$/);
     if (intCantidad.test(intCant)) {
         return true;
     } else {
@@ -112,7 +110,7 @@ function testEntero(intCant) {
 }
 
 function fntEmailValidate(email) {
-    var stringEmail = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
+    let stringEmail = new RegExp(/^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/);
     if (stringEmail.test(email) == false) {
         return false;
     } else {
@@ -171,4 +169,79 @@ window.addEventListener('load', function() {
     fntValidTextNumber();
     fntValidTextMayus();
     fntValidTextNumMayus();
+    fntMensajePrimerIngreso();
 }, false);
+
+function fntMensajePrimerIngreso() {
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url + '/Home/getMsg';
+    request.open("GET", ajaxUrl, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            let objData = JSON.parse(request.responseText);
+            /* console.log(objData); */
+            if (objData.status) {
+                $('#login-modal').modal('show');
+            }
+        }
+    }
+}
+
+if (document.querySelector("#formCambiarPassInicio")) {
+    let formCambiarPassInicio = document.querySelector("#formCambiarPassInicio");
+    formCambiarPassInicio.onsubmit = function(e) {
+        e.preventDefault();
+        let strPassword = document.querySelector('#txtPassword').value;
+        let strPasswordConfirm = document.querySelector('#txtPasswordConfirm').value;
+        let idUsuario = document.querySelector('#idUsuario').value;
+        if (strPassword == '' || strPasswordConfirm == '') {
+            swal("Atención", "Escribe la nueva contraseña y confirma.", "error");
+            return false;
+        } else {
+            if (strPassword < 5) {
+                swal("Atención", "La contraseña debe tener un mínimo de 5 caracteres.", "warning");
+                return false;
+            }
+            if (strPassword != strPasswordConfirm) {
+                swal("Atención", "Las contraseñas no son iguales.", "info");
+                return false;
+            }
+            divLoading.style.display = "flex";
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url + '/Home/setPassInicio';
+            var formData = new FormData(formCambiarPassInicio);
+            request.open("POST", ajaxUrl, true);
+            request.send(formData);
+            request.onreadystatechange = function() {
+                if (request.readyState != 4) return;
+                if (request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    console.log(objData);
+                    if (objData.status) {
+                        swal({
+                            title: 'Iniciar sesión',
+                            text: objData.msg,
+                            type: 'success',
+                            confirmButtonText: "Iniciar sesión",
+                            preConfirm: false
+                        }).then((result) => {
+                            if (result.value) {
+                                window.location = base_url + '/Logout';
+                            }
+                        })
+                    } else {
+                        swal("Atención", objData.msg, "error");
+                        document.querySelector('#txtPassword').value = "";
+                        document.querySelector('#txtPasswordConfirm').value = "";
+                    }
+                } else {
+                    swal("Atención", "Error en el proceso.", "error");
+                    document.querySelector('#txtPassword').value = "";
+                    document.querySelector('#txtPasswordConfirm').value = "";
+                }
+                divLoading.style.display = "none";
+            }
+        }
+    }
+}

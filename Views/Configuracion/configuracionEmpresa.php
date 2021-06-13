@@ -1,6 +1,7 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
 getModal("modalEmpresa", $data);
+getModal("modalPrimerInicioLogin", $data);
 ?>
 
 <div class="main-container">

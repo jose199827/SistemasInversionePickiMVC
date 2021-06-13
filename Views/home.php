@@ -1,5 +1,5 @@
 <?php headerAdmin($data);
-/* getModal("modalUsuarios", $data); */
+getModal("modalPrimerInicioLogin", $data);
 ?>
 
 <div class="mobile-menu-overlay"></div>

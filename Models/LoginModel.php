@@ -132,8 +132,8 @@ class LoginModel extends Mysql
 		$sqlpass = "SELECT * FROM `usuario` WHERE `pass_usuario`='$this->strPassword'";
 		$requestpass = $this->selectAll($sqlpass);
 		if (empty($requestpass)) {
-			$sql = "UPDATE `usuario` SET `pass_usuario`=?, `token`=? WHERE `id_persona`= $this->intIdUsuario;";
-			$arrData = array($this->strPassword, "");
+			$sql = "UPDATE `usuario` SET `pass_usuario`=?, `token`=?, pass_request=? WHERE `id_persona`= $this->intIdUsuario;";
+			$arrData = array($this->strPassword, "", 1);
 			$request = $this->update($sql, $arrData);
 			$return = $request;
 		} else {
