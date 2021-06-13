@@ -43,15 +43,15 @@
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
+                                 <th>Fecha y Hora</th>
+                                 <th>Acción</th>
+                                 <th>Usuario registro</th>
+                                 <th>Usuario anterior</th>
+                                 <th>Registro actual</th>
+                                 <th>Registro anterior</th>
                                  <th>Tabla</th>
                                  <th>Fila</th>
                                  <th>Campo</th>
-                                 <th>Registro actual</th>
-                                 <th>Registro anterior</th>
-                                 <th>Acción</th>
-                                 <th>Fecha</th>
-                                 <th>Usuario registro</th>
-                                 <th>Usuario anterior</th>
                               </tr>
                            </thead>
                            <tbody>

@@ -242,7 +242,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 'csvHtml5',
                 'pdfHtml5',
             ],
-
         });
     }
     if (document.querySelector("#TablaImpuestos")) {
@@ -650,15 +649,15 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             "columns": [
                 { "data": "numRegistro" },
+                { "data": "fec_registro" },
+                { "data": "accion_realizada" },
+                { "data": "usr_registro" },
+                { "data": "usr_anterior" },
+                { "data": "registro_actual" },
+                { "data": "registro_anterior" },
                 { "data": "tabla_modificada" },
                 { "data": "fila_modificada" },
                 { "data": "cam_modificado" },
-                { "data": "registro_actual" },
-                { "data": "registro_anterior" },
-                { "data": "accion_realizada" },
-                { "data": "fec_registro" },
-                { "data": "usr_registro" },
-                { "data": "usr_anterior" }
                 // { "data": "options" }
             ],
             'dom': 'lBfrtip',
@@ -1172,6 +1171,7 @@ $(document).ready(function() {
     $('#TablaRol').dataTable();
     $('#TablaFacturacion').dataTable();
     $('#TablaEmpresa').dataTable();
+    $('#TablaBitacora').dataTable();
 });
 
 //UPDATE PARA MARCAS//

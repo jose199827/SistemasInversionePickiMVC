@@ -161,7 +161,6 @@
                </ul>
             </li>
             <?php } ?>
-
             <!-- Menu Empleados -->
             <?php if (!empty($_SESSION['permisos'][5]['r']) || !empty($_SESSION['permisos'][5]['w'])) { ?>
             <li class="dropdown">
@@ -178,7 +177,6 @@
                </ul>
             </li>
             <?php } ?>
-
             <!-- Menu Inventario -->
             <?php if (!empty($_SESSION['permisos'][6]['r']) || !empty($_SESSION['permisos'][6]['w'])) { ?>
             <li class="dropdown">
@@ -196,7 +194,6 @@
                </ul>
             </li>
             <?php } ?>
-
             <!-- Menu Configuración -->
             <?php if (!empty($_SESSION['permisos'][7]['r'])) { ?>
             <li class="dropdown">
@@ -212,7 +209,7 @@
             </li>
             <?php } ?>
             <!-- Menu de repositorio -->
-            <?php if (!empty($_SESSION['permisos'][7]['r'])) { ?>
+            <?php if (!empty($_SESSION['permisos'][8]['r'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
                   <span class="micon fa fa-database"></span><span class="mtext">Repositorio</span>
