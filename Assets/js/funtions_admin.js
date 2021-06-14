@@ -245,3 +245,37 @@ if (document.querySelector("#formCambiarPassInicio")) {
         }
     }
 }
+
+let verPas = document.querySelector("#verPass");
+let txtPassword = document.querySelector('#txtPassword');
+verPas.addEventListener('click', function() {
+    if (txtPassword.value != "") {
+        if (txtPassword.type == "password") {
+            txtPassword.type = "text";
+            verPas.classList.remove("fa-eye");
+            verPas.classList.add("fa-eye-slash");
+            setTimeout("ocultarPass()", 1500);
+        } else {
+            txtPassword.type = "password";
+            verPas.classList.remove("fa-eye-slash");
+            verPas.classList.add("fa-eye");
+        }
+    }
+});
+
+function ocultarPass() {
+    txtPassword.type = "password";
+    verPas.classList.remove("fa-eye-slash");
+    verPas.classList.add("fa-eye");
+}
+//Auto Close Timer sa-close
+function fntRecuperar() {
+    swal({
+        title: 'Método de Recuperación',
+        type: 'info',
+        html: '<a href="<?= base_url(); ?>/forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>' +
+            '<a href="<?= base_url(); ?>/forgotPass" class="text-dark">Mediante Correo.</a><br>',
+        showCancelButton: false,
+        showConfirmButton: false
+    })
+}

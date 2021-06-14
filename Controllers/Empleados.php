@@ -148,7 +148,6 @@ class Empleados extends Controllers
       die();
    }
 
-
    public function getSelectPregunta()
    {
       $htmlOptions = "";
@@ -162,7 +161,6 @@ class Empleados extends Controllers
       echo $htmlOptions;
       die();
    }
-
 
    public function  getEmpleados()
    {
@@ -193,9 +191,6 @@ class Empleados extends Controllers
       echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
       die();
    }
-
-
-
 
    /*  update DATOS EMPLEADOS */
    public function setUpdateEmpleado()

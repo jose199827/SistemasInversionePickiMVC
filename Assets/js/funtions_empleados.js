@@ -277,6 +277,7 @@ function fnt_cargo() {
     }
 }
 
+
 function fnt_tipo_empleado() {
     if (document.querySelector("#tipo")) {
         let request = window.XMLHttpRequest ?
@@ -341,7 +342,7 @@ window.addEventListener(
         fnt_cargo();
         fnt_tipo_empleado();
         fnt_Rol();
-        fnt_pregunta();
+        /* fnt_pregunta(); */
     },
     false
 );
