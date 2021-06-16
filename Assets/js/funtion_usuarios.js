@@ -394,6 +394,28 @@ function fntEditUsuario(element, idpersona) {
     }
 }
 
+function btnEditRespuesta(idpregunta) {
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url + '/Usuarios/getPregunta/' + idpregunta;
+    request.open("GET", ajaxUrl, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            let objData = JSON.parse(request.responseText);
+            if (objData.status) {
+                document.querySelector("#idPregunta").value = objData.data.id_preg_seg;
+                document.querySelector("#txtPregunta").value = objData.data.preguntas;
+                document.getElementById('txtPregunta').disabled = true;
+                document.querySelector("#txtRespuesta").value = objData.data.respuesta;
+                document.querySelector("#btn-cancelar").classList.remove('notblock');
+            } else {
+                swal("Error", objData.msj, "error");
+            }
+        }
+
+    }
+}
+
 function fntDelUsuario(idpersona) {
     swal({
         title: 'Eliminar Usuario',
@@ -430,6 +452,40 @@ function fntDelUsuario(idpersona) {
     })
 }
 
+function btnDeleteRespuesta(idpregunta) {
+    swal({
+        title: 'Eliminar Pregunta de Seguridad',
+        text: "¿Realmente quiere eliminar esta pregunta de seguridad?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: "Si, eliminar!",
+        cancelButtonText: "No, cancelar!",
+        preConfirm: false
+    }).then((result) => {
+        if (result.value) {
+            let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            let ajaxUrl = base_url + '/Usuarios/delPregunta/';
+            let strData = "idpregunta=" + idpregunta;
+            request.open("POST", ajaxUrl, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send(strData);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    let objData = JSON.parse(request.responseText);
+                    if (objData.status) {
+                        swal("Eliminado!", objData.msg, "success");
+                        tablePreguntas.api().ajax.reload(function() {});
+                    } else {
+                        swal("Atención!", objData.msg, "error");
+                    }
+                }
+            }
+        }
+    })
+}
+
 function openModal() {
     rowTable = "";
     document.querySelector("#txtNombre").classList.remove('form-control-danger');
@@ -441,6 +497,17 @@ function openModal() {
     document.querySelector('#btnTex').innerHTML = "Registrar";
     document.querySelector('#formUsuario').reset();
     $('#usuarios-modal').modal('show');
+}
+
+if (document.querySelector("#btn-cancelar")) {
+    let btncancelar = document.querySelector("#btn-cancelar");
+    btncancelar.addEventListener('click', function(e) {
+        e.preventDefault();
+        formPreguntas.reset();
+        document.getElementById('txtPregunta').disabled = false;
+        document.querySelector("#idPregunta").value = "";
+        document.querySelector("#btn-cancelar").classList.add('notblock');
+    });
 }
 
 if (document.querySelector("#formPreguntas")) {
@@ -465,11 +532,11 @@ if (document.querySelector("#formPreguntas")) {
                 let objData = JSON.parse(request.responseText);
                 if (objData.status) {
                     swal("Preguntas de Seguridad", objData.msg, "success");
-                    txtPregunta.value = "";
-                    txtRespuesta.value = "";
+                    tablePreguntas.api().ajax.reload();
                 } else {
                     swal("Error", objData.msg, "error");
                 }
+                formPreguntas.reset();
             }
         }
         divLoading.style.display = "none";

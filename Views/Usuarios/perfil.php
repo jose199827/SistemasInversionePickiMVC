@@ -63,7 +63,8 @@
                                  Personales</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link" data-toggle="tab" href="#datosFiscales" role="tab">Datos Fiscales</a>
+                              <a class="nav-link" data-toggle="tab" href="#datosFiscales" role="tab">Datos de
+                                 Usuario</a>
                            </li>
                            <li class="nav-item">
                               <a class="nav-link" data-toggle="tab" href="#pagos" role="tab">Preguntas de Seguridad</a>
@@ -73,72 +74,54 @@
                            <!-- Datos Personales -->
                            <div class="tab-pane fade show active" id="datosPersonales" role="tabpanel">
                               <div class="pd-20">
-
                                  <form id="formPerfil" name="formPerfil" class="form-horizontal">
-                                    <p class="text-primary">Los campos con asterisco (<span
-                                          class="text-red-50">*</span>) son obligatorios.</p>
+                                    <p class="text-primary">Los campos con asterisco (<span class="text-red-50">*</span>) son obligatorios.</p>
                                     <div class="row">
                                        <div class="col-md-12 col-sm-12">
                                           <div class="form-group">
                                              <label>Identificación: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtIdentificacion" name="txtIdentificacion"
-                                                placeholder="Identificación" class="form-control "
-                                                value="<?= $_SESSION['userData']['num_id_persona'] ?>" required>
+                                             <input type="text" id="txtIdentificacion" name="txtIdentificacion" placeholder="Identificación" class="form-control " value="<?= $_SESSION['userData']['num_id_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Nombres: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtNombre" name="txtNombre"
-                                                placeholder="Nombres del Usuario" class="form-control valid validText"
-                                                value="<?= $_SESSION['userData']['nom_persona'] ?>" required>
+                                             <input type="text" id="txtNombre" name="txtNombre" placeholder="Nombres del Usuario" class="form-control valid validText" value="<?= $_SESSION['userData']['nom_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Apellidos: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtApellido" name="txtApellido"
-                                                placeholder="Apellidos del Usuario" class="form-control valid validText"
-                                                value="<?= $_SESSION['userData']['ape_persona'] ?>" required>
+                                             <input type="text" id="txtApellido" name="txtApellido" placeholder="Apellidos del Usuario" class="form-control valid validText" value="<?= $_SESSION['userData']['ape_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-12 col-sm-12">
                                           <div class="form-group">
                                              <label>Email: <span class="text-red-50">*</span> </label>
-                                             <input type="email" id="txtEmail" name="txtEmail"
-                                                placeholder="Email del Usuario" class="form-control valid validEmail"
-                                                value="<?= $_SESSION['userData']['correo'] ?>" required readonly
-                                                disabled>
+                                             <input type="email" id="txtEmail" name="txtEmail" placeholder="Email del Usuario" class="form-control valid validEmail" value="<?= $_SESSION['userData']['correo'] ?>" required readonly disabled>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Teléfono: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtTelefono" name="txtTelefono"
-                                                placeholder="Teléfono del Usuario"
-                                                class="form-control valid validNumber"
-                                                value="<?= $_SESSION['userData']['telefono'] ?>" required
-                                                onkeypress="return controlTag(event);">
+                                             <input type="text" id="txtTelefono" name="txtTelefono" placeholder="Teléfono del Usuario" class="form-control valid validNumber" value="<?= $_SESSION['userData']['telefono'] ?>" required onkeypress="return controlTag(event);">
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Password:</label>
-                                             <input type="password" id="txtPassword" name="txtPassword"
-                                                placeholder="Password" class=" form-control">
+                                             <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" class=" form-control">
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Confirmar Password:</label>
-                                             <input type="password" id="txtPasswordConfirm" name="txtPasswordConfirm"
-                                                placeholder="Confirmar Password" class=" form-control">
+                                             <input type="password" id="txtPasswordConfirm" name="txtPasswordConfirm" placeholder="Confirmar Password" class=" form-control">
                                           </div>
                                        </div>
                                     </div>
                                     <div class="text-right">
-                                       <button id="btnActionForm" type="submit" class="btn btn-success"><span
-                                             id="btnTex">Actualizar</span></button>
+                                       <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Actualizar</span></button>
                                     </div>
                                  </form>
                               </div>
@@ -155,16 +138,28 @@
                            <div class="tab-pane fade height-100-p" id="pagos" role="tabpanel">
                               <div class="pd-20">
                                  <form id="formPreguntas" name="formPreguntas" action="">
-                                    <div class="row mb-20">
-                                       <div class="col-md-5">
-                                          <input class="form-control" type="text" name="txtPregunta" id="txtPregunta">
+                                    <div class="row">
+                                       <div class="col-md-6 col-sm-12">
+                                          <div class="form-group">
+                                             <input class="form-control" type="hidden" name="idPregunta" id="idPregunta">
+                                             <label>Pregunta de Seguridad: <span class="text-red-50">*</span> </label>
+                                             <input type="text" id="txtPregunta" name="txtPregunta" placeholder="Preunta de Seguridad" class="form-control" required>
+                                          </div>
                                        </div>
-                                       <div class="col-md-4">
-                                          <input class="form-control" type="text" name="txtRespuesta" id="txtRespuesta">
+                                       <div class="col-md-6 col-sm-12">
+                                          <div class="form-group">
+                                             <label>Respuesta: <span class="text-red-50">*</span> </label>
+                                             <input type="text" id="txtRespuesta" name="txtRespuesta" placeholder="Respuesta" class="form-control" required>
+                                          </div>
                                        </div>
-                                       <div class="col">
-                                          <input class="btn btn-primary btn-block" type="submit" value="Agregar">
-                                       </div>
+                                    </div>
+                                    <div class="text-right">
+                                       <button id="btn-cancelar" type="submit" class="btn btn-danger notblock">
+                                          <span id="btnTex">Cancelar</span>
+                                       </button>
+                                       <button id="" type="submit" class="btn btn-primary ">
+                                          <span id="btnTex">Agregar</span>
+                                       </button>
                                     </div>
                                  </form>
                                  <table id="tablePreguntas" class="data-table table stripe hover nowrap">

@@ -34,6 +34,7 @@ const DIRECCION = "Honduras, Tegucigalpa";
 const TELEFONO = "(504) 9874-8587";
 const EMAIL_EMPRESA = "josedesarrollop@gmail.com";
 const INTENTOSBLOQUEOS = 3;
+const PREGUNTAS = 3;
 
 //Variable para la Zona horaria 
 date_default_timezone_set("America/Tegucigalpa");

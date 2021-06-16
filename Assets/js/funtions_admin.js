@@ -276,8 +276,8 @@ function fntRecuperar() {
     swal({
         title: 'Método de Recuperación',
         type: 'info',
-        html: '<a href="<?= base_url(); ?>/forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>' +
-            '<a href="<?= base_url(); ?>/forgotPass" class="text-dark">Mediante Correo.</a><br>',
+        html: '<a href="forgotPass/preguntaSecreta" class="text-dark">Mediante Pregunta Secreta.</a><br>' +
+            '<a href="forgotPass" class="text-dark">Mediante Correo.</a><br>',
         showCancelButton: false,
         showConfirmButton: false
     })

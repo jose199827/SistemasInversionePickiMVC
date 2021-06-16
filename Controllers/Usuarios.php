@@ -151,10 +151,9 @@ class Usuarios extends Controllers
       $btnDel = '';
 
       $arrData[$i]['numRegistro'] = $i + 1;
-      $btnEdit = '<a class="dropdown-item btnEditRespuesta" href="javascript:;" onClick="btnEditRespuesta(this,' . $arrData[$i]['id_resp_seg'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
+      $btnEdit = '<a class="dropdown-item btnEditRespuesta" href="javascript:;" onClick="btnEditRespuesta(' . $arrData[$i]['id_preg_seg'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
 
-
-      $btnDel = '<a class="dropdown-item btnDeleteRespuesta" href="javascript:;" onClick="btnDeleteRespuesta(' . $arrData[$i]['id_resp_seg'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
+      $btnDel = '<a class="dropdown-item btnDeleteRespuesta" href="javascript:;" onClick="btnDeleteRespuesta(' . $arrData[$i]['id_preg_seg'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
       $arrData[$i]['options'] = '<div class="dropdown ">
                                                 <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
                                                   data-toggle="dropdown">
@@ -187,6 +186,24 @@ class Usuarios extends Controllers
       die();
     }
   }
+  public function getPregunta($idpregunta)
+  {
+    $idpregunta = intval($idpregunta);
+    if ($idpregunta > 0) {
+      $arrData = $this->model->selectPregunta($idpregunta);
+      /* dep($arrData);
+      exit(); */
+      if (empty($arrData)) {
+        $arrResponse = array("status" => false, "msg" => 'Datos no encontrados.');
+      } else {
+        $arrResponse = array("status" => true, "data" => $arrData);
+      }
+      /* dep($arrResponse);
+      exit(); */
+      echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+      die();
+    }
+  }
   public function delUsuario()
   {
     if ($_POST) {
@@ -203,6 +220,25 @@ class Usuarios extends Controllers
         }
         echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
       }
+      die();
+    }
+  }
+  public function delPregunta()
+  {
+    if ($_POST) {
+
+      $idpregunta = intval($_POST['idpregunta']);
+      $requestDelete = "";
+
+      $requestDelete = $this->model->deletePregunta($idpregunta);
+
+      if ($requestDelete) {
+        $arrResponse = array('status' => true, 'msg' => 'Se ha eliminado la Pregunta de Seguridad.');
+      } else {
+        $arrResponse = array('status' => false, 'msg' => 'Error al eliminar la Pregunta de Seguridad.');
+      }
+      echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+
       die();
     }
   }
@@ -275,21 +311,34 @@ class Usuarios extends Controllers
   }
   public function insertPregunta()
   {
+    /* dep($_POST);
+    exit(); */
     if ($_POST) {
-      if (empty($_POST['txtPregunta']) || empty($_POST['txtRespuesta'])) {
+      if (empty($_POST['txtRespuesta'])) {
         $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
       } else {
         $intIdUsuario = $_SESSION['userData']['id_usuario'];
         $txtPregunta = strClean($_POST['txtPregunta']);
+        $idPregunta = intval($_POST['idPregunta']);
         $txtRespuesta = strClean($_POST['txtRespuesta']);
-        $requestPregunta = $this->model->insertPregunta($intIdUsuario, $txtPregunta, $txtRespuesta);
+        if ($idPregunta == 0) {
+          $requestPregunta = $this->model->insertPregunta($intIdUsuario, $txtPregunta, $txtRespuesta);
+          $option = 1;
+        } else {
+          $requestPregunta = $this->model->updatePregunta($idPregunta, $txtRespuesta);
+          $option = 2;
+        }
         /* dep($requestPregunta);
         exit(); */
         if ($requestPregunta > 0) {
-          $arrResponse = array("status" => true, "msg" => 'Datos guardos correctamente.');
+          if ($option == 1) {
+            $arrResponse = array('status' => true, 'msg' => 'Datos guardados correctamente.');
+          } else {
+            $arrResponse = array('status' => true, 'msg' => 'Datos actualizados correctamente.');
+          }
+        } else  if ($requestPregunta == 'limite') {
+          $arrResponse = array("status" => false, "msg" => 'Solo se pueden ingresa 3 preguntas.');
         } else  if ($requestPregunta == 'exist') {
-          $arrResponse = array("status" => false, "msg" => 'Esta pregunta ya ha sido registrada.');
-        } else  if ($requestPregunta == 'error') {
           $arrResponse = array("status" => false, "msg" => 'Esta pregunta ya ha sido registrada.');
         } else {
           $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');

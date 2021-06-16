@@ -96,8 +96,8 @@ class UsuariosModel extends Mysql
   }
   public function selectPreguntas()
   {
-    $id = $_SESSION['idUser'];
-    $sql = "SELECT r.id_resp_seg, r.id_usuario, p.preguntas, r.respuesta FROM respuestas_seguridad r INNER JOIN preguntas_seguridad p ON p.id_preg_seg= r.id_preg_seg WHERE r.id_usuario= $id";
+    $id = $_SESSION['userData']['id_usuario'];
+    $sql = "SELECT r.id_resp_seg, r.id_usuario,r.id_preg_seg, p.preguntas, r.respuesta FROM respuestas_seguridad r INNER JOIN preguntas_seguridad p ON p.id_preg_seg= r.id_preg_seg WHERE r.id_usuario= $id";
     $request = $this->selectAll($sql);
     return $request;
   }
@@ -108,12 +108,24 @@ class UsuariosModel extends Mysql
     $request = $this->select($sql);
     return $request;
   }
+  public function selectPregunta($idpregunta)
+  {
+    $sql = "SELECT r.id_resp_seg, r.id_usuario,r.id_preg_seg, p.preguntas, r.respuesta FROM respuestas_seguridad r INNER JOIN preguntas_seguridad p ON p.id_preg_seg= r.id_preg_seg WHERE r.id_preg_seg= $idpregunta";
+    $request = $this->select($sql);
+    return $request;
+  }
   public function deleteUsuario(int $idpersona)
   {
     $this->intIdUsuario = $idpersona;
     $sql = "UPDATE `persona` SET `status` = ? WHERE `persona`.`idpersona` = $this->intIdUsuario;";
     $arrData = array(0);
     $request = $this->update($sql, $arrData);
+    return $request;
+  }
+  public function deletePregunta($idpregunta)
+  {
+    $sql = "DELETE FROM `preguntas_seguridad` WHERE `id_preg_seg`=$idpregunta";
+    $request = $this->delete($sql);
     return $request;
   }
   public function updatePerfil(int $idUsuario, string $identificacion, string $nombre, string $apellido, string $telefono, string $password)
@@ -162,15 +174,29 @@ class UsuariosModel extends Mysql
     $sql = "SELECT * FROM `preguntas_seguridad` WHERE preguntas ='$txtPregunta'";
     $request = $this->selectAll($sql);
     if (empty($request)) {
-      $sqlInser = "INSERT INTO `preguntas_seguridad`(`id_user`, `preguntas`) VALUES(?,?);
+      $sqlPreguntas = "SELECT COUNT(*) AS total FROM preguntas_seguridad";
+      $resultado = $this->select($sqlPreguntas);
+      $total = $resultado['total'];
+      if ($total == PREGUNTAS) {
+        $return = "limite";
+      } else {
+        $sqlInser = "INSERT INTO `preguntas_seguridad`(`id_user`, `preguntas`) VALUES(?,?);
                           SELECT @id_preg_seg := MAX(id_preg_seg) FROM `preguntas_seguridad`;
                           INSERT INTO `respuestas_seguridad`(`id_usuario`, `id_preg_seg`, `respuesta`) VALUES (?,@id_preg_seg ,?)";
-      $arrData = array($intIdUsuario, $txtPregunta, $intIdUsuario, $txtRespuesta);
-      $request_insert = $this->insert($sqlInser, $arrData);
-      /* $return = $request_insert; */
+        $arrData = array($intIdUsuario, $txtPregunta, $intIdUsuario, $txtRespuesta);
+        $request_insert = $this->insert($sqlInser, $arrData);
+        $return = $request_insert;
+      }
     } else {
       $return = "exist";
     }
     return $return;
+  }
+  public function updatePregunta($idPregunta, $txtRespuesta)
+  {
+    $sql = "UPDATE `respuestas_seguridad` SET `respuesta`=? WHERE `id_preg_seg`=$idPregunta";
+    $arrData = array($txtRespuesta);
+    $request = $this->update($sql, $arrData);
+    return $request;
   }
 }
