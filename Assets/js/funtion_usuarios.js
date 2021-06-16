@@ -69,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
         autoWidth: false,
         responsive: true,
         searching: false,
+        paging: false,
+        info: false,
         columnDefs: [{
             targets: "datatable-nosort",
             orderable: false,
@@ -127,7 +129,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let formUsuario = document.querySelector("#formUsuario");
         formUsuario.onsubmit = function(e) {
             e.preventDefault();
-
             let strIdentificacion = document.querySelector('#txtIdentificacion').value;
             let strNombre = document.querySelector('#txtNombre').value;
             let strApellido = document.querySelector('#txtApellido').value;
@@ -312,7 +313,6 @@ $(document).ready(function() {
 window.addEventListener('load', function() {
     fntRolesUsurios();
 }, false);
-
 
 function fntRolesUsurios() {
     if (document.querySelector('#listRolid')) {
@@ -499,16 +499,7 @@ function openModal() {
     $('#usuarios-modal').modal('show');
 }
 
-if (document.querySelector("#btn-cancelar")) {
-    let btncancelar = document.querySelector("#btn-cancelar");
-    btncancelar.addEventListener('click', function(e) {
-        e.preventDefault();
-        formPreguntas.reset();
-        document.getElementById('txtPregunta').disabled = false;
-        document.querySelector("#idPregunta").value = "";
-        document.querySelector("#btn-cancelar").classList.add('notblock');
-    });
-}
+
 
 if (document.querySelector("#formPreguntas")) {
     let formPreguntas = document.querySelector("#formPreguntas");
@@ -533,6 +524,10 @@ if (document.querySelector("#formPreguntas")) {
                 if (objData.status) {
                     swal("Preguntas de Seguridad", objData.msg, "success");
                     tablePreguntas.api().ajax.reload();
+                    formPreguntas.reset();
+                    document.getElementById('txtPregunta').disabled = false;
+                    document.querySelector("#idPregunta").value = "";
+                    document.querySelector("#btn-cancelar").classList.add('notblock');
                 } else {
                     swal("Error", objData.msg, "error");
                 }
@@ -542,4 +537,14 @@ if (document.querySelector("#formPreguntas")) {
         divLoading.style.display = "none";
         return false;
     }
+}
+if (document.querySelector("#btn-cancelar")) {
+    let btncancelar = document.querySelector("#btn-cancelar");
+    btncancelar.addEventListener('click', function(e) {
+        e.preventDefault();
+        formPreguntas.reset();
+        document.getElementById('txtPregunta').disabled = false;
+        document.querySelector("#idPregunta").value = "";
+        document.querySelector("#btn-cancelar").classList.add('notblock');
+    });
 }

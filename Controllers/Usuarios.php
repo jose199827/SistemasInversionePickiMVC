@@ -318,7 +318,9 @@ class Usuarios extends Controllers
         $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
       } else {
         $intIdUsuario = $_SESSION['userData']['id_usuario'];
-        $txtPregunta = strClean($_POST['txtPregunta']);
+        if (!empty($_POST['txtPregunta'])) {
+          $txtPregunta = strClean($_POST['txtPregunta']);
+        }
         $idPregunta = intval($_POST['idPregunta']);
         $txtRespuesta = strClean($_POST['txtRespuesta']);
         if ($idPregunta == 0) {
@@ -337,12 +339,14 @@ class Usuarios extends Controllers
             $arrResponse = array('status' => true, 'msg' => 'Datos actualizados correctamente.');
           }
         } else  if ($requestPregunta == 'limite') {
-          $arrResponse = array("status" => false, "msg" => 'Solo se pueden ingresa 3 preguntas.');
+          $arrResponse = array("status" => false, "msg" => 'Solo se pueden ingresa ' . PREGUNTAS . ' preguntas.');
         } else  if ($requestPregunta == 'exist') {
           $arrResponse = array("status" => false, "msg" => 'Esta pregunta ya ha sido registrada.');
         } else {
           $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
         }
+        /* dep($arrResponse);
+        exit(); */
       }
       echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     }
