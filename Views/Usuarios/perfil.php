@@ -66,7 +66,7 @@
                               <a class="nav-link" data-toggle="tab" href="#datosFiscales" role="tab">Datos Fiscales</a>
                            </li>
                            <li class="nav-item">
-                              <a class="nav-link" data-toggle="tab" href="#pagos" role="tab">Pagos</a>
+                              <a class="nav-link" data-toggle="tab" href="#pagos" role="tab">Preguntas de Seguridad</a>
                            </li>
                         </ul>
                         <div class="tab-content">
@@ -147,51 +147,42 @@
                            <!-- Datos Fiscales -->
                            <div class="tab-pane fade height-100-p" id="datosFiscales" role="tabpanel">
                               <div class="pd-20">
-                                 <form id="formDatosFiscales" name="formDatosFiscales" class="form-horizontal">
-                                    <p class="text-primary">Los campos con asterisco (<span
-                                          class="text-red-50">*</span>) son obligatorios.</p>
-                                    <div class="row">
-                                       <div class="col-md-12 col-sm-12">
-                                          <div class="form-group">
-                                             <label>Identificación Fiscal: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtIdentificacionFiscal"
-                                                name="txtIdentificacionFiscal" placeholder="Identificación Fiscal"
-                                                class="form-control " value="<?= $_SESSION['userData']['nit'] ?>"
-                                                required>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-12 col-sm-12">
-                                          <div class="form-group">
-                                             <label>Nombre Fiscal: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtNombreFiscal" name="txtNombreFiscal"
-                                                placeholder="Nombre Fiscal" class="form-control valid validText"
-                                                value="<?= $_SESSION['userData']['nombrefical'] ?>" required>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-12 col-sm-12">
-                                          <div class="form-group">
-                                             <label>Dirección Fiscal: <span class="text-red-50">*</span> </label>
-                                             <textarea name="texDireccionFiscal" id="texDireccionFiscal" cols="30"
-                                                rows="10" placeholder="Dirección Fiscal"
-                                                class="form-control valid validText"><?= $_SESSION['userData']['direccionfiscal'] ?></textarea>
-                                          </div>
-                                       </div>
-                                    </div>
-                                    <div class="text-right">
-                                       <button id="btnActionForm" type="submit" class="btn btn-success"><span
-                                             id="btnTex">Actualizar</span></button>
-                                    </div>
-                                 </form>
+                                 jghjjgh
                               </div>
                            </div>
                            <!-- Datos Fiscales -->
-                           <!-- Datos Pagos -->
+                           <!-- Preguntas de Seguridad -->
                            <div class="tab-pane fade height-100-p" id="pagos" role="tabpanel">
                               <div class="pd-20">
-                                 pagos
+                                 <form id="formPreguntas" name="formPreguntas" action="">
+                                    <div class="row mb-20">
+                                       <div class="col-md-5">
+                                          <input class="form-control" type="text" name="txtPregunta" id="txtPregunta">
+                                       </div>
+                                       <div class="col-md-4">
+                                          <input class="form-control" type="text" name="txtRespuesta" id="txtRespuesta">
+                                       </div>
+                                       <div class="col">
+                                          <input class="btn btn-primary btn-block" type="submit" value="Agregar">
+                                       </div>
+                                    </div>
+                                 </form>
+                                 <table id="tablePreguntas" class="data-table table stripe hover nowrap">
+                                    <thead>
+                                       <tr>
+                                          <th class="table-plus">N.º</th>
+                                          <th>Pregunta</th>
+                                          <th>Respuesta</th>
+                                          <th class="datatable-nosort">Acciones</th>
+                                       </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                 </table>
                               </div>
                            </div>
-                           <!-- Datos Pagos -->
+                           <!-- Preguntas de Seguridad -->
                         </div>
                      </div>
                   </div>

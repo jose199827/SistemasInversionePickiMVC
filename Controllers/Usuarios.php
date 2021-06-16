@@ -140,6 +140,37 @@ class Usuarios extends Controllers
       die();
     }
   }
+  public function getRespuestas()
+  {
+    $arrData = $this->model->selectPreguntas();
+    /*     dep($arrData);
+    exit(); */
+    for ($i = 0; $i < count($arrData); $i++) {
+      $btnView = '';
+      $btnEdit = '';
+      $btnDel = '';
+
+      $arrData[$i]['numRegistro'] = $i + 1;
+      $btnEdit = '<a class="dropdown-item btnEditRespuesta" href="javascript:;" onClick="btnEditRespuesta(this,' . $arrData[$i]['id_resp_seg'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
+
+
+      $btnDel = '<a class="dropdown-item btnDeleteRespuesta" href="javascript:;" onClick="btnDeleteRespuesta(' . $arrData[$i]['id_resp_seg'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
+      $arrData[$i]['options'] = '<div class="dropdown ">
+                                                <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
+                                                  data-toggle="dropdown">
+                                                  <i class="dw dw-more"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                  ' . $btnView . '
+                                                  ' . $btnEdit . '
+                                                  ' . $btnDel . '                                                 
+                                                </div>
+                                              </div>';
+    }
+    /**/
+    echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+    die();
+  }
   public function getUsuario($idpersona)
   {
     if ($_SESSION['permisosMod']['r']) {
@@ -238,6 +269,32 @@ class Usuarios extends Controllers
         }
       }
       sleep(5);
+      echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+    }
+    die();
+  }
+  public function insertPregunta()
+  {
+    if ($_POST) {
+      if (empty($_POST['txtPregunta']) || empty($_POST['txtRespuesta'])) {
+        $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
+      } else {
+        $intIdUsuario = $_SESSION['userData']['id_usuario'];
+        $txtPregunta = strClean($_POST['txtPregunta']);
+        $txtRespuesta = strClean($_POST['txtRespuesta']);
+        $requestPregunta = $this->model->insertPregunta($intIdUsuario, $txtPregunta, $txtRespuesta);
+        /* dep($requestPregunta);
+        exit(); */
+        if ($requestPregunta > 0) {
+          $arrResponse = array("status" => true, "msg" => 'Datos guardos correctamente.');
+        } else  if ($requestPregunta == 'exist') {
+          $arrResponse = array("status" => false, "msg" => 'Esta pregunta ya ha sido registrada.');
+        } else  if ($requestPregunta == 'error') {
+          $arrResponse = array("status" => false, "msg" => 'Esta pregunta ya ha sido registrada.');
+        } else {
+          $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
+        }
+      }
       echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     }
     die();

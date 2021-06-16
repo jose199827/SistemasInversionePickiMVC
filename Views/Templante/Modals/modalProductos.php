@@ -4,7 +4,7 @@
       <div class="modal-dialog modal-sm modal-dialog-centered">
          <div class="modal-content">
             <div class="modal-header">
-               <h5 class="modal-title" id="TituloModal">Registrar Marca</h5>
+               <h5 class="modal-title" id="TituloModal">Marca</h5>
                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">

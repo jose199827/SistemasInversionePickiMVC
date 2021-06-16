@@ -105,6 +105,14 @@
                </a>
             </li>
             <?php } ?>
+            <!-- Menu Grafico-->
+            <?php if (!empty($_SESSION['permisos'][1]['r'])) { ?>
+            <li>
+               <a href="<?= Base_URL(); ?>/Graficas" class="dropdown-toggle no-arrow">
+                  <span class="micon dw dw-analytics-2"></span><span class="mtext">Graficos</span>
+               </a>
+            </li>
+            <?php } ?>
             <!-- Menu Facturacción -->
             <?php if (!empty($_SESSION['permisos'][2]['r']) || !empty($_SESSION['permisos'][2]['w'])) { ?>
             <li class="dropdown">

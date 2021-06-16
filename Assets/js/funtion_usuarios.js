@@ -1,4 +1,5 @@
 let tableUsuarios;
+let tablePreguntas;
 let rowTable;
 let divLoading = document.querySelector('#divLoading');
 document.addEventListener('DOMContentLoaded', function() {
@@ -54,6 +55,65 @@ document.addEventListener('DOMContentLoaded', function() {
             { "data": "options" }
         ],
         'dom': 'lBfrtip',
+        'buttons': [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5',
+        ],
+
+    });
+
+    tablePreguntas = $('#tablePreguntas').dataTable({
+        scrollCollapse: true,
+        autoWidth: false,
+        responsive: true,
+        searching: false,
+        columnDefs: [{
+            targets: "datatable-nosort",
+            orderable: false,
+        }],
+        "lengthMenu": [
+            [5, 10, 15, -1],
+            [5, 10, 15, "Todos"]
+        ],
+        "language": {
+            "sProcessing": "Procesando...",
+            "sLengthMenu": "Mostrar _MENU_ registros",
+            "sZeroRecords": "No se encontraron resultados",
+            "sEmptyTable": "Ningún dato disponible en esta tabla",
+            "sInfo": "_START_ al _END_ de un total de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando del 0 al 0 de un total de 0",
+            "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+            "sSearch": "Buscar:",
+            "sInfoThousands": ",",
+            "sLoadingRecords": "Cargando...",
+            "oPaginate": {
+                "sFirst": "Primero",
+                "sLast": "Último",
+                "sNext": '<i class="ion-chevron-right"></i>',
+                "sPrevious": '<i class="ion-chevron-left"></i>'
+            },
+            "oAria": {
+                "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+            },
+            "buttons": {
+                "copy": "Copiar",
+                "colvis": "Visibilidad"
+            }
+        },
+        "ajax": {
+            "url": " " + base_url + "/Usuarios/getRespuestas",
+            "dataSrc": ""
+        },
+        "columns": [
+            { "data": "numRegistro" },
+            { "data": "preguntas" },
+            { "data": "respuesta" },
+            { "data": "options" }
+        ],
+        'dom': 'frtip',
         'buttons': [
             'copyHtml5',
             'excelHtml5',
@@ -129,7 +189,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let formPerfil = document.querySelector("#formPerfil");
         formPerfil.onsubmit = function(e) {
             e.preventDefault();
-
             let strIdentificacion = document.querySelector('#txtIdentificacion').value;
             let strNombre = document.querySelector('#txtNombre').value;
             let strApellido = document.querySelector('#txtApellido').value;
@@ -158,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     swal("Atención", "Por favor verifique los campos en rojo.", "error");
                     return false;
                 }
-
             }
             divLoading.style.display = "flex";
             let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -248,6 +306,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 $(document).ready(function() {
     $('#tableUsuarios').DataTable();
+    $('#tablePreguntas').dataTable();
 });
 
 window.addEventListener('load', function() {
@@ -270,8 +329,6 @@ function fntRolesUsurios() {
         }
     }
 }
-
-
 
 function fntViewUsuario(idpersona) {
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
@@ -384,4 +441,38 @@ function openModal() {
     document.querySelector('#btnTex').innerHTML = "Registrar";
     document.querySelector('#formUsuario').reset();
     $('#usuarios-modal').modal('show');
+}
+
+if (document.querySelector("#formPreguntas")) {
+    let formPreguntas = document.querySelector("#formPreguntas");
+    formPreguntas.onsubmit = function(e) {
+        e.preventDefault();
+        let txtPregunta = document.querySelector('#txtPregunta').value;
+        let txtRespuesta = document.querySelector('#txtRespuesta').value;
+        if (txtPregunta == '' || txtRespuesta == '') {
+            swal("Atención", "Todos los campos son obligatorios.", "error");
+            return false;
+        }
+        divLoading.style.display = "flex";
+        let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        let ajaxUrl = base_url + '/Usuarios/insertPregunta';
+        let formData = new FormData(formPreguntas);
+        request.open("POST", ajaxUrl, true);
+        request.send(formData);
+        request.onreadystatechange = function() {
+            if (request.readyState != 4) return;
+            if (request.status == 200) {
+                let objData = JSON.parse(request.responseText);
+                if (objData.status) {
+                    swal("Preguntas de Seguridad", objData.msg, "success");
+                    txtPregunta.value = "";
+                    txtRespuesta.value = "";
+                } else {
+                    swal("Error", objData.msg, "error");
+                }
+            }
+        }
+        divLoading.style.display = "none";
+        return false;
+    }
 }

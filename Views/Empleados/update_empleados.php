@@ -1,6 +1,7 @@
 <!-- Se manda a llamar el encabezado -->
 <?php headerAdmin($data);
 $empleado = $data['empleados'];
+
 getModal("modalPrimerInicioLogin", $data);
 ?>
 <div class="mobile-menu-overlay"></div>
@@ -189,7 +190,7 @@ getModal("modalPrimerInicioLogin", $data);
                                     }
                                  ?>
                                  <option value="<?= $data['cargos'][$i]['id_cargo']; ?>" <?= $select ?>>
-                                    <?= $data['cargos'][$i]['cargo']; ?>JJJ</option>
+                                    <?= $data['cargos'][$i]['cargo']; ?></option>
                                  <?php
                                  }
                                  ?>

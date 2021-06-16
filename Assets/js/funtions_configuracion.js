@@ -1176,8 +1176,7 @@ $(document).ready(function() {
 
 //UPDATE PARA MARCAS//
 function fntEditMarca(id_marca) {
-    document.querySelector('#TituloModal').innerHTML = "Actualizar Marca";
-    document.querySelector('#btnTex').innerHTML = "Actualizar";
+
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getMarca/' + id_marca;
     request.open("GET", ajaxUrl, true);

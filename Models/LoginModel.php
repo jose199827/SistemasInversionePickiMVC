@@ -49,7 +49,7 @@ class LoginModel extends Mysql
 	public function sessionLogin(int $idUsuario)
 	{
 		$this->intIdUsuario = $idUsuario;
-		$sql = "SELECT p.id_persona, p.num_id_persona, p.nom_persona, p.ape_persona, t.telefono, d.direccion, c.correo, tr.id_rol, tr.rol, u.nom_usuario, u.activacion,u.pass_request
+		$sql = "SELECT p.id_persona, p.num_id_persona, p.nom_persona, p.ape_persona, t.telefono, d.direccion, c.correo, tr.id_rol, tr.rol,u.id_usuario, u.nom_usuario, u.activacion,u.pass_request
     FROM personas p 
     INNER JOIN rel_telefonos_persona rtp 
     ON rtp.id_persona = p.id_persona 

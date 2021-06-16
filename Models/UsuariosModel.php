@@ -94,6 +94,13 @@ class UsuariosModel extends Mysql
     $request = $this->selectAll($sql);
     return $request;
   }
+  public function selectPreguntas()
+  {
+    $id = $_SESSION['idUser'];
+    $sql = "SELECT r.id_resp_seg, r.id_usuario, p.preguntas, r.respuesta FROM respuestas_seguridad r INNER JOIN preguntas_seguridad p ON p.id_preg_seg= r.id_preg_seg WHERE r.id_usuario= $id";
+    $request = $this->selectAll($sql);
+    return $request;
+  }
   public function selectUsuario(int $idpersona)
   {
     $this->intIdUsuario = $idpersona;
@@ -147,6 +154,23 @@ class UsuariosModel extends Mysql
     $arrData = array($this->strIdentificacionFiscal, $this->strNombreFiscal, $this->strDireccionFiscal);
     $request = $this->update($sql, $arrData);
     $return = $request;
+    return $return;
+  }
+  public function insertPregunta($intIdUsuario, $txtPregunta, $txtRespuesta)
+  {
+    $return = 0;
+    $sql = "SELECT * FROM `preguntas_seguridad` WHERE preguntas ='$txtPregunta'";
+    $request = $this->selectAll($sql);
+    if (empty($request)) {
+      $sqlInser = "INSERT INTO `preguntas_seguridad`(`id_user`, `preguntas`) VALUES(?,?);
+                          SELECT @id_preg_seg := MAX(id_preg_seg) FROM `preguntas_seguridad`;
+                          INSERT INTO `respuestas_seguridad`(`id_usuario`, `id_preg_seg`, `respuesta`) VALUES (?,@id_preg_seg ,?)";
+      $arrData = array($intIdUsuario, $txtPregunta, $intIdUsuario, $txtRespuesta);
+      $request_insert = $this->insert($sqlInser, $arrData);
+      /* $return = $request_insert; */
+    } else {
+      $return = "exist";
+    }
     return $return;
   }
 }
