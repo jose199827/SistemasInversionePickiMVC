@@ -33,7 +33,7 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tabla de Empresas</h4>
+                              <h4 class="text-blue h4">EMPRESAS</h4>
                            </div>
                         </div>
                      </div>
@@ -42,9 +42,9 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus datatable-nosort">N.°</th>
-                                 <th>RTN Empresa</th>
-                                 <th>Empresa</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>RTN EMPRESA</th>
+                                 <th>EMPRESA</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -90,7 +90,7 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Actualizar Empresa</h5>
+                     <h5 class="modal-title" id="myLargeModalLabel">EMPRESA</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body ActualizarEmpresas">

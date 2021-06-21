@@ -149,7 +149,7 @@ function fntDelProveedores(id_proveedor) {
         text: "¿Realmente quiere eliminar este proveedor?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",

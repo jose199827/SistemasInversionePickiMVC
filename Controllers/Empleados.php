@@ -60,7 +60,6 @@ class Empleados extends Controllers
       /*  dep($_POST); exit(); */
 
       if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipo"]) || empty($_POST["cargo"]) || empty($_POST["estatus"]) || empty($_POST["usuario"]) || empty($_POST["rol"])) {
-
          $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
       } else {
          $nombre_empleado = strClean($_POST["nombreEmpleado"]);

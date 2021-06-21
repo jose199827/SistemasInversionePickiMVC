@@ -23,16 +23,16 @@ getModal("modalPrimerInicioLogin", $data);
                <div class="col-6 text-right">
                   <div class="dropdown">
                      <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        Registrar
+                        REGISTRAR
                      </a>
                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#marca-modal">Marca</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#marca-modal" onclick="openModalMarca()">MARCA</a>
                         <a class="dropdown-item" href="#" data-toggle="modal"
-                           data-target="#categoria-modal">Categoria</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#grupo-modal">Grupo</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#unidadMedida-modal">Unidad
-                           Medida</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#impuesto-modal">Impuesto</a>
+                           data-target="#categoria-modal" onclick="openModalCategoria()">CATEGORIA</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#grupo-modal" onclick="openModalGrupo()">GRUPO</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#unidadMedida-modal" onclick="openModalUnidades()">UNIDAD MEDIDA
+                        </a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#impuesto-modal" onclick="openModalImpuestos()">IMPUESTO</a>
                      </div>
                   </div>
                </div>
@@ -48,11 +48,11 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tabla de Marcas</h4>
+                              <h4 class="text-blue h4">MARCAS</h4>
                            </div>
                            <div class="col-6 text-right">
                               <button type="button" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#marca-modal">Registrar</button>
+                                 data-target="#marca-modal" onclick="openModalMarca()">REGISTRAR</button>
                            </div>
                         </div>
                      </div>
@@ -61,8 +61,8 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Marca</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>MARCA</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -81,11 +81,11 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tabla de Categorías</h4>
+                              <h4 class="text-blue h4">CATEGORÍAS</h4>
                            </div>
                            <div class="col-6 text-right">
                               <button type="button" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#categoria-modal">Registrar</button>
+                                 data-target="#categoria-modal"onclick="openModalCategoria()">REGISTRAR</button>
                            </div>
                         </div>
 
@@ -95,8 +95,8 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Categoria</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>CATEGORIA</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -139,11 +139,11 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tabla de Grupos</h4>
+                              <h4 class="text-blue h4">GRUPOS</h4>
                            </div>
                            <div class="col-6 text-right">
                               <button type="button" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#grupo-modal">Registrar</button>
+                                 data-target="#grupo-modal" onclick="openModalGrupo()">REGISTRAR</button>
                            </div>
                         </div>
                      </div>
@@ -152,8 +152,8 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Grupo</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>GRUPO</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -190,11 +190,11 @@ getModal("modalPrimerInicioLogin", $data);
                         <div class="pd-20">
                            <div class="row">
                               <div class="col-6">
-                                 <h4 class="text-blue h4">Tabla de Unidades Medidas</h4>
+                                 <h4 class="text-blue h4">UNIDADES MEDIDAS</h4>
                               </div>
                               <div class="col-6 text-right">
                                  <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#unidadMedida-modal">Registrar</button>
+                                    data-target="#unidadMedida-modal" onclick="openModalUnidades()">REGISTRAR</button>
                               </div>
                            </div>
                         </div>
@@ -203,8 +203,8 @@ getModal("modalPrimerInicioLogin", $data);
                               <thead>
                                  <tr>
                                     <th class="table-plus">N.º</th>
-                                    <th>Unidad</th>
-                                    <th class="datatable-nosort">Acciones</th>
+                                    <th>UNIDAD</th>
+                                    <th class="datatable-nosort">ACCIONES</th>
                                  </tr>
                               </thead>
                               <tbody>
@@ -247,11 +247,11 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tabla de Impuestos</h4>
+                              <h4 class="text-blue h4">IMPUESTOS</h4>
                            </div>
                            <div class="col-6 text-right">
                               <button type="button" class="btn btn-primary" data-toggle="modal"
-                                 data-target="#impuesto-modal">Registrar</button>
+                                 data-target="#impuesto-modal" onclick="openModalImpuestos()">REGISTRAR</button>
                            </div>
                         </div>
                      </div>
@@ -260,9 +260,9 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Nombre Impuestos</th>
-                                 <th>Porcentaje</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>NOMBRE DE IMPUESTO</th>
+                                 <th>PORCENTAJE</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -304,7 +304,7 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Editar Marca</h5>
+                     <h5 class="modal-title" id="myLargeModalLabel">MARCA</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body ActualizarMarca">

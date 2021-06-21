@@ -241,7 +241,7 @@ function fntDelCliente(idpersona) {
         text: "¿Realmente quieres eliminar este cliente?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",

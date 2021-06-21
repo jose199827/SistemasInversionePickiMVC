@@ -54,7 +54,8 @@
                </div>
             </div>
             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 mb-30">
-               <div class="card-box height-100-p overflow-hidden">
+               <!-- Aqui habia una class overflow-hidden -->
+               <div class="card-box height-100-p ">
                   <div class="profile-tab height-100-p">
                      <div class="tab height-100-p">
                         <ul class="nav nav-tabs customtab" role="tablist">
@@ -75,53 +76,70 @@
                            <div class="tab-pane fade show active" id="datosPersonales" role="tabpanel">
                               <div class="pd-20">
                                  <form id="formPerfil" name="formPerfil" class="form-horizontal">
-                                    <p class="text-primary">Los campos con asterisco (<span class="text-red-50">*</span>) son obligatorios.</p>
+                                    <p class="text-primary">Los campos con asterisco (<span
+                                          class="text-red-50">*</span>) son obligatorios.</p>
                                     <div class="row">
                                        <div class="col-md-12 col-sm-12">
                                           <div class="form-group">
                                              <label>Identificación: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtIdentificacion" name="txtIdentificacion" placeholder="Identificación" class="form-control " value="<?= $_SESSION['userData']['num_id_persona'] ?>" required>
+                                             <input type="text" id="txtIdentificacion" name="txtIdentificacion"
+                                                placeholder="Identificación" class="form-control "
+                                                value="<?= $_SESSION['userData']['num_id_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Nombres: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtNombre" name="txtNombre" placeholder="Nombres del Usuario" class="form-control valid validText" value="<?= $_SESSION['userData']['nom_persona'] ?>" required>
+                                             <input type="text" id="txtNombre" name="txtNombre"
+                                                placeholder="Nombres del Usuario" class="form-control valid validText"
+                                                value="<?= $_SESSION['userData']['nom_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Apellidos: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtApellido" name="txtApellido" placeholder="Apellidos del Usuario" class="form-control valid validText" value="<?= $_SESSION['userData']['ape_persona'] ?>" required>
+                                             <input type="text" id="txtApellido" name="txtApellido"
+                                                placeholder="Apellidos del Usuario" class="form-control valid validText"
+                                                value="<?= $_SESSION['userData']['ape_persona'] ?>" required>
                                           </div>
                                        </div>
                                        <div class="col-md-12 col-sm-12">
                                           <div class="form-group">
                                              <label>Email: <span class="text-red-50">*</span> </label>
-                                             <input type="email" id="txtEmail" name="txtEmail" placeholder="Email del Usuario" class="form-control valid validEmail" value="<?= $_SESSION['userData']['correo'] ?>" required readonly disabled>
+                                             <input type="email" id="txtEmail" name="txtEmail"
+                                                placeholder="Email del Usuario" class="form-control valid validEmail"
+                                                value="<?= $_SESSION['userData']['correo'] ?>" required readonly
+                                                disabled>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Teléfono: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtTelefono" name="txtTelefono" placeholder="Teléfono del Usuario" class="form-control valid validNumber" value="<?= $_SESSION['userData']['telefono'] ?>" required onkeypress="return controlTag(event);">
+                                             <input type="text" id="txtTelefono" name="txtTelefono"
+                                                placeholder="Teléfono del Usuario"
+                                                class="form-control valid validNumber"
+                                                value="<?= $_SESSION['userData']['telefono'] ?>" required
+                                                onkeypress="return controlTag(event);">
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Password:</label>
-                                             <input type="password" id="txtPassword" name="txtPassword" placeholder="Password" class=" form-control">
+                                             <input type="password" id="txtPassword" name="txtPassword"
+                                                placeholder="Password" class=" form-control">
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Confirmar Password:</label>
-                                             <input type="password" id="txtPasswordConfirm" name="txtPasswordConfirm" placeholder="Confirmar Password" class=" form-control">
+                                             <input type="password" id="txtPasswordConfirm" name="txtPasswordConfirm"
+                                                placeholder="Confirmar Password" class=" form-control">
                                           </div>
                                        </div>
                                     </div>
                                     <div class="text-right">
-                                       <button id="btnActionForm" type="submit" class="btn btn-success"><span id="btnTex">Actualizar</span></button>
+                                       <button id="btnActionForm" type="submit" class="btn btn-success"><span
+                                             id="btnTex">Actualizar</span></button>
                                     </div>
                                  </form>
                               </div>
@@ -141,15 +159,18 @@
                                     <div class="row">
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
-                                             <input class="form-control" type="hidden" name="idPregunta" id="idPregunta">
+                                             <input class="form-control" type="hidden" name="idPregunta"
+                                                id="idPregunta">
                                              <label>Pregunta de Seguridad: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtPregunta" name="txtPregunta" placeholder="Preunta de Seguridad" class="form-control" required>
+                                             <input type="text" id="txtPregunta" name="txtPregunta"
+                                                placeholder="Pregunta de Seguridad" class="form-control" required>
                                           </div>
                                        </div>
                                        <div class="col-md-6 col-sm-12">
                                           <div class="form-group">
                                              <label>Respuesta: <span class="text-red-50">*</span> </label>
-                                             <input type="text" id="txtRespuesta" name="txtRespuesta" placeholder="Respuesta" class="form-control" required>
+                                             <input type="text" id="txtRespuesta" name="txtRespuesta"
+                                                placeholder="Respuesta" class="form-control" required>
                                           </div>
                                        </div>
                                     </div>
@@ -166,8 +187,8 @@
                                     <thead>
                                        <tr>
                                           <th class="table-plus">N.º</th>
-                                          <th>Pregunta</th>
-                                          <th>Respuesta</th>
+                                          <th>Preguntas</th>
+                                          <th>Respuestas</th>
                                           <th class="datatable-nosort">Acciones</th>
                                        </tr>
                                     </thead>

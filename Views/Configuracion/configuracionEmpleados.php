@@ -11,7 +11,7 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="row">
                <div class="col-6">
                   <div class="title">
-                     <h4>Configuración de Usuario</h4>
+                     <h4>Configuración</h4>
                   </div>
                   <nav aria-label="breadcrumb" role="navigation">
                      <ol class="breadcrumb">
@@ -22,14 +22,14 @@ getModal("modalPrimerInicioLogin", $data);
                <div class="col-6 text-right">
                   <div class="dropdown">
                      <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                        Registrar
+                        REGISTRAR
                      </a>
                      <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalCargo">Tipos de
-                           Cargos</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTipoEm">Tipos de
-                           Empleados</a>
-                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalRol">Tipos de Roles</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalCargo" onclick="openModalCargos()">
+                           CARGOS</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalTipoEm" onclick="openModalEmpleados()">
+                           EMPLEADOS</a>
+                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modalRol" onclick="openModalRoles()">ROLES</a>
                      </div>
                   </div>
                </div>
@@ -44,10 +44,10 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tipos de Cargos</h4>
+                              <h4 class="text-blue h4">CARGOS</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCargo">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCargo" onclick="openModalCargos()">REGISTRAR</button>
                            </div>
                         </div>
                      </div>
@@ -56,8 +56,8 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Tipo de Cargo</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>CARGO</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -89,10 +89,10 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tipos de Empleados</h4>
+                              <h4 class="text-blue h4">EMPLEADOS</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTipoEm">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalTipoEm" onclick="openModalEmpleados()">REGISTRAR</button>
                            </div>
                         </div>
                      </div>
@@ -101,8 +101,8 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Tipo de Empleado</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>EMPLEADO</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -141,10 +141,10 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="pd-20">
                         <div class="row">
                            <div class="col-6">
-                              <h4 class="text-blue h4">Tipos de Roles</h4>
+                              <h4 class="text-blue h4">ROLES</h4>
                            </div>
                            <div class="col-6 text-right">
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRol">Registrar</button>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalRol" onclick="openModalRoles()">REGISTRAR</button>
                            </div>
                         </div>
                      </div>
@@ -153,8 +153,8 @@ getModal("modalPrimerInicioLogin", $data);
                            <thead>
                               <tr>
                                  <th class="table-plus">N.º</th>
-                                 <th>Tipo de Rol</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>ROL</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -190,7 +190,7 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Editar cargo</h5>
+                     <h5 class="modal-title" id="myLargeModalLabel">CARGO</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body ActualizarCargo">
@@ -205,7 +205,7 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Editar Empleado</h5>
+                     <h5 class="modal-title" id="myLargeModalLabel">EMPLEADO</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body ActualizarTipoEmpleado">
@@ -220,7 +220,7 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Editar Rol</h5>
+                     <h5 class="modal-title" id="myLargeModalLabel">ROL</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body ActualizarRol">

@@ -52,6 +52,14 @@ class Configuracion extends Controllers
     $data['page_funtions_js'] = "funtions_configuracion.js";
     $this->views->getView($this, "configuracionbitacora", $data);
   }
+  public function Banco()
+  {
+    $data['page_tag'] = "Banco- Inversiones Picky";
+    $data['page_title'] = "Configuración";
+    $data['page_name'] = "Bancos";
+    $data['page_funtions_js'] = "funtions_configuracion.js";
+    $this->views->getView($this, "configuracionBancos", $data);
+  }
   public function getBitacora()
   {
     $arrData = $this->model->selectBitacora();
@@ -393,10 +401,39 @@ class Configuracion extends Controllers
     die();
   }
 
+  public function getBanco()
+  {
+    $arrData = $this->model->selectBanco();
+    //dep($arrData);//
+    for ($i = 0; $i < count($arrData); $i++) {
+      $arrData[$i]['numRegistro'] = $i + 1;
+      $btnView = '';
+      $btnEdit = '';
+      $btnDel = '';
+      $btnEdit = '<a class="dropdown-item btnEditBanco" href="javascript:;" onClick="fntEditBanco(' . $arrData[$i]['id_banco'] . ')"><i class="dw dw-edit2"></i> Editar</a>';
+
+      $btnDel = '<a class="dropdown-item btnDelBanco" href="javascript:;" onClick="fntDelBanco(' . $arrData[$i]['id_banco'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
+      $arrData[$i]['options'] = '<div class="dropdown ">
+                                                 <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
+                                                   data-toggle="dropdown">
+                                                   <i class="dw dw-more"></i>
+                                                 </a>
+                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                   ' . $btnView . '
+                                                   ' . $btnEdit . '
+                                                   ' . $btnDel . '
+                                                 </div>
+                                               </div>';
+    }
+    echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+    die();
+  }
+
+
   public function setMarcas()
   {
-    //dep($_POST);
-    //exit();
+   // dep($_POST);
+   // exit();
     $IdMarca = intval($_POST['UMarca']);  // este codigo se modifica cuando se hace el update
     $InsertaMarcas = strClean($_POST['marca']);
     if ($IdMarca == 0) {
@@ -699,6 +736,37 @@ class Configuracion extends Controllers
     die();
   }
 
+  public function setBanco()
+  { {
+      //dep($_POST);
+      //exit();
+      $IdBanco = intval($_POST['UBanco']);  // este codigo se modifica cuando se hace el update
+      $Insertanom_banco = strClean($_POST['nom_banco']);
+      $Insertaabr_banco = strClean($_POST['abr_banco']);
+      if ($IdBanco == 0) {
+        $requestinsert = $this->model->insertBanco($Insertanom_banco,$Insertaabr_banco);
+        $option = 1;
+      } else {
+        $requestinsert = $this->model->updateBanco( $Insertanom_banco,$Insertaabr_banco,$IdBanco);
+        $option = 2;
+      }
+
+      if ($requestinsert > 0) {
+        if ($option == 1) {
+          $arrResponse = array('status' => true, 'msg' => 'Datos guardados correctamente.');
+        } else {
+          $arrResponse = array('status' => true, 'msg' => 'Datos actualizados correctamente.');
+        }
+      } else if ($requestinsert == 'exist') {
+        $arrResponse = array('status' => false, 'msg' => '¡Atención! El Rol ya existe.');
+      } else {
+        $arrResponse = array('status' => false, 'msg' => 'No es posible almacenar los datos.');
+      }
+
+      echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+      die();
+    }
+  }
 
   //UPDATE PARA MARCAS
   public function getMarca($id_marca)
@@ -1007,4 +1075,36 @@ class Configuracion extends Controllers
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     die();
   }
+
+   //UPDATE PARA BANCOS
+   public function getBancos($id_banco)
+   {
+     $UBanco = intval($id_banco);
+     if ($UBanco > 0) {
+       $arrData = $this->model->selectBancos($UBanco);
+       //dep($arrData); //
+       //  exit(); //
+       if (empty($arrData)) {
+         $arrResponse = array('status' => false, 'msg' => '¡Atención! Datos no encontrados.');
+       } else {
+         $arrResponse = array('status' => true, 'Data' => $arrData);
+       }
+     }
+     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+     die();
+   }
+   //DELETE PARA BANCOS
+   public function delBanco()
+   {
+     $IdBanco = intval($_POST['id_banco']);
+     $requestdelete = $this->model->deleteBancos($IdBanco);
+     if ($requestdelete) {
+       $arrResponse = array('status' => true, 'msg' => 'Datos eliminados correctamente.');
+     } else {
+       $arrResponse = array('status' => false, 'msg' => 'Error al eliminar.');
+     }
+     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
+     die();
+   }
+ 
 }//cierra el controlador

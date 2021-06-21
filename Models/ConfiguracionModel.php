@@ -77,7 +77,13 @@ class ConfiguracionModel extends Mysql
     $request = $this->selectAll($sql);
     return $request;
   }
-
+  public function selectBanco()
+  {
+    $sql = "SELECT * FROM `entidad_banco`";
+    $request = $this->selectAll($sql);
+    return $request;
+  }
+//**FIN DE LOS SELECTS */
   public function insertMarcas($InsertaMarcas)
   {
     $return = "";
@@ -303,7 +309,33 @@ class ConfiguracionModel extends Mysql
     }
     return $return;
   }
+  
+  public function insertBanco($Insertanom_banco,$Insertaabr_banco)
+  {
+    $return = "";
+    $Fecha = date("Y-m-d H:i:s");
+    $sql = "SELECT * FROM `entidad_banco` WHERE nom_banco ='$Insertanom_banco' and abr_banco ='$Insertaabr_banco'";
+    $request = $this->selectAll($sql);
+    if (empty($request)) {
+      $sqlInsertBanco = "INSERT INTO `entidad_banco`
+    (
+    `nom_banco`, 
+    `abr_banco`,
+   `fec_registro`, 
+   `usr_registro`)
+     VALUES (?,?,?,?);";
 
+      $array = array($Insertanom_banco,$Insertaabr_banco, $Fecha, $_SESSION['userData']['nom_usuario']);
+      $requestInsert = $this->insert($sqlInsertBanco, $array);
+      $return = $requestInsert;
+    } else {
+      $return = "exist";
+    }
+    return $return;
+  }
+
+
+  //** FIN DE LOS INSERTS */
 
   //SELECT DE MARCA PARA MOSTRAR EN EL MODAL Y ACTUALIZAR//
   public function selectMarca($UMarca)
@@ -381,6 +413,14 @@ class ConfiguracionModel extends Mysql
     $request = $this->select($sql);
     return $request;
   }
+
+   //SELECT DE BANCOS PARA MOSTRAR EN EL MODAL Y ACTUALIZAR//
+   public function selectBancos($UBanco)
+   {
+     $sql = "SELECT * FROM `entidad_banco` WHERE  `id_banco` = $UBanco";
+     $request = $this->select($sql);
+     return $request;
+   }
 
 
   //UPDATE DE MARCA//
@@ -561,6 +601,23 @@ class ConfiguracionModel extends Mysql
     return $return;
   }
 
+   //UPDATE DE BANCOS
+   public function updateBanco($Insertanom_banco,$Insertaabr_banco,$IdBanco)
+   {
+     $return = "";
+     $sql = "SELECT * FROM `entidad_banco` WHERE nom_banco ='$Insertanom_banco' and abr_banco='$Insertaabr_banco'";
+     $request = $this->selectAll($sql);
+     if (empty($request)) {
+       $sqlInsertBanco = "UPDATE `entidad_banco` SET `nom_banco`= ?, `abr_banco`= ? WHERE `id_banco`=$IdBanco";
+ 
+       $array = array($Insertanom_banco,$Insertaabr_banco);
+       $requestInsert = $this->update($sqlInsertBanco, $array);
+       $return = $requestInsert;
+     } else {
+       $return = "exist";
+     }
+     return $return;
+   }
 
   //DELETE PARA MARCAS
   public function deleteMarca($IdMarca)
@@ -625,4 +682,12 @@ class ConfiguracionModel extends Mysql
     $request = $this->delete($sql);
     return $request;
   }
+
+   //DELETE PARA BANCOS
+   public function deleteBancos($IdBanco)
+   {
+     $sql = "DELETE  FROM `entidad_banco` WHERE `id_banco` = $IdBanco";
+     $request = $this->delete($sql);
+     return $request;
+   }
 }//fin de la funcion entera

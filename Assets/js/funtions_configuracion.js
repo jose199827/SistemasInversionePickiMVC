@@ -9,6 +9,7 @@ let TablaRol;
 let TablaFacturacion;
 let TablaEmpresa;
 let TablaBitacora;
+let TablaBancos;
 let divLoading = document.querySelector('#divLoading');
 document.addEventListener('DOMContentLoaded', function() {
     //TABLA DE MARCAS//
@@ -669,6 +670,65 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
         });
     }
+    //TABLA DE BANCOS//
+    if (document.querySelector("#TablaBancos")) {
+        TablaBancos = $('#TablaBancos').dataTable({
+            scrollCollapse: true,
+            autoWidth: false,
+            responsive: true,
+            columnDefs: [{
+                targets: "datatable-nosort",
+                orderable: false,
+            }],
+            "lengthMenu": [
+                [5, 10, 15, -1],
+                [5, 10, 15, "Todos"]
+            ],
+            "language": {
+                "sProcessing": "Procesando...",
+                "sLengthMenu": "Mostrar _MENU_ registros",
+                "sZeroRecords": "No se encontraron resultados",
+                "sEmptyTable": "Ningún dato disponible en esta tabla",
+                "sInfo": "_START_ al _END_ de un total de _TOTAL_ registros",
+                "sInfoEmpty": "Mostrando del 0 al 0 de un total de 0",
+                "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                "sSearch": "Buscar:",
+                "sInfoThousands": ",",
+                "sLoadingRecords": "Cargando...",
+                "oPaginate": {
+                    "sFirst": "Primero",
+                    "sLast": "Último",
+                    "sNext": '<i class="ion-chevron-right"></i>',
+                    "sPrevious": '<i class="ion-chevron-left"></i>'
+                },
+                "oAria": {
+                    "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                    "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                },
+                "buttons": {
+                    "copy": "Copiar",
+                    "colvis": "Visibilidad"
+                }
+            },
+            "ajax": {
+                "url": " " + base_url + "/Configuracion/getBanco",
+                "dataSrc": ""
+            },
+            "columns": [
+                { "data": "numRegistro" },
+                { "data": "nom_banco" },
+                { "data": "abr_banco" },
+                { "data": "options" }
+            ],
+            'dom': 'lBfrtip',
+            'buttons': [
+                'copyHtml5',
+                'excelHtml5',
+                'csvHtml5',
+                'pdfHtml5',
+            ],
+        });
+    }
 
     //***********MODALES**********//
     if (document.querySelector("#formMarca")) {
@@ -700,13 +760,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (request.readyState == 4 && request.status == 200) {
                     let objData = JSON.parse(request.responseText);
                     if (objData.status) {
+
                         $('#marca-modal').modal("hide");
                         formMarca.reset();
                         swal("Marcas", objData.msg, "success");
                         TablaMarcas.api().ajax.reload();
                     } else {
                         swal("Error", objData.msg, "error");
-                    }
+                    } //fin del segundo else
 
 
                 }
@@ -1157,6 +1218,57 @@ document.addEventListener('DOMContentLoaded', function() {
 
         }
     }
+
+    if (document.querySelector("#formBanco")) {
+        //MODAL DE BANCOS
+        let formBanco = document.querySelector("#formBanco");
+        formBanco.onsubmit = function(e) {
+            e.preventDefault();
+            let nom_banco = document.querySelector("#nom_banco").value;
+            let abr_banco = document.querySelector("#abr_banco").value;
+            if (nom_banco == "" || abr_banco == "") {
+                swal("Atención", "Todos los campos son obligatorios.", "error");
+                return false;
+
+
+            }
+
+            //linea nueva agregada para validar
+            let elemtedValid = document.getElementsByClassName("valid");
+            for (let i = 0; i < elemtedValid.length; i++) {
+                if (elemtedValid[i].classList.contains('form-control-danger')) {
+                    swal("Atención", "Por favor verifica los campos en rojo.", "error");
+                    return false;
+                }
+            } //cierra aqui y se coloca arriba de divLoading.style.display
+            divLoading.style.display = "flex";
+            let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            let ajaxUrl = base_url + '/Configuracion/setBanco';
+            let formData = new FormData(formBanco);
+            request.open("POST", ajaxUrl, true);
+            request.send(formData);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    let objData = JSON.parse(request.responseText);
+                    if (objData.status) {
+                        $('#Bancos-modal').modal("hide");
+                        formBanco.reset();
+                        swal("Bancos", objData.msg, "success");
+                        TablaBancos.api().ajax.reload();
+                    } else {
+                        swal("Error", objData.msg, "error");
+                    }
+
+
+                }
+                divLoading.style.display = "none";
+                return false;
+
+
+            }
+
+        }
+    }
 }, false);
 
 
@@ -1172,11 +1284,11 @@ $(document).ready(function() {
     $('#TablaFacturacion').dataTable();
     $('#TablaEmpresa').dataTable();
     $('#TablaBitacora').dataTable();
+    $('#TablaBancos').dataTable();
 });
 
 //UPDATE PARA MARCAS//
 function fntEditMarca(id_marca) {
-
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getMarca/' + id_marca;
     request.open("GET", ajaxUrl, true);
@@ -1203,7 +1315,7 @@ function fntDelMarca(id_marca) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1232,8 +1344,8 @@ function fntDelMarca(id_marca) { //se obtiene del inspeccionar
 }
 //UPDATE PARA CATEGORIAS//
 function fntEditCategoria(id_categoria) {
-    document.querySelector('#TituloModalC').innerHTML = "Actualizar Categoria";
-    document.querySelector('#btnTexC').innerHTML = "Actualizar";
+    // document.querySelector('#TituloModalC').innerHTML = "Actualizar Categoria";
+    // document.querySelector('#btnTexC').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getCategoria/' + id_categoria;
     request.open("GET", ajaxUrl, true);
@@ -1260,7 +1372,7 @@ function fntDelCategoria(id_categoria) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1289,8 +1401,8 @@ function fntDelCategoria(id_categoria) { //se obtiene del inspeccionar
 }
 //UPDATE PARA GRUPOS
 function fntEditGrupo(id_grupo) {
-    document.querySelector('#TituloModalG').innerHTML = "Actualizar Grupo";
-    document.querySelector('#btnTexG').innerHTML = "Actualizar";
+    // document.querySelector('#TituloModalG').innerHTML = "Actualizar Grupo";
+    // document.querySelector('#btnTexG').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getGrupo/' + id_grupo;
     request.open("GET", ajaxUrl, true);
@@ -1317,7 +1429,7 @@ function fntDelGrupo(id_grupo) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1347,8 +1459,8 @@ function fntDelGrupo(id_grupo) { //se obtiene del inspeccionar
 
 //UPDATE PARA UNIDADES MEDIDAS
 function fntEditUnidades(id_uni_medida) {
-    document.querySelector('#TituloModalU').innerHTML = "Actualizar Unidades";
-    document.querySelector('#btnTexU').innerHTML = "Actualizar";
+    // document.querySelector('#TituloModalU').innerHTML = "Actualizar Unidades";
+    // document.querySelector('#btnTexU').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getUnidad/' + id_uni_medida;
     request.open("GET", ajaxUrl, true);
@@ -1366,7 +1478,6 @@ function fntEditUnidades(id_uni_medida) {
         }
     }
 }
-
 //DELETE DE UNIDADES MEDIDAS//
 function fntDelUnidades(id_uni_medida) { //se obtiene del inspeccionar
     var id_uni_medida = id_uni_medida;
@@ -1376,7 +1487,7 @@ function fntDelUnidades(id_uni_medida) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1406,8 +1517,8 @@ function fntDelUnidades(id_uni_medida) { //se obtiene del inspeccionar
 
 //UPDATE PARA IMPUESTOS
 function fntEditImpuestos(id_tip_impuestos) {
-    document.querySelector('#TituloModalI').innerHTML = "Actualizar Impuestos";
-    document.querySelector('#btnTexI').innerHTML = "Actualizar";
+    //   document.querySelector('#TituloModalI').innerHTML = "Actualizar Impuestos";
+    //  document.querySelector('#btnTexI').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getImpuesto/' + id_tip_impuestos;
     request.open("GET", ajaxUrl, true);
@@ -1436,7 +1547,7 @@ function fntDelImpuestos(id_tip_impuestos) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1466,8 +1577,8 @@ function fntDelImpuestos(id_tip_impuestos) { //se obtiene del inspeccionar
 
 //UPDATE PARA CARGOS
 function fntEditCargos(id_cargo) {
-    document.querySelector('#TituloModalCA').innerHTML = "Actualizar Cargos";
-    document.querySelector('#btnTexCA').innerHTML = "Actualizar";
+    //  document.querySelector('#TituloModalCA').innerHTML = "Actualizar Cargos";
+    // document.querySelector('#btnTexCA').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getCargo/' + id_cargo;
     request.open("GET", ajaxUrl, true);
@@ -1495,7 +1606,7 @@ function fntDelCargos(id_cargo) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1525,8 +1636,8 @@ function fntDelCargos(id_cargo) { //se obtiene del inspeccionar
 
 //UPDATE PARA EMPLEADOS
 function fntEditEmpleados(id_tip_empleado) {
-    document.querySelector('#TituloModalEm').innerHTML = "Actualizar Empleado";
-    document.querySelector('#btnTexEm').innerHTML = "Actualizar";
+    //  document.querySelector('#TituloModalEm').innerHTML = "Actualizar Empleado";
+    //  document.querySelector('#btnTexEm').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getEmpleado/' + id_tip_empleado;
     request.open("GET", ajaxUrl, true);
@@ -1554,7 +1665,7 @@ function fntDelEmpleados(id_tip_empleado) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1584,8 +1695,8 @@ function fntDelEmpleados(id_tip_empleado) { //se obtiene del inspeccionar
 
 //UPDATE PARA ROL
 function fntEditRol(id_rol) {
-    document.querySelector('#TituloModalR').innerHTML = "Actualizar Rol";
-    document.querySelector('#btnTexR').innerHTML = "Actualizar";
+    // document.querySelector('#TituloModalR').innerHTML = "Actualizar Rol";
+    // document.querySelector('#btnTexR').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getRol/' + id_rol;
     request.open("GET", ajaxUrl, true);
@@ -1613,7 +1724,7 @@ function fntDelRol(id_rol) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1643,8 +1754,8 @@ function fntDelRol(id_rol) { //se obtiene del inspeccionar
 
 //UPDATE PARA REGIMEN DE FACTURACION
 function fntEditFacturacion(id_regi_fact) {
-    document.querySelector('#TituloModalRF').innerHTML = "Actualizar CAI";
-    document.querySelector('#btnTexRF').innerHTML = "Actualizar";
+    //   document.querySelector('#TituloModalRF').innerHTML = "Actualizar CAI";
+    //   document.querySelector('#btnTexRF').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getFacturaciones/' + id_regi_fact;
     request.open("GET", ajaxUrl, true);
@@ -1668,8 +1779,8 @@ function fntEditFacturacion(id_regi_fact) {
 
 //UPDATE PARA EMPRESAS
 function fntEditEmpresas(id_empresa) {
-    document.querySelector('#TituloModalEP').innerHTML = "Actualizar Empresa";
-    document.querySelector('#btnTexEP').innerHTML = "Actualizar";
+    //  document.querySelector('#TituloModalEP').innerHTML = "Actualizar Empresa";
+    //   document.querySelector('#btnTexEP').innerHTML = "Actualizar";
     let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
     let ajaxUrl = base_url + '/Configuracion/getEmpresas/' + id_empresa;
     request.open("GET", ajaxUrl, true);
@@ -1698,7 +1809,7 @@ function fntDelEmpresas(id_empresa) { //se obtiene del inspeccionar
         text: "¿Realmente quiere eliminar este registro?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",
@@ -1725,6 +1836,69 @@ function fntDelEmpresas(id_empresa) { //se obtiene del inspeccionar
         }
     })
 }
+
+//*AQUI EMPIEZA EL UPDATE Y DELETE DE BANCOS */
+//UPDATE PARA BANCOS
+function fntEditBanco(id_banco) {
+    //  document.querySelector('#TituloModalEP').innerHTML = "Actualizar Empresa";
+    //   document.querySelector('#btnTexEP').innerHTML = "Actualizar";
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url + '/Configuracion/getBancos/' + id_banco;
+    request.open("GET", ajaxUrl, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            let objData = JSON.parse(request.responseText);
+            if (objData.status) {
+                document.querySelector('#UBanco').value = objData.Data.id_banco;
+                document.querySelector('#nom_banco').value = objData.Data.nom_banco;
+                document.querySelector('#abr_banco').value = objData.Data.abr_banco;
+                $('#Bancos-modal').modal("show");
+            } else {
+                swal("Error", objData.msj, "error");
+            }
+        }
+    }
+}
+
+//DELETE DE BANCOS//
+function fntDelBanco(id_banco) { //se obtiene del inspeccionar
+    var id_banco = id_banco;
+    /* alert(idrol); */
+    swal({
+        title: 'Eliminar Banco ',
+        text: "¿Realmente quiere eliminar este registro?",
+        type: 'warning',
+        showCancelButton: true,
+        //confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: "Si, eliminar!",
+        cancelButtonText: "No, cancelar!",
+        preConfirm: false
+    }).then((result) => {
+        if (result.value) {
+            var request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            var ajaxUrl = base_url + '/Configuracion/delBanco/';
+            var strData = "id_banco=" + id_banco;
+            request.open("POST", ajaxUrl, true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send(strData);
+            request.onreadystatechange = function() {
+                if (request.readyState == 4 && request.status == 200) {
+                    var objData = JSON.parse(request.responseText);
+                    if (objData.status) {
+                        swal("Eliminado!", objData.msg, "success");
+                        TablaBancos.api().ajax.reload();
+                    } else {
+                        swal("Atención!", objData.msg, "error");
+                    }
+                }
+            }
+        }
+    })
+}
+
+//** AQUI TERMINA EL UPDATE Y DELETE DE BANCOS */
 
 function fntPermisos(idRol) {
     var idrol = idRol;
@@ -1777,4 +1951,58 @@ function deseleccionar_todo() {
     for (i = 0; i < document.formPermisos.elements.length; i++)
         if (document.formPermisos.elements[i].type == "checkbox")
             document.formPermisos.elements[i].checked = 0
+}
+
+function openModalMarca() {
+
+    document.querySelector('#UMarca').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formMarca').reset();
+}
+
+function openModalCategoria() {
+
+    document.querySelector('#UCategoria').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formCategoria').reset();
+}
+
+function openModalGrupo() {
+
+    document.querySelector('#UGrupo').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formGrupo').reset();
+}
+
+function openModalUnidades() {
+
+    document.querySelector('#UUnidades').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formMedida').reset();
+}
+
+function openModalImpuestos() {
+
+    document.querySelector('#UImpuesto').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formImpuesto').reset();
+}
+
+function openModalCargos() {
+
+    document.querySelector('#UCargo').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formCargo').reset();
+}
+
+function openModalEmpleados() {
+
+    document.querySelector('#UEmpleado').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formTipoEmpleado').reset();
+}
+
+function openModalRoles() {
+
+    document.querySelector('#URol').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formRol').reset();
+}
+
+function openModalBanco() {
+
+    document.querySelector('#UBanco').value = ""; // se coloca el id del hidden del input
+    document.querySelector('#formBanco').reset();
 }

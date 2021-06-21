@@ -23,7 +23,7 @@
                      </div>
                      <div class="form-group">
                         <label for="empresa">Empresa: <span class="text-red-50">*</span> </label>
-                        <input type="text" id="nom_empresa" name="nom_empresa" class="form-control valid validTextNumber" required>
+                        <input type="text" id="nom_empresa" onkeyup="javascript:this.value=this.value.toUpperCase();" name="nom_empresa" class="form-control valid validTextNumber" required>
                         <span class="msj"></span>
                         <div class="valid-feedback">Valido</div>
                         <div class="invalid-feedback">Por favor, rellena el campo</div>

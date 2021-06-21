@@ -109,7 +109,7 @@
             <?php if (!empty($_SESSION['permisos'][1]['r'])) { ?>
             <li>
                <a href="<?= Base_URL(); ?>/Graficas" class="dropdown-toggle no-arrow">
-                  <span class="micon dw dw-analytics-2"></span><span class="mtext">Graficos</span>
+                  <span class="micon dw dw-analytics-11"></span><span class="mtext">Graficos</span>
                </a>
             </li>
             <?php } ?>
@@ -121,10 +121,10 @@
                </a>
                <ul class="submenu">
                   <?php if (!empty($_SESSION['permisos'][2]['w'])) { ?>
-                  <li><a href="#">Facturar</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Facturacion">Facturar</a></li>
                   <?php } ?>
                   <?php if (!empty($_SESSION['permisos'][2]['r'])) { ?>
-                  <li><a href="#">Tabla</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Facturacion/Tabla">Tabla</a></li>
                   <?php } ?>
                </ul>
             </li>
@@ -213,6 +213,7 @@
                   <li><a href="<?= Base_URL(); ?>/Configuracion/Empleados">Empleados</a></li>
                   <li><a href="<?= Base_URL(); ?>/Configuracion/Facturacion">Factura</a></li>
                   <li><a href="<?= Base_URL(); ?>/Configuracion/Empresa">Empresa</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Configuracion/Banco">Bancos</a></li>
                </ul>
             </li>
             <?php } ?>

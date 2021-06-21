@@ -230,7 +230,7 @@ function fntDelEmpleados(idpersona) {
         text: "¿Realmente quiere eliminar este empleado?",
         type: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
+        //confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
         confirmButtonText: "Si, eliminar!",
         cancelButtonText: "No, cancelar!",

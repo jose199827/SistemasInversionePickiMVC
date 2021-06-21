@@ -38,10 +38,10 @@ getModal("modalPrimerInicioLogin", $data);
                               <tr>
                                  <th class="table-plus datatable-nosort">N.°</th>
                                  <th>CAI</th>
-                                 <th>Correlativo Inicial</th>
-                                 <th>Correlativo Final</th>
-                                 <th>Fecha límite Emisión</th>
-                                 <th class="datatable-nosort">Acciones</th>
+                                 <th>CORRELATIVO INICIAL</th>
+                                 <th>CORRELATIVO FINAL</th>
+                                 <th>FECHA LÍMITE DE EMISIÓN</th>
+                                 <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
@@ -84,11 +84,11 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="modal-dialog modal-sm modal-dialog-centered">
                <div class="modal-content">
                   <div class="modal-header">
-                     <h5 class="modal-title" id="myLargeModalLabel">Registrar Código CAI</h5>
+                     <h5 class="modal-title" id="myLargeModalLabel">CAI</h5>
                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                   </div>
                   <div class="modal-body">
-                     <form class="needs-validation" novalidate action="bd/insert_regimen_facturacion.php" id="formRegimen" name="formRegimen" method="POST">
+                     <form class="needs-validation"  id="formRegimen" name="formRegimen" method="POST">
                         <div class="row">
                            <div class="col-md-12 col-sm-12">
                               <!-- Nombre del banco-->
@@ -100,7 +100,7 @@ getModal("modalPrimerInicioLogin", $data);
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
                               </div>
                               <div class="form-group">
-                                 <label for="cor_inicial">Correlativo Inicial: <span class="text-red-50">*</span>
+                                 <label for="cor_inicial">CORRELATIVO INICIAL: <span class="text-red-50">*</span>
                                  </label>
                                  <input type="text" id="cor_inicial" name="cor_inicial" class="form-control" required>
                                  <span class="msj"></span>
@@ -108,14 +108,14 @@ getModal("modalPrimerInicioLogin", $data);
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
                               </div>
                               <div class="form-group">
-                                 <label for="cor_final">Correlativo Final: <span class="text-red-50">*</span> </label>
+                                 <label for="cor_final">CORRELATIVO FINAL: <span class="text-red-50">*</span> </label>
                                  <input type="text" id="cor_final" name="cor_final" class="form-control" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
                                  <div class="invalid-feedback">Por favor, rellena el campo</div>
                               </div>
                               <div class="form-group">
-                                 <label for="fecha_limite">Fecha Límite:<span class="text-red-50">*</span></label>
+                                 <label for="fecha_limite">FecHA LIMITE DE EMISIÓN:<span class="text-red-50">*</span></label>
                                  <input class="form-control" type="date" name="fecha_limite" id="fecha_limite" placeholder:="00/00/000" id="example-date-input" required>
                                  <span class="msj"></span>
                                  <div class="valid-feedback">Valido</div>
