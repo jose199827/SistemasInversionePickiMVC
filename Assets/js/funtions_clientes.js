@@ -71,24 +71,13 @@ document.addEventListener('DOMContentLoaded', function() {
             { "data": "telefono" },
             { "data": "options" }
         ],
-        'dom': 'lBfrtip',
-        /* 'iDisplayLength': 2, */
-
-        'buttons': [
-            $.extend(true, {}, buttonCommon, {
-                extend: 'copyHtml5'
-            }),
-            $.extend(true, {}, buttonCommon, {
-                extend: 'excelHtml5'
-            }),
-            $.extend(true, {}, buttonCommon, {
-                extend: 'csvHtml5',
-            }),
-            $.extend(true, {}, buttonCommon, {
-                extend: 'pdfHtml5'
-            })
-        ]
-
+        dom: 'lBfrtip',
+        buttons: [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5',
+        ],
     });
     /* Ingresar un nuevo cliente */
     if (document.querySelector("#formCliente")) {

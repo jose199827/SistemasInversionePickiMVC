@@ -13,6 +13,7 @@ class Empleados extends Controllers
       getPermisos(3);
    }
 
+   /* TITULOS DE REGISTRAR EMPLEADOS */
    public function empleados()
    {
       $data['page_tag'] = "Empleados - Inversiones Picky";
@@ -22,7 +23,7 @@ class Empleados extends Controllers
       $this->views->getView($this, "empleados", $data);
    }
 
-   /* JALAR DATOS PARA LA TABLA */
+   /* TITULOS DE LA TABLA EMPLEADOS */
    public function tabla()
    {
       $data['page_tag'] = "Empleados - Inversiones Picky";
@@ -31,6 +32,27 @@ class Empleados extends Controllers
       $data['page_funtions_js'] = "funtions_empleados.js";
       $this->views->getView($this, "lista_empleados", $data);
    }
+
+   /* TITULOS DE LA TABLA USUARIOS */
+  /*  public function tabla_usuarios()
+   {
+      $data['page_tag'] = "Usuarios - Inversiones Picky";
+      $data['page_title'] = "Usuarios";
+      $data['page_name'] = "Tabla de Usuarios";
+      $data['page_funtions_js'] = "funtions_empleados.js";
+      $this->views->getView($this, "lista_usuarios", $data);
+   } */
+
+   
+   /* TITULOS DE LA REGISTRAR USUARIOS */
+  /*  public function usuarios()
+   {
+      $data['page_tag'] = "Usuarios - Inversiones Picky";
+      $data['page_title'] = "Usuarios";
+      $data['page_name'] = "Registrar Usuarios";
+      $data['page_funtions_js'] = "funtions_empleados.js";
+      $this->views->getView($this, "usuarios", $data);
+   } */
 
    public function updateEmpleado($params)
    {
@@ -46,6 +68,7 @@ class Empleados extends Controllers
       }
       $data['empleados'] = $request;
       $data['cargos'] = $this->model->SelectCargo();
+      $data['tipos_empleado'] = $this->model->SelectTipo_empleado();
       $data['page_tag'] = "Empleados - Inversiones Picky";
       $data['page_title'] = "Empleados";
       $data['page_name'] = "Editar Empleados";
@@ -59,7 +82,8 @@ class Empleados extends Controllers
    {
       /*  dep($_POST); exit(); */
 
-      if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipo"]) || empty($_POST["cargo"]) || empty($_POST["estatus"]) || empty($_POST["usuario"]) || empty($_POST["rol"])) {
+      if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipo"]) || empty($_POST["cargo"]) || empty($_POST["estatus"]) ) {
+
          $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
       } else {
          $nombre_empleado = strClean($_POST["nombreEmpleado"]);
@@ -76,12 +100,10 @@ class Empleados extends Controllers
          $cargo_empleado = intval($_POST["cargo"]);
          $salida_empleado = strClean($_POST["salida"]);
          $estatus_empleado = intval($_POST["estatus"]);
-         $usuario_empleado = strClean($_POST["usuario"]);
-         $rol_empleado = intval($_POST["rol"]);
-         $password_empleado = empty($_POST['password']) ? hash("SHA256", passGenerator()) : hash("SHA256", $_POST['password']);
+         $motivo_empleado = strClean($_POST["motivo"]);
          $tipo_empleado = intval($_POST["tipo"]);
 
-         $request = $this->model->InsertEmpleado($nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $estatus_empleado, $usuario_empleado, $rol_empleado, $password_empleado, $tipo_empleado);
+         $request = $this->model->InsertEmpleado($nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $estatus_empleado, $motivo_empleado, $tipo_empleado);
 
 
          if ($request > 0) {
@@ -92,8 +114,6 @@ class Empleados extends Controllers
             $arrResponse = array("status" => false, "msg" => 'Correo ya existe.');
          } else if ($request == 'existetelefono') {
             $arrResponse = array("status" => false, "msg" => 'Teléfono ya existe.');
-         } else if ($request == 'existeusuario') {
-            $arrResponse = array("status" => false, "msg" => 'Nombre de usuario ya existe.');
          } else {
             $arrResponse = array("status" => false, "msg" => 'No es posible almacenar los datos.');
          }
@@ -132,7 +152,7 @@ class Empleados extends Controllers
       echo $htmlOptions;
       die();
    }
-
+   
    public function getSelectRol()
    {
       $htmlOptions = "";
@@ -161,12 +181,16 @@ class Empleados extends Controllers
       die();
    }
 
+   /* JALAR LOS DATOS A LA TABLA EMPLEADOS */
    public function  getEmpleados()
    {
       $arrData = $this->model->selectEmpleados();
 
-      /* dep( $arrData); exit(); */
+   
       for ($i = 0; $i < count($arrData); $i++) {
+         $arrData[$i]['numRegistro'] = $i + 1;
+         $arrData[$i]['nom_persona'] =  $arrData[$i]['nom_persona'] . ' ' . $arrData[$i]['ape_persona'];
+
          $btnEdit = '';
          $btnDel = '';
          if ($_SESSION['permisosMod']['u']) {
@@ -187,6 +211,8 @@ class Empleados extends Controllers
                                                </div>';
       }
 
+
+
       echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
       die();
    }
@@ -196,7 +222,7 @@ class Empleados extends Controllers
    {
       /* dep($_POST); exit();  */
 
-      if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipo"]) || empty($_POST["cargo"]) || empty($_POST["estatus"])) {
+      if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipou"]) || empty($_POST["cargou"]) || empty($_POST["estatus"])) {
 
          $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
       } else {
@@ -216,12 +242,14 @@ class Empleados extends Controllers
          $direccion_empleado = strClean($_POST["direccion"]);
          $salario_empleado = intval($_POST["salario"]);
          $ingreso_empleado = strClean($_POST["ingreso"]);
-         $cargo_empleado = intval($_POST["cargo"]);
+         $cargo_empleado = intval($_POST["cargou"]);
          $salida_empleado = strClean($_POST["salida"]);
+         $motivo_empleado = strClean($_POST["motivo"]);
          $estatus_empleado = intval($_POST["estatus"]);
-         $tipo_empleado = intval($_POST["tipo"]);
+         $tipo_empleado = intval($_POST["tipou"]);
+      
 
-         $request = $this->model->Update_Empleado($id_empleado, $id_correo, $id_telefono, $id_direccion, $id_emple, $nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $estatus_empleado,  $tipo_empleado);
+         $request = $this->model->Update_Empleado($id_empleado, $id_correo, $id_telefono, $id_direccion, $id_emple, $nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $motivo_empleado, $estatus_empleado,  $tipo_empleado);
 
 
          if ($request > 0) {
@@ -258,4 +286,40 @@ class Empleados extends Controllers
 
       die();
    }
+
+   /*JALAR LOS DATOS A LA TABLA USUARIOS */
+  /*  public function  getUsuarios()
+   {
+      $arrData = $this->model->selectUsuarios();
+
+
+      for ($i = 0; $i < count($arrData); $i++) {
+         $arrData[$i]['numRegistro'] = $i + 1;
+         $arrData[$i]['nom_persona'] =  $arrData[$i]['nom_persona'] . ' ' . $arrData[$i]['ape_persona'];
+
+         $btnEdit = '';
+         $btnDel = '';
+         if ($_SESSION['permisosMod']['u']) {
+            $btnEdit = '<a class="dropdown-item btnActualizarUsuario" href="' . Base_URL() . '/Empleados/updateUsuarios/' . $arrData[$i]['id_persona'] . '" ><i class="dw dw-edit2"></i> Editar</a>';
+         }
+         if ($_SESSION['permisosMod']['d']) {
+            $btnDel = '<a class="dropdown-item btnDelUsuarios" href="javascript:;" onClick="fntDelUsuarios(' . $arrData[$i]['id_persona'] . ')"><i class="dw dw-delete-3"></i> Eliminar</a>';
+         }
+         $arrData[$i]['options'] = '<div class="dropdown ">
+          <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="javascript:;" role="button"
+                                                    data-toggle="dropdown">
+                                                    <i class="dw dw-more"></i>
+                                                  </a>
+                                                  <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
+                                                    ' . $btnEdit . '
+                                                    ' . $btnDel . '
+                                                  </div>
+                                                </div>';
+      }
+
+
+
+      echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
+      die();
+   } */
 }

@@ -149,29 +149,15 @@ getModal("modalPrimerInicioLogin", $data);
 			</div>
 			</div>
 			</div>
-			<div class="text-right">
-			<input type="submit" class="btn btn-primary" name="guardar" id="guardar">
-			</div>
-			<script>
-            // Disable form submissions if there are invalid fields
-            (function() {
-             'use strict';
-             window.addEventListener('load', function() {
-            // Get the forms we want to add validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-             }
-            form.classList.add('was-validated');
-             }, false);
-             });
-             }, false);
-             })();
-             </script>
+			<div class="row">
+                     <div class="col-md-12 col-md-offset-2">
+                        <div class="text-right">
+                          <button type="submit" class="btn btn-success " name="GuardarEmpleado">GUARDAR</button>
+                          <a href="<?= Base_URL(); ?>/Proveedores/Tabla"><button type="button" class="btn btn-danger" data-dismiss="modal">CANCELAR</button></a>
+                        </div>
+                     </div>
+                  </div>
+
 		     </form>
 		     </div>
 			

@@ -18,12 +18,10 @@ getModal("modalPrimerInicioLogin", $data);
                </ol>
             </nav>
          </div>
-         <?php if ($_SESSION['permisosMod']['w']) { ?>
          <div class="pull-right">
-            <a href="addproveedores.php"><button type="button" class="btn btn-primary"
-                  data-toggle="modal">Registrar</button></a>
+            <a href="<?= Base_URL() ?>/Proveedores"><button type="button" class="btn btn-primary"
+                  data-toggle="modal">REGISTRAR</button></a>
          </div>
-         <?php } ?>
       </div>
       <div class="card-box mb-30">
          <div class="pd-20">
@@ -36,12 +34,12 @@ getModal("modalPrimerInicioLogin", $data);
                   <thead>
                      <tr>
                         <th class="table-plus datatable-nosort">N.°</th>
-                        <th>Empresa </th>
-                        <th>Contacto</th>
-                        <th>Banco</th>
-                        <th>Cuenta</th>
-                        <th>Numero</th>
-                        <th class="datatable-nosort">Acciones</th>
+                        <th>EMPRESA </th>
+                        <th>CONTACTO</th>
+                        <th>BANCO</th>
+                        <th>CUENTA</th>
+                        <th>NUMERO</th>
+                        <th class="datatable-nosort">ACCIONES</th>
                      </tr>
                   </thead>
                   <tbody>

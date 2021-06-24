@@ -33,7 +33,7 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Nombre -->
                         <div class="form-group">
                            <label for="nombreEmpleado">Nombre: <span class="text-red-50">*</span> </label>
-                           <input class="form-control valid validText" type="text" id="nombreEmpleado" name="nombreEmpleado" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+                           <input class="form-control valid validText" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" id="nombreEmpleado" name="nombreEmpleado" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -48,7 +48,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Fecha Nacimiento -->
                         <div class="form-group">
-                           <label for="nacimiento">Fecha de Nacimiento:<span class="text-red-50">*</span> </label>
+                           <label for="nacimiento">Fecha de Nacimiento: <span class="text-red-50">*</span> </label>
                            <input type="date" class="form-control " id="nacimiento" name="nacimiento" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -66,15 +66,15 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="col-md-6 col-sm-12">
                         <!-- Apellido -->
                         <div class="form-group">
-                           <label for="apellido">Apellido:<span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validText " id="apellido" name="apellido" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+                           <label for="apellido">Apellido: <span class="text-red-50">*</span> </label>
+                           <input type="text" class="form-control valid validText " onkeyup="javascript:this.value=this.value.toUpperCase();" id="apellido" name="apellido" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
                         </div>
                         <!-- Edad -->
                         <div class="form-group">
-                           <label for="edad">Edad:<span class="text-red-50">*</span> </label>
+                           <label for="edad">Edad: <span class="text-red-50">*</span> </label>
                            <input type="number" value="" class="form-control valid validNumber" id="edad" name="edad" minlength="1" maxlength="3" required pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -82,7 +82,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Genero -->
                         <div class="form-group">
-                           <label for="genero">Género:<span class="text-red-50">*</span> </label>
+                           <label for="genero">Género: <span class="text-red-50">*</span> </label>
                            <select class="form-control selectpicker" id="genero" name="genero" required>
                               <option value="Femenino">Femenino</option>
                               <option value="Masculino">Masculino</option>
@@ -105,7 +105,7 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Direccion -->
                         <div class="form-group">
                            <label for="direccion">Dirección: <span class="text-red-50">*</span> </label>
-                           <textarea class="form-control valid validTextNumber" name="direccion" id="direccion" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
+                           <textarea class="form-control valid validTextNumber" onkeyup="javascript:this.value=this.value.toUpperCase();" name="direccion" id="direccion" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -118,7 +118,7 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="col-md-6 col-sm-12">
                         <!-- Salario -->
                         <div class="form-group">
-                           <label for="salario">Salario:<span class="text-red-50">*</span> </label>
+                           <label for="salario">Salario: <span class="text-red-50">*</span> </label>
                            <input type="text" class="form-control valid validNumber" id="salario" name="salario" minlength="3" maxlength="7" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -126,12 +126,13 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Tipo Empleado -->
                         <div class="form-group">
-                           <label for="tipo">Tipo de Empleado:<span class="text-red-50">*</span> </label>
+                           <label for="tipo">Tipo de Empleado: <span class="text-red-50">*</span> </label>
                            <select class="form-control selectpicker" data-live-search="true" id="tipo" name="tipo" required>
                               <option selected=""></option>
                               <!--Jalar datos de db -->
                            </select>
                            <span class="msj"></span>
+
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
                         </div>
@@ -146,7 +147,7 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Cargo -->
                         <div class="form-group">
                            <div class="form-group">
-                              <label for="cargo">Cargo:<span class="text-red-50">*</span> </label>
+                              <label for="cargo">Cargo: <span class="text-red-50">*</span> </label>
                               <select class="form-control  selectpicker" data-live-search="true" id="cargo" name="cargo" required>
 
                               </select>
@@ -157,7 +158,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Estatus -->
                         <div class="form-group">
-                           <label for="estatus">Estatus:<span class="text-red-50">*</span> </label>
+                           <label for="estatus">Estatus: <span class="text-red-50">*</span> </label>
                            <select class="form-control  selectpicker" id="estatus" name="estatus" required>
                               <option value="1">Activo</option>
                               <option value="2">Inactivo</option>
@@ -175,50 +176,51 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="col-md-12 col-sm-12">
                         <!-- Motivo de salida -->
                         <div class="form-group">
-                           <label for="motivo">Motivo de salida:</label>
-                           <textarea class="form-control valid validTextNumber" name="motivo" id="motivo" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
+                           <label for="motivo">Motivo de salida: </label>
+                           <textarea class="form-control valid validTextNumber" onkeyup="javascript:this.value=this.value.toUpperCase();" name="motivo" id="motivo" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
                         </div>
                      </div>
                   </div>
-                  <h5>Información de Usuario</h5>
-                  <hr>
                   <div class="row">
                      <div class="col-md-6 col-sm-12">
-                        <!-- Usuario -->
-                        <div class="form-group">
-                           <label for="usuario">Nombre de Usuario: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validTextNumber" id="usuario" name="usuario" minlength="3" maxlength="50" required onkeyup="javascript:this.value=this.value.toUpperCase();">
-                           <span class="msj"></span>
-                           <div class="valid-feedback">Valido</div>
-                           <div class="invalid-feedback">Por favor, rellena el campo</div>
+                        <!-- <div class="form-group">
+                           <label for="registrar">Registrar Usuario</label>
+                           <input type="radio" name="interesado" value="si" id="interesadoPositivo" checked> Sí
+                           <input type="radio" name="interesado" value="no" id="interesadoNegativo"> No
+
                         </div>
-                        <!-- Rol -->
                         <div class="form-group">
-                           <label for="rol">Rol de Usuario:<span class="text-red-50">*</span> </label>
-                           <select class="form-control selectpicker" data-live-search="true" id="rol" name="rol" required>
-                           </select>
-                           <span class="msj"></span>
-                           <div class="valid-feedback">Valido</div>
-                           <div class="invalid-feedback">Por favor, rellena el campo</div>
+                           <label for="apellido">Apellido: <span class="text-red-50">*</span> </label>
+                           <input type="text" class="form-control valid validText emailInput" name="emailInput" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+
                         </div>
-                     </div>
-                     <div class="col-md-6 col-sm-12">
-                        <!-- Contraseña -->
                         <div class="form-group">
-                           <label for="password">Password: </label>
-                           <input type="password" class="form-control valid validTextNumber" id="password" name="password" minlength="5" maxlength="20" pattern="[[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9- ]+(?:\.[a-zA-Z0-9-]+)$]+" required>
-                           <span class="msj"></span>
-                           <div class="valid-feedback">Valido</div>
-                           <div class="invalid-feedback">Por favor, rellena el campo</div>
-                        </div>
+                           <label for="apellido">Apellido: <span class="text-red-50">*</span> </label>
+                           <input type="text" class="form-control valid validText emailInput" name="emailInput" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+
+                        </div> -->
+
+
+
+                        <!-- <form action="" method="POST">
+                           <input type="radio" name="gender" value="texto"> &#91;text&#93;
+                           <input type="radio" name="gender" value="imagen"> &#91;image&#93;<br>
+                           <input id="imagen" type="text" name="imagen" placeholder="Imagen para reporte" style="display: none"><br>
+                           <textarea id="nota" name="texto" placeholder="Nota" style="display: none"></textarea><br>
+                           <button name="add">Agregar</button>
+                        </form> -->
+
                      </div>
                   </div>
                   <div class="row">
                      <div class="col-md-12 col-md-offset-2">
-                        <button type="submit" class="btn btn-primary float-right" name="GuardarEmpleado">Registrar</button>
+                        <div class="text-right">
+                           <button type="submit" class="btn btn-primary" name="GuardarEmpleado">REGISTRAR</button>
+
+                        </div>
                      </div>
                   </div>
                </form>

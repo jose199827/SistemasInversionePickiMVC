@@ -23,7 +23,7 @@ getModal("modalPrimerInicioLogin", $data);
                <?php if ($_SESSION['permisosMod']['w']) { ?>
                <div class="col-6 text-right">
                   <a href="<?= Base_URL(); ?>/Empleados"><button type="submit"
-                        class="btn btn-primary float-right">Registrar</button></a>
+                        class="btn btn-primary float-right">REGISTRAR</button></a>
                </div>
                <?php } ?>
             </div>
@@ -43,47 +43,18 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap" id="tabla_empleados">
+                        <table class="data-table table stripe hover nowrap" id="tabla_clientes">
                            <thead>
                               <tr>
                                  <th class="table-plus datatable-nosort">N.º</th>
-                                 <th>NUM. IDENTIDAD</th>
+                                 <th>RTN EMPRESA</th>
                                  <th>NOMBRE</th>
-                                 <th>EDAD</th>
-                                 <th>GENERO</th>
+                                 <th>EMPRESA</th>
+                                 <th>TIPO CLIENTE</th>
                                  <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>
                            <tbody>
-                              <tr>
-                                 <td class="table-plus">
-                                 </td>
-                                 <td>
-
-                                 </td>
-                                 <td>
-
-                                 </td>
-                                 <td>
-
-                                 </td>
-                                 <td>
-
-                                 </td>
-                                 <td>
-                                    <div class="dropdown">
-                                       <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle"
-                                          href="#" role="button" data-toggle="dropdown">
-                                          <i class="dw dw-more"></i>
-                                       </a>
-                                       <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                          <a class="dropdown-item BtnVista"><i class="dw dw-eye"></i> Vista</a>
-                                          <a class="dropdown-item BtnActualizar"><i class="dw dw-edit2"></i> Editar</a>
-                                          <a class="dropdown-item" href=""><i class="dw dw-delete-3"></i> Eliminar</a>
-                                       </div>
-                                    </div>
-                                 </td>
-                              </tr>
                            </tbody>
                         </table>
                      </div>

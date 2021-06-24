@@ -10,11 +10,10 @@ class EmpleadosModel extends Mysql
   }
 
   /*  INSERT DE ENPLEADOS */
-
-  public function InsertEmpleado($nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $estatus_empleado, $usuario_empleado, $rol_empleado, $password_empleado, $tipo_empleado)
+  public function InsertEmpleado($nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $estatus_empleado, $motivo_empleado, $tipo_empleado)
   {
     $Fecha_registro = date("Y-m-d H:i:s");
-    $Usuario_registro = "HELLEN";
+    $Usuario_registro = $_SESSION['userData']['nom_usuario'];
     $return = "";
 
     $sql = "SELECT * FROM `personas` WHERE `num_id_persona` = '$identidad_empleado'";
@@ -35,13 +34,7 @@ class EmpleadosModel extends Mysql
       $return = "existetelefono";
     }
 
-    $sql_nomUsuario = "SELECT * FROM `usuario` WHERE `nom_usuario` = '$usuario_empleado'";
-    $request_nomUsuario = $this->selectAll($sql_nomUsuario);
-    if (!empty($request_nomUsuario)) {
-      $return = "existeusuario";
-    }
-
-    if (empty($request) && empty($request_correo) && empty($request_telefono) && empty($request_nomUsuario)) {
+    if (empty($request) && empty($request_correo) && empty($request_telefono)) {
       $sql_InsertEmpleado = "INSERT INTO `personas`(`num_id_persona`, `nom_persona`, `ape_persona`, `eda_persona`, `fec_na_persona`, `gen_persona`, `fec_registro`, `usr_registro`) 
                            VALUES (?,?,?,?,?,?,?,?);
                            SELECT @id_persona := MAX(id_persona) FROM `personas`;
@@ -64,11 +57,9 @@ class EmpleadosModel extends Mysql
                            INSERT INTO `rel_direcciones_persona`(`id_direccion`, `id_persona`) 
                            VALUES (@id_direccion,@id_persona);  
 
-                           INSERT INTO `empleados`(`id_persona`, `sal_empleado`, `id_cargo`, `id_tip_empleado`, `fec_ingreso`, `fec_salida`,`est_empleado`,`fec_registro`,`usr_registro`)   
-                           VALUES(@id_persona,?,?,?,?,?,?,?,?);
+                           INSERT INTO `empleados`(`id_persona`, `sal_empleado`, `id_cargo`, `id_tip_empleado`, `fec_ingreso`, `fec_salida`,`motivoSalida`, `est_empleado`,`fec_registro`,`usr_registro`)   
+                           VALUES(@id_persona,?,?,?,?,?,?,?,?,?);
 
-                           INSERT INTO `usuario`(`id_persona`,`id_rol`, `nom_usuario`, `pass_usuario`,`activacion`, `fec_registro`, `usr_registro`) 
-                           VALUES (@id_persona,?,?,?,1,?,?);
                          ";
 
       $arrData = array(
@@ -94,12 +85,8 @@ class EmpleadosModel extends Mysql
         $tipo_empleado,
         $ingreso_empleado,
         $salida_empleado,
+        $motivo_empleado,
         $estatus_empleado,
-        $Fecha_registro,
-        $Usuario_registro,
-        $rol_empleado,
-        $usuario_empleado,
-        $password_empleado,
         $Fecha_registro,
         $Usuario_registro
       );
@@ -110,7 +97,7 @@ class EmpleadosModel extends Mysql
     return $return;
   }
 
-  /* SELECT EMPLEADOS */
+  /* SELECT EMPLEADOS UPDATE*/
   public function SelectEmpleado($id_empleado)
   {
     $sql = "SELECT * FROM `personas` 
@@ -131,7 +118,7 @@ class EmpleadosModel extends Mysql
 
 
   /*  UPDATE EMPLEADO */
-  public function Update_Empleado($id_empleado, $id_correo, $id_telefono, $id_direccion, $id_emple, $nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $estatus_empleado,  $tipo_empleado)
+  public function Update_Empleado($id_empleado, $id_correo, $id_telefono, $id_direccion, $id_emple, $nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $motivo_empleado, $estatus_empleado,  $tipo_empleado)
   {
     $Fecha_registro = date("Y-m-d H:i:s");
     $Usuario_registro = "HELLEN";
@@ -155,7 +142,7 @@ class EmpleadosModel extends Mysql
     }
 
 
-    if (empty($request) && empty($request_correo) && empty($request_telefono) && empty($request_nomUsuario)) {
+    if (empty($request) && empty($request_correo) && empty($request_telefono)) {
       $sql_InsertEmpleado = "UPDATE `personas` SET
     `num_id_persona`= ?,
     `nom_persona` = ?, 
@@ -195,9 +182,10 @@ class EmpleadosModel extends Mysql
    `id_tip_empleado`=?,
    `fec_ingreso`=?,
    `fec_salida`=?,
+   `motivoSalida`=?,
    `est_empleado`=?,
    `fec_registro` = ?, 
-     `usr_registro`= ?
+   `usr_registro`= ?
    WHERE `id_empleado`=? ";
 
       $arrData = array(
@@ -228,6 +216,7 @@ class EmpleadosModel extends Mysql
         $tipo_empleado,
         $ingreso_empleado,
         $salida_empleado,
+        $motivo_empleado,
         $estatus_empleado,
         $Fecha_registro,
         $Usuario_registro,
@@ -293,4 +282,16 @@ class EmpleadosModel extends Mysql
     $request = $this->selectAll($sql);
     return $request;
   }
+
+  /* SELEC PARA LA TABLA USUARIOS */
+  /* public function selectUsuarios()
+  {
+
+    $sql = "SELECT * FROM `personas` 
+    INNER JOIN empleados ON personas.id_persona = empleados.id_persona 
+    INNER JOIN usuario ON personas.id_persona = usuario.id_persona
+    INNER JOIN tipo_rol ON usuario.id_rol = tipo_rol.id_rol";
+     $request = $this->selectAll($sql);
+     return $request;
+  }  */
 }

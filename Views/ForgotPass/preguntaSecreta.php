@@ -16,7 +16,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
    <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
    <!-- CSS -->
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/core.css">
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/icon-font.min.css">
@@ -48,14 +49,16 @@
                      <div class="row">
                         <div class="col-9">
                            <div class="input-group custom">
-                              <input type="email" class="form-control " id="txtUsuaioReset" name="txtUsuaioReset" placeholder="Usuario" minlength="10" maxlength="20">
+                              <input type="text" class="form-control " id="txtUsuaioReset" name="txtUsuaioReset"
+                                 placeholder="Usuario" minlength="5" maxlength="20">
                               <div class=" input-group-append custom">
                                  <span class="input-group-text"><i class="dw dw-user1" aria-hidden="true"></i></span>
                               </div>
                            </div>
                         </div>
                         <div class="col-3">
-                           <button class="btn btn-primary btn-block" type="button" onclick="buscarUser();"><i class="icon-copy dw dw-search2 font-20"></i></button>
+                           <button class="btn btn-primary btn-block" type="button" onclick="buscarUser();"><i
+                                 class="icon-copy dw dw-search2 font-20"></i></button>
                         </div>
                      </div>
 
@@ -64,7 +67,8 @@
                         <div class="form-group">
                            <input type="hidden" name="iduser" id="iduser">
                            <label>Preguntas de Seguridad:</label>
-                           <select id="listPregunta" name="listPregunta" class="form-control selectpicker" name="" data-live-search="true">
+                           <select id="listPregunta" name="listPregunta" class="form-control selectpicker" name=""
+                              data-live-search="true">
                            </select>
                         </div>
                         <div class="form-group">
@@ -81,7 +85,8 @@
                         </div>
                         <div class="col-6">
                            <div class="input-group mb-0">
-                              <a class="btn btn-outline-primary btn-lg btn-block" href="<?= Base_URL(); ?>/login">Iniciar Sesión</a>
+                              <a class="btn btn-outline-primary btn-lg btn-block"
+                                 href="<?= Base_URL(); ?>/login">Iniciar Sesión</a>
                            </div>
                         </div>
                      </div>
@@ -93,7 +98,7 @@
    </div>
    <!-- js -->
    <script>
-      const base_url = "<?= Base_URL(); ?>"
+   const base_url = "<?= Base_URL(); ?>"
    </script>
    <script src="<?= vendors(); ?>/scripts/core.js"></script>
    <script src="<?= vendors(); ?>/scripts/script.min.js"></script>

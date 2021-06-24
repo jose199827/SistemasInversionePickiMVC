@@ -61,13 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "marca" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
         });
     }
     if (document.querySelector("#TablaCategorias")) {
@@ -119,13 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "categoria" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
+
         });
     }
     if (document.querySelector("#TablaGrupos")) {
@@ -177,14 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "grupo" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
-
         });
     }
     if (document.querySelector("#TablaUnidades")) {
@@ -235,13 +214,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "numRegistro" },
                 { "data": "uni_medida" },
                 { "data": "options" }
-            ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
             ],
         });
     }
@@ -295,14 +267,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "porcentaje" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
-
         });
     }
     if (document.querySelector("#TablaCargos")) {
@@ -354,14 +318,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "cargo" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
-
         });
     }
     if (document.querySelector("#TablaEmpleados")) {
@@ -413,14 +369,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "tipo_empleado" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
-
         });
     }
     if (document.querySelector("#TablaRol")) {
@@ -472,14 +420,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "rol" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
-
         });
     }
     if (document.querySelector("#TablaFacturacion")) {
@@ -534,13 +474,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "fec_lim_emi" },
                 { "data": "options" }
             ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
         });
     }
     if (document.querySelector("#TablaEmpresa")) {
@@ -593,14 +526,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "nom_empresa" },
                 { "data": "options" }
             ],
-            'dom': 'Bfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
-            ],
-
         });
     }
     //TABLA DE BITACORA//
@@ -719,13 +644,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { "data": "nom_banco" },
                 { "data": "abr_banco" },
                 { "data": "options" }
-            ],
-            'dom': 'lBfrtip',
-            'buttons': [
-                'copyHtml5',
-                'excelHtml5',
-                'csvHtml5',
-                'pdfHtml5',
             ],
         });
     }
@@ -1218,7 +1136,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         }
     }
-
     if (document.querySelector("#formBanco")) {
         //MODAL DE BANCOS
         let formBanco = document.querySelector("#formBanco");

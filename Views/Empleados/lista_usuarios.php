@@ -23,7 +23,7 @@ getModal("modalPrimerInicioLogin", $data);
                <?php if ($_SESSION['permisosMod']['w']) { ?>
                <div class="col-6 text-right">
                   <a href="<?= Base_URL(); ?>/Empleados"><button type="submit"
-                        class="btn btn-primary float-right">Registrar</button></a>
+                        class="btn btn-primary float-right">REGISTRAR</button></a>
                </div>
                <?php } ?>
             </div>
@@ -43,14 +43,14 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                      </div>
                      <div class="pb-20">
-                        <table class="data-table table stripe hover nowrap" id="tabla_empleados">
+                        <table class="data-table table stripe hover nowrap" id="tabla_usuarios">
                            <thead>
                               <tr>
                                  <th class="table-plus datatable-nosort">N.º</th>
-                                 <th>NUM. IDENTIDAD</th>
                                  <th>NOMBRE</th>
-                                 <th>EDAD</th>
-                                 <th>GENERO</th>
+                                 <th>ROL</th>
+                                 <th>USUARIO</th>
+                                 <th>ESTADO</th>
                                  <th class="datatable-nosort">ACCIONES</th>
                               </tr>
                            </thead>

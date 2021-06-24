@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
             dataSrc: "",
         },
         columns: [
-            { data: "id_proveedor" },
+            { data: "numRegistro" },
             { data: "nom_empresa" },
             { data: "con_empresa" },
             { data: "nom_banco" },
@@ -54,6 +54,14 @@ document.addEventListener("DOMContentLoaded", function() {
             { data: "telefono" },
             { data: "options" },
         ],
+        'dom': 'lBfrtip',
+        'buttons': [
+            'copyHtml5',
+            'excelHtml5',
+            'csvHtml5',
+            'pdfHtml5',
+        ],
+
     });
     if (document.querySelector("#registrarproveedor")) {
         let registrarproveedor = document.querySelector("#registrarproveedor");

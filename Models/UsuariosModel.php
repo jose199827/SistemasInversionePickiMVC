@@ -174,7 +174,7 @@ class UsuariosModel extends Mysql
     $sql = "SELECT * FROM `preguntas_seguridad` WHERE preguntas ='$txtPregunta'";
     $request = $this->selectAll($sql);
     if (empty($request)) {
-      $sqlPreguntas = "SELECT COUNT(*) AS total FROM preguntas_seguridad";
+      $sqlPreguntas = "SELECT COUNT(*) AS total FROM preguntas_seguridad WHERE `id_user`=$intIdUsuario";
       $resultado = $this->select($sqlPreguntas);
       $total = $resultado['total'];
       if ($total == PREGUNTAS) {

@@ -77,13 +77,21 @@ class LoginModel extends Mysql
 		$sql = "SELECT  p.id_persona, 
         p.nom_persona, 
         p.ape_persona,
+        co.correo,
         u.nom_usuario,
         u.id_usuario,
         u.activacion 
       FROM personas p 
       INNER JOIN usuario u 
-      ON u.id_persona=p.id_persona 
-      WHERE u.nom_usuario ='$this->strUsuario'  AND u.activacion=1";
+      ON u.id_persona=p.id_persona
+      INNER JOIN rel_correos_persona relc
+      on relc.id_persona= p.id_persona
+      INNER JOIN correos co
+      on co.id_correo= relc.id_correo
+      WHERE co.correo = '$this->strUsuario'  AND u.activacion=1";
+
+
+
 		$request = $this->select($sql);
 		return $request;
 	}

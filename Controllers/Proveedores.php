@@ -32,7 +32,9 @@ class Proveedores extends Controllers
       $arrData = $this->model->select_proveedores();
       /*dep($arrData);exit();*/
       for ($i = 0; $i < count($arrData); $i++) {
+         $arrData[$i]['numRegistro'] = $i + 1;
          $btnEdit = '';
+
          $btnDel = '';
          if ($_SESSION['permisosMod']['u']) {
             $btnEdit = '<a class="dropdown-item btnEditProveedores" href="' . Base_URL() . '/Proveedores/updateProveedores/' . $arrData[$i]['id_proveedor'] . '" ><i class="dw dw-edit2"></i> Editar</a>';
