@@ -57,6 +57,19 @@ $(document).ready(function() {
     $("#tabla_factura").DataTable();
 });
 
+$(document).ready(function() {
+    $("#id_cliente").keyup(function(e) {
+        e.preventDefault();
+        var cl = $(this).val();
+        var action = 'searchCliente';
+        alert(cl);
+    });
+});
+
+
+
+
+
 /* if (document.querySelector("#idcliente")) {
     let idcliente = document.querySelectorAll("#idcliente");
     idcliente.addEventListener('keyup', function(e) {

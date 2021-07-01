@@ -31,8 +31,6 @@ class Home extends Controllers
     } else {
       $arrResponse = array('status' => false);
     }
-    /*   dep($arrResponse);
-    exit(); */
     echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
     die();
   }

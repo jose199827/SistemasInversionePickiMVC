@@ -50,7 +50,8 @@
                         <div class="col-9">
                            <div class="input-group custom">
                               <input type="text" class="form-control " id="txtUsuaioReset" name="txtUsuaioReset"
-                                 placeholder="Usuario" minlength="5" maxlength="20">
+                                 onkeyup="javascript:this.value=this.value.toUpperCase();" placeholder="Usuario"
+                                 minlength="5" maxlength="20">
                               <div class=" input-group-append custom">
                                  <span class="input-group-text"><i class="dw dw-user1" aria-hidden="true"></i></span>
                               </div>

@@ -48,8 +48,8 @@ const smony = "<?= SMONEY; ?>";
 <link rel="stylesheet" type="text/css" href="<?= media(); ?>/plugins/sweetalert2/sweetalert2.css">
 <script src="<?= media(); ?>/plugins/sweetalert2/sweetalert2.all.js"></script>
 <script src="<?= media(); ?>/plugins/sweetalert2/sweet-alert.init.js"></script>
-<script src="<?= media(); ?>/js/<?= $data['page_funtions_js']; ?>"></script>
 <script src="<?= media(); ?>/js/funtions_admin.js"></script>
+<script src="<?= media(); ?>/js/<?= $data['page_funtions_js']; ?>"></script>
 
 
 

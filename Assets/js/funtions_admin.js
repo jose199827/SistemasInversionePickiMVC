@@ -1,3 +1,18 @@
+document.addEventListener("DOMContentLoaded", function() {
+    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    let ajaxUrl = base_url + '/Home/getMsg';
+    request.open("GET", ajaxUrl, true);
+    request.send();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            let objData = JSON.parse(request.responseText);
+            if (objData.status) {
+                $('#login-modal').modal('show');
+            }
+        }
+    }
+});
+
 function controlTag(e) {
     tecla = (document.all) ? e.keyCode : e.which;
     if (tecla == 8) return true;
@@ -32,7 +47,6 @@ function fntValidText() {
         validText.addEventListener('keyup', function() {
             let inputValue = this.value;
             if (!testText(inputValue)) {
-
                 this.classList.add('form-control-danger');
             } else {
                 this.classList.remove('form-control-danger');
@@ -169,24 +183,7 @@ window.addEventListener('load', function() {
     fntValidTextNumber();
     fntValidTextMayus();
     fntValidTextNumMayus();
-    fntMensajePrimerIngreso();
 }, false);
-
-function fntMensajePrimerIngreso() {
-    let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-    let ajaxUrl = base_url + '/Home/getMsg';
-    request.open("GET", ajaxUrl, true);
-    request.send();
-    request.onreadystatechange = function() {
-        if (request.readyState == 4 && request.status == 200) {
-            let objData = JSON.parse(request.responseText);
-            /* console.log(objData); */
-            if (objData.status) {
-                $('#login-modal').modal('show');
-            }
-        }
-    }
-}
 
 if (document.querySelector("#formCambiarPassInicio")) {
     let formCambiarPassInicio = document.querySelector("#formCambiarPassInicio");

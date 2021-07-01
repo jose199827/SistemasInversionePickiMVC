@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-06-2021 a las 00:07:30
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.2.30
+-- Tiempo de generación: 24-06-2021 a las 09:47:56
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.4.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `inv_picky_evaluacion`
+-- Base de datos: `inversionespickyevaluacion`
 --
 
 DELIMITER $$
@@ -1023,14 +1023,20 @@ CREATE TABLE `bitacora` (
 --
 
 INSERT INTO `bitacora` (`id_bitacora`, `tabla_modificada`, `fila_modificada`, `cam_modificado`, `registro_actual`, `registro_anterior`, `accion_realizada`, `fec_registro`, `usr_registro`, `usr_anterior`) VALUES
-(1, 'personas', 1, 'nom_persona', 'Hellen', 'Ricardo', 'Update', '2021-06-23 16:07:27', 'admin', 'Franklin'),
-(2, 'personas', 2, 'nom_persona', 'Franklin', 'Hellen', 'Insert', '2021-06-16 22:37:38', 'Hellen', 'Franklin'),
-(3, 'entidad_banco', 2, 'Nombre banco', 'Ficohsas', 'Ficohsa', 'UPDATE', '2021-06-08 15:54:56', 'root-kevin', 'root-kevin'),
-(4, 'entidad_banco', 2, 'Abreviatura banco', 'Fch', 'Ficohsa', 'UPDATE', '2021-06-08 15:54:56', 'root-kevin', 'root-kevin'),
-(5, 'Regimen_Facturacion', 1, 'CAI', '08011998222', '08011998155471', 'UPDATE', '2021-06-08 15:59:42', '', ''),
-(6, 'Regimen_Facturacion', 1, 'Correlativo Inicial', '1500', '1000', 'UPDATE', '2021-06-08 15:59:42', '', ''),
-(7, 'Regimen Facturacion', 1, 'Correlativo Final', '5006', '500', 'UPDATE', '2021-06-08 15:59:42', '', ''),
-(8, 'Regimen Facturacion', 1, 'Fecha limite de emisión', '2021-05-19', '2021-05-25', 'UPDATE', '2021-06-08 15:59:42', '', '');
+(1, 'tipo_rol', 1, 'rol', 'Desarrollo', '', 'INSERTED', '2021-06-11 21:39:33', 'ROOTJOSEPG', ''),
+(2, 'marcas', 1, 'marca', 'LG', '', 'CREACIÓN', '2021-06-11 21:46:11', 'ROOTJOSEPG', ''),
+(3, 'categorias', 1, 'categoria', 'Equipo de Sonido', '', 'INSERTED', '2021-06-11 21:46:51', 'ROOTJOSEPG', ''),
+(4, 'grupos', 1, 'grupo', 'Teatro en casa', '', 'INSERTED', '2021-06-11 21:47:05', 'ROOTJOSEPG', ''),
+(5, 'unidades_medidas', 1, 'uni_medida', 'Caja', '', 'INSERTED', '2021-06-11 21:47:27', 'ROOTJOSEPG', ''),
+(6, 'cargos', 1, 'cargo', 'Gerente', '', 'INSERTED', '2021-06-11 21:48:46', 'ROOTJOSEPG', ''),
+(7, 'cargos', 2, 'cargo', 'Vendedor', '', 'INSERTED', '2021-06-13 09:29:58', 'ROOTJOSEPG', ''),
+(8, 'marcas', 1, 'marca', 'LGh', 'LG', 'ACTUALIZACIÓN', '2021-06-13 16:34:45', 'ROOTJOSEPG', 'ROOTJOSEPG'),
+(9, 'marcas', 2, 'marca', 'ZAPOTE', '', 'CREACIÓN', '2021-06-20 23:45:11', 'ROOTJOSEPG', ''),
+(10, 'marcas', 1, 'marca', 'HOLA', 'LGh', 'ACTUALIZACIÓN', '2021-06-20 23:47:04', 'ROOTJOSEPG', 'ROOTJOSEPG'),
+(11, 'marcas', 3, 'marca', 'NIKE', '', 'CREACIÓN', '2021-06-20 23:47:16', 'ROOTJOSEPG', ''),
+(12, 'marcas', 2, 'marca', 'ZAPOTE', '', 'ELIMINACIÓN', '2021-06-20 23:47:30', 'ROOTJOSEPG', ''),
+(13, 'entidad_banco', 1, 'Nombre banco', 'BANCO ATLANTIDA', 'Banco Atlantidad', 'UPDATE', '2021-06-20 23:52:51', 'ROOTJOSEPG', 'ROOTJOSEPG'),
+(14, 'tipo_rol', 2, 'rol', 'JEFE DE BODEGA', '', 'INSERTED', '2021-06-20 23:54:10', 'ROOTJOSEPG', '');
 
 -- --------------------------------------------------------
 
@@ -1064,9 +1070,8 @@ CREATE TABLE `cargos` (
 --
 
 INSERT INTO `cargos` (`id_cargo`, `cargo`, `fec_registro`, `usr_registro`) VALUES
-(1, 'Administrador', '2021-04-27 01:20:00', 'SUPERADMIN'),
-(2, 'Vendedor', '2021-04-27 09:39:43', 'Root--PRUEBA'),
-(3, 'Guardia', '2021-05-30 01:43:20', 'Franklin');
+(1, 'Gerente', '2021-06-11 21:48:46', 'ROOTJOSEPG'),
+(2, 'Vendedor', '2021-06-13 09:29:58', 'ROOTJOSEPG');
 
 --
 -- Disparadores `cargos`
@@ -1102,9 +1107,7 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `categoria`, `fec_registro`, `usr_registro`) VALUES
-(1, 'Mujeres', '2021-04-27 09:37:26', 'Root--PRUEBA'),
-(2, 'Caballeros', '2021-05-28 00:25:25', 'Franklin'),
-(5, 'Mascotas', '2021-05-29 15:37:01', 'Franklin');
+(1, 'Equipo de Sonido', '2021-06-11 21:46:51', 'ROOTJOSEPG');
 
 --
 -- Disparadores `categorias`
@@ -1144,13 +1147,8 @@ CREATE TABLE `clientes` (
 --
 
 INSERT INTO `clientes` (`id_cliente`, `id_persona`, `rtn_empresa`, `nom_empresa`, `id_tip_cliente`, `fec_registro`, `usr_registro`) VALUES
-(1, 2, '0', '-', 1, '2021-04-27 02:18:06', 'Root'),
-(2, 5, '8011996654586', 'medex', 2, '2021-04-29 07:30:12', 'Root--PRUEBA'),
-(3, 12, '3567854458', 'jkdwjkcwjk', 2, '2021-04-29 07:51:32', 'Root--PRUEBA'),
-(4, 13, '987845', 'lenovo', 1, '2021-04-29 07:53:55', 'Root--PRUEBA'),
-(9, 24, '1', 'no', 1, '2021-04-29 08:31:42', 'Root--PRUEBA'),
-(10, 25, '0', '0', 1, '2021-04-29 08:35:43', 'Root--PRUEBA'),
-(11, 26, '-', '-', 1, '2021-04-29 08:38:27', 'Root--PRUEBA');
+(1, 2, '00000000000000', 'Consumidor Final', 1, '2021-06-16 21:47:38', 'ROOTJOSEPG'),
+(2, 4, '57567567567567', '567567575675756', 1, '2021-06-23 21:25:49', 'MARIO');
 
 -- --------------------------------------------------------
 
@@ -1170,43 +1168,12 @@ CREATE TABLE `correos` (
 --
 
 INSERT INTO `correos` (`id_correo`, `correo`, `fec_registro`, `usr_registro`) VALUES
-(1, 'correo@gmail.com', '2021-04-27 10:36:14', 'Root--HELLEN'),
-(2, 'solaris@gmail.com', '2021-06-07 02:19:12', 'Root-Kevin'),
-(3, 'consumidor@gmail.com', '2021-04-27 10:20:00', 'Root--MAGM'),
-(4, 'hellen@gmail.com', '2021-05-31 01:19:06', 'HELLEN'),
-(5, 'marioalexgarciamont@yahoo.com', '2021-04-29 07:24:42', 'Root--PRUEBA'),
-(6, 'kevin@yahoo.com', '2021-04-29 07:30:12', 'Root--PRUEBA'),
-(7, 'luishot69@gmail.com', '2021-04-29 07:31:59', 'Root--PRUEBA'),
-(8, 'vwdvw@gmail.com', '2021-04-29 07:41:59', 'Root--PRUEBA'),
-(9, 'cdwvwdv@vjdbev.com', '2021-04-29 07:43:21', 'Root--PRUEBA'),
-(10, 'kavin.gay@gmail.com', '2021-04-29 07:49:41', 'Root--PRUEBA'),
-(11, 'gay@gmail.com', '2021-04-29 07:51:32', 'Root--PRUEBA'),
-(12, 'gay22@gmail.com', '2021-04-29 07:53:55', 'Root--PRUEBA'),
-(13, 'kevingay@gmail.com', '2021-04-29 07:57:01', 'Root--PRUEBA'),
-(14, 'hjjbcwd@yahoo.com', '2021-04-29 07:58:31', 'Root--PRUEBA'),
-(15, 'gay@yahoo.com', '2021-04-29 08:00:04', 'Root--PRUEBA'),
-(17, 'kevin@hotmail.com', '2021-04-29 08:02:59', 'Root--PRUEBA'),
-(18, 'moran@gmail.com', '2021-04-29 08:04:56', 'Root--PRUEBA'),
-(19, 'anuel@yahoo.com', '2021-04-29 08:09:05', 'Root--PRUEBA'),
-(20, 'rene@yahoo.com', '2021-04-29 08:11:02', 'Root--PRUEBA'),
-(21, 'jose@gmail.com', '2021-04-29 08:20:36', 'Root--PRUEBA'),
-(22, 'vedve@gmail.com', '2021-04-29 08:29:26', 'Root--PRUEBA'),
-(23, 'mario@gmail.com', '2021-04-29 08:31:42', 'Root--PRUEBA'),
-(24, 'kmaze@hotmail.com', '2021-04-29 08:35:43', 'Root--PRUEBA'),
-(25, 'hellen.amordekevin@gmail.com', '2021-04-29 08:38:27', 'Root--PRUEBA'),
-(26, 'edwin@gmail.com', '2021-05-30 03:49:48', 'Root--HELLEN'),
-(27, 'ARMANDO@GMAILCOM', '2021-05-30 03:59:49', 'Root--HELLEN'),
-(30, 'liam7@gmail.com', '2021-05-30 02:59:39', 'HELLEN'),
-(31, 'liam8@gmail.com', '2021-05-30 03:09:50', 'HELLEN'),
-(32, 'gkarla@gmail.com', '2021-05-30 20:48:45', 'HELLEN'),
-(33, 'shjd@gos.com', '2012-05-30 00:00:00', 'hellen'),
-(35, 'suyd@gs.com', '2012-05-30 00:00:00', 'hellen'),
-(36, 'gjoa7@gmail.com', '2021-05-30 21:18:29', 'HELLEN'),
-(39, 'gonzap@gmail.com', '2021-06-01 14:20:47', 'HELLEN'),
-(40, 'Orlando4@gmail.com', '2021-06-01 15:20:49', 'HELLEN'),
-(41, 'fran@gmail.com', '2021-06-01 15:27:17', 'HELLEN'),
-(42, 'lewis.ham@gmail.com', '2021-06-04 04:38:35', 'Root--Kevin'),
-(44, 'kmaze97@gmail.com', '2021-06-07 00:34:05', 'Root-Kevin');
+(47, 'jose@gmai.com', '2021-06-11 21:35:11', 'ROOTJOSEPG'),
+(48, 'nikegmail.com', '2021-06-20 22:58:14', 'Root-Kevin'),
+(50, 'iiuryrtrerwtwueyrytutiio', '2021-06-20 23:16:52', 'Root-Kevin'),
+(51, 'josedesarrollocliente@gmail.com', '2021-06-20 23:58:04', 'HELLEN'),
+(52, 'tryrtyt@gmail.com', '2021-06-23 21:25:49', 'MARIO'),
+(53, 'adasdadas@gmail.es', '2021-06-23 22:44:07', 'ROOTJOSEPG');
 
 -- --------------------------------------------------------
 
@@ -1294,21 +1261,11 @@ CREATE TABLE `direcciones` (
 --
 
 INSERT INTO `direcciones` (`id_direccion`, `direccion`, `fec_registro`, `usr_registro`) VALUES
-(1, 'La casa #3', '2021-04-27 10:36:14', 'Root--HELLEN'),
-(2, 'La Casa #2', '2021-06-07 02:19:12', 'Root-Kevin'),
-(3, 'La casa #2', '2021-05-31 01:19:06', 'HELLEN'),
-(4, 'res. villa foresta', '2021-05-30 03:49:48', 'Root--HELLEN'),
-(5, 'COL. RYETERW', '2021-05-30 03:59:49', 'Root--HELLEN'),
-(6, 'Col Las Brisas Tegucigalpa hhn', '2021-05-30 02:59:39', 'HELLEN'),
-(7, 'Col Las Brisas Tegucigalpa gg', '2021-05-30 03:09:50', 'HELLEN'),
-(8, 'Col Las Brisas Tegucigalpa hh', '2021-05-30 20:48:45', 'HELLEN'),
-(9, 'sd', '2012-05-30 00:00:00', 'hellen'),
-(10, 'ajydbs', '2012-05-30 00:00:00', 'hellen'),
-(11, 'Col Las Brisas Tegucigalpa hhi', '2021-05-30 21:18:29', 'HELLEN'),
-(14, 'Col Las Brisas Tegucigalpa', '2021-06-01 14:20:47', 'HELLEN'),
-(15, 'Col Las Vegas', '2021-06-01 15:20:49', 'HELLEN'),
-(16, 'Col Las Brisas Tegucigalpa', '2021-06-01 15:27:17', 'HELLEN'),
-(18, 'prados universitarios', '2021-06-07 00:34:05', 'Root-Kevin');
+(1, 'Colonia la Travesia', '2021-06-11 21:36:55', 'ROOTJOSEPG'),
+(2, 'colonia kennedy', '2021-06-20 22:58:14', 'Root-Kevin'),
+(4, 'iueyterwteyrurituetreywueiu', '2021-06-20 23:16:52', 'Root-Kevin'),
+(5, 'uikhjk', '2021-06-20 23:58:04', 'HELLEN'),
+(6, 'dasdasdasdasdsad', '2021-06-23 22:45:06', 'ROOTJOSEPG');
 
 -- --------------------------------------------------------
 
@@ -1335,14 +1292,9 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id_empleado`, `id_persona`, `sal_empleado`, `id_cargo`, `id_tip_empleado`, `fec_ingreso`, `fec_salida`, `motivoSalida`, `est_empleado`, `fec_registro`, `usr_registro`) VALUES
-(3, 1, 10000, 1, 1, NULL, NULL, '', 1, '2021-04-27 01:25:27', 'SUPERADMIN'),
-(4, 3, 11854, 1, 1, '2021-04-27', '2021-04-30', '', 1, '2021-05-31 01:19:06', 'HELLEN'),
-(5, 27, 55555, 1, 1, '2021-05-29', '2021-05-30', '', 1, '2021-05-30 03:49:48', 'Root--HELLEN'),
-(6, 28, 1111, 1, 1, '2021-05-29', '2021-05-29', '', 2, '2021-05-30 03:59:49', 'Root--HELLEN'),
-(7, 39, 5906, 1, 1, '2012-05-30', '2012-05-30', '', 1, '2012-05-30 00:00:00', 'hellen'),
-(8, 40, 9000, 1, 1, '2021-05-07', '2021-04-28', '', 1, '2021-05-30 21:18:29', 'HELLEN'),
-(11, 43, 15000, 2, 1, '2021-06-05', '2021-06-12', '', 1, '2021-06-01 14:20:47', 'HELLEN'),
-(12, 45, 9000, 2, 1, '2021-06-03', '2021-06-03', '', 1, '2021-06-01 15:27:17', 'HELLEN');
+(1, 1, 1500, 2, 1, NULL, NULL, '', 1, '2021-06-13 09:22:27', 'ROOTJOSEPG'),
+(2, 3, 6546, 1, 1, '0000-00-00', '0000-00-00', '', 1, '2021-06-20 23:58:04', 'HELLEN'),
+(3, 5, 4343, 1, 1, NULL, NULL, 'rwerwerewrewrew', 1, '2021-06-23 22:46:45', 'ROOTJOSEPG');
 
 -- --------------------------------------------------------
 
@@ -1352,17 +1304,17 @@ INSERT INTO `empleados` (`id_empleado`, `id_persona`, `sal_empleado`, `id_cargo`
 
 CREATE TABLE `empresas` (
   `id_empresa` bigint(20) NOT NULL,
-  `rtn_empresa` int(11) NOT NULL,
-  `nom_empresa` varchar(50) CHARACTER SET latin1 NOT NULL
+  `rtn_empresa` varchar(14) NOT NULL,
+  `nom_empresa` varchar(50) CHARACTER SET latin1 NOT NULL,
+  `numIntentosBloque` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `empresas`
 --
 
-INSERT INTO `empresas` (`id_empresa`, `rtn_empresa`, `nom_empresa`) VALUES
-(3, 801257411, 'Hush'),
-(5, 15204530, 'Nike');
+INSERT INTO `empresas` (`id_empresa`, `rtn_empresa`, `nom_empresa`, `numIntentosBloque`) VALUES
+(1, '08011997184891', 'Inversiones Picky', 3);
 
 -- --------------------------------------------------------
 
@@ -1383,8 +1335,7 @@ CREATE TABLE `entidad_banco` (
 --
 
 INSERT INTO `entidad_banco` (`id_banco`, `nom_banco`, `abr_banco`, `fec_registro`, `usr_registro`) VALUES
-(1, 'Banco Atlantida', 'ATL', '2021-04-27 09:41:18', 'Root--PRUEBA'),
-(2, 'Ficohsas', 'Fch', '2021-06-23 10:33:52', 'root-kevin');
+(1, 'BANCO ATLANTIDA', 'BAT', '2021-06-11 21:54:28', 'ROOTJOSEPG');
 
 --
 -- Disparadores `entidad_banco`
@@ -1414,33 +1365,6 @@ CREATE TABLE `factura` (
   `totalFactura` decimal(10,0) DEFAULT NULL,
   `User_registro` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `factura`
---
-
-INSERT INTO `factura` (`id_factura`, `fec_factura`, `id_cliente`, `totalFactura`, `User_registro`) VALUES
-(3, '2021-04-27 04:25:17', 1, '2000', 1),
-(4, '2021-04-27 13:21:19', 1, '4200', 1),
-(5, '2021-04-28 15:06:55', 1, '1150', 2),
-(6, '2021-04-28 15:50:48', 1, '1610', 1),
-(7, '2021-04-28 15:52:48', 1, '1150', 1),
-(8, '2021-04-29 04:02:07', 1, '10350', 1),
-(9, '2021-04-29 04:27:03', 1, '4140', 2),
-(10, '2021-04-29 04:27:49', 1, '1150', 2),
-(11, '2021-04-29 04:35:37', 1, '2300', 1),
-(12, '2021-04-29 16:37:32', 1, '6900', 1),
-(13, '2021-04-29 17:46:54', 1, NULL, 1),
-(14, '2021-04-29 17:47:22', 1, NULL, 1),
-(15, '2021-04-29 17:49:08', 1, NULL, 1),
-(16, '2021-04-29 17:51:24', 1, NULL, 1),
-(17, '2021-04-29 17:51:40', 1, NULL, 1),
-(18, '2021-04-29 17:51:48', 1, NULL, 1),
-(19, '2021-04-29 17:54:35', 1, '3105', 1),
-(20, '2021-04-29 18:03:41', 1, '2070', 1),
-(21, '2021-04-29 18:05:34', 1, '2070', 1),
-(22, '2021-04-29 18:15:02', 1, '2070', 1),
-(23, '2021-04-29 18:16:51', 1, '2070', 1);
 
 -- --------------------------------------------------------
 
@@ -1473,13 +1397,7 @@ CREATE TABLE `grupos` (
 --
 
 INSERT INTO `grupos` (`id_grupo`, `grupo`, `fec_registro`, `usr_registro`) VALUES
-(2, 'Verano', '2021-05-28 00:51:05', 'Franklin'),
-(3, 'Primavera', '2021-05-28 00:52:31', 'Franklin'),
-(4, 'Otoño', '2021-05-28 00:57:00', 'Franklin'),
-(5, 'Invierno', '2021-05-28 22:38:21', 'Franklin'),
-(6, 'Hogar', '2021-05-29 19:15:34', 'Franklin'),
-(7, 'Tecnologia', '2021-05-29 22:34:09', 'Franklin'),
-(8, 'Salud', '2021-05-29 22:37:55', 'Franklin');
+(1, 'Teatro en casa', '2021-06-11 21:47:05', 'ROOTJOSEPG');
 
 --
 -- Disparadores `grupos`
@@ -1514,13 +1432,6 @@ CREATE TABLE `inventarios` (
   `usr_registro` varchar(30) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `inventarios`
---
-
-INSERT INTO `inventarios` (`id_inventario`, `id_producto`, `concepto`, `entradas`, `salidas`, `cantidad`, `fec_registro`, `usr_registro`) VALUES
-(4, 4, 'compra de mercaderia', 200, 0, 200, '2021-06-04 05:23:39', 'Root--PRUEBA');
-
 -- --------------------------------------------------------
 
 --
@@ -1539,26 +1450,22 @@ CREATE TABLE `marcas` (
 --
 
 INSERT INTO `marcas` (`id_marca`, `marca`, `fec_registro`, `usr_registro`) VALUES
-(1, 'Nike', '2021-04-27 09:39:15', 'Root--PRUEBA'),
-(2, 'Adidas', '2021-05-26 22:38:18', 'Root--PRUEBA'),
-(5, 'Huawei', '2021-05-27 23:58:46', 'Franklin'),
-(7, 'Hush', '2021-05-28 22:35:51', 'Franklin'),
-(8, 'Gucci', '2021-05-29 16:20:29', 'Franklin'),
-(9, 'HyK', '2021-05-30 22:24:29', 'Franklin');
+(1, 'HOLA', '2021-06-11 21:46:11', 'ROOTJOSEPG'),
+(3, 'NIKE', '2021-06-20 23:47:16', 'ROOTJOSEPG');
 
 --
 -- Disparadores `marcas`
 --
 DELIMITER $$
-CREATE TRIGGER `tr_marca_delete` AFTER DELETE ON `marcas` FOR EACH ROW INSERT INTO bitacora VALUES (null,'marcas',OLD.id_marca,'marca',OLD.marca,'','DELETED',NOW(),OLD.usr_registro,'')
+CREATE TRIGGER `tr_marca_delete` AFTER DELETE ON `marcas` FOR EACH ROW INSERT INTO bitacora VALUES (null,'marcas',OLD.id_marca,'marca',OLD.marca,'','ELIMINACIÓN',NOW(),OLD.usr_registro,'')
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `tr_marca_insert` AFTER INSERT ON `marcas` FOR EACH ROW INSERT INTO bitacora VALUES (null,'marcas',NEW.id_marca,'marca',NEW.marca,'','INSERTED',NOW(),NEW.usr_registro,'')
+CREATE TRIGGER `tr_marca_insert` AFTER INSERT ON `marcas` FOR EACH ROW INSERT INTO bitacora VALUES (null,'marcas',NEW.id_marca,'marca',NEW.marca,'','CREACIÓN',NOW(),NEW.usr_registro,'')
 $$
 DELIMITER ;
 DELIMITER $$
-CREATE TRIGGER `tr_marca_update` AFTER UPDATE ON `marcas` FOR EACH ROW INSERT INTO bitacora VALUES (null,'marcas',NEW.id_marca,'marca',NEW.marca,OLD.marca,'UPDATE',NOW(),NEW.usr_registro,OLD.usr_registro)
+CREATE TRIGGER `tr_marca_update` AFTER UPDATE ON `marcas` FOR EACH ROW INSERT INTO bitacora VALUES (null,'marcas',NEW.id_marca,'marca',NEW.marca,OLD.marca,'ACTUALIZACIÓN',NOW(),NEW.usr_registro,OLD.usr_registro)
 $$
 DELIMITER ;
 
@@ -1610,22 +1517,22 @@ CREATE TABLE `permisos` (
 --
 
 INSERT INTO `permisos` (`Idpermiso`, `idrol`, `idmodulo`, `r`, `w`, `u`, `d`) VALUES
-(88, 1, 1, 1, 1, 1, 1),
-(89, 1, 2, 1, 1, 1, 1),
-(90, 1, 3, 1, 1, 1, 1),
-(91, 1, 4, 1, 1, 1, 1),
-(92, 1, 5, 1, 1, 1, 1),
-(93, 1, 6, 1, 1, 1, 1),
-(94, 1, 7, 1, 1, 1, 1),
-(95, 1, 8, 1, 1, 1, 1),
-(200, 2, 1, 1, 1, 1, 1),
-(201, 2, 2, 1, 1, 1, 1),
-(202, 2, 3, 1, 1, 1, 1),
-(203, 2, 4, 1, 1, 1, 1),
-(204, 2, 5, 1, 1, 1, 1),
-(205, 2, 6, 1, 1, 1, 1),
-(206, 2, 7, 1, 1, 1, 1),
-(207, 2, 8, 0, 0, 0, 0);
+(320, 1, 1, 1, 1, 1, 1),
+(321, 1, 2, 1, 1, 1, 1),
+(322, 1, 3, 1, 1, 1, 1),
+(323, 1, 4, 1, 1, 1, 1),
+(324, 1, 5, 1, 1, 1, 1),
+(325, 1, 6, 1, 1, 1, 1),
+(326, 1, 7, 1, 1, 1, 1),
+(327, 1, 8, 1, 1, 1, 1),
+(368, 2, 1, 1, 1, 1, 1),
+(369, 2, 2, 0, 0, 0, 0),
+(370, 2, 3, 1, 0, 1, 0),
+(371, 2, 4, 1, 1, 1, 1),
+(372, 2, 5, 0, 0, 0, 0),
+(373, 2, 6, 0, 0, 0, 0),
+(374, 2, 7, 1, 1, 1, 1),
+(375, 2, 8, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1650,44 +1557,11 @@ CREATE TABLE `personas` (
 --
 
 INSERT INTO `personas` (`id_persona`, `num_id_persona`, `nom_persona`, `ape_persona`, `eda_persona`, `fec_na_persona`, `gen_persona`, `fec_registro`, `usr_registro`) VALUES
-(1, '0808200012345', 'Ricardo David', 'Peralta', 20, '2020-01-01', 'Hombre', '2021-04-27 10:36:14', 'Root--HELLEN'),
-(2, '0', 'Consumidor ', 'Final', 5, '2020-01-01', 'otr', '2021-04-27 10:20:00', 'Root--MAGM'),
-(3, '123456789', 'Equipo', 'Coevaluador', 20, '2021-04-27', 'Femenino', '2021-05-31 01:19:06', 'HELLEN'),
-(4, '0801199706871', 'Alexander', 'Garcia', 24, '1997-03-31', 'masc', '2021-04-29 07:24:42', 'Root--PRUEBA'),
-(5, '801199665440', 'kevin ', 'zelaya', 24, '1996-12-24', 'masc', '2021-04-29 07:30:12', 'Root--PRUEBA'),
-(6, '0801199569542', 'Luis', 'Moran', 32, '1995-01-01', 'masc', '2021-04-29 07:31:59', 'Root--PRUEBA'),
-(7, '354354654', 'vevewve', 'vsvsdvs', 32, '1996-11-03', 'otr', '2021-04-29 07:41:59', 'Root--PRUEBA'),
-(8, '978754564', 'mkvdjkkjb', 'jkcwjkdkbj', 23, '1996-11-26', 'otr', '2021-04-29 07:43:21', 'Root--PRUEBA'),
-(9, '32659878', 'kavin', 'amaya', 36, '1996-12-12', 'otr', '2021-04-29 07:49:41', 'Root--PRUEBA'),
-(12, '3265987754', 'jkwsbjkfwkj', 'meonwf', 89, '1995-12-12', 'otr', '2021-04-29 07:51:32', 'Root--PRUEBA'),
-(13, '0232545', 'pojwff', 'vcwbdw', 78, '1996-12-15', 'otr', '2021-04-29 07:53:55', 'Root--PRUEBA'),
-(14, '032565', 'pjjkknc', 'qwesasd', 14, '1996-07-29', 'otr', '2021-04-29 07:57:01', 'Root--PRUEBA'),
-(15, '0325670', 'poiuwq', 'qwertsdf', 36, '1995-08-23', 'otr', '2021-04-29 07:58:31', 'Root--PRUEBA'),
-(16, '0265887', 'ertes', 'mkdw', 36, '1995-12-31', 'otr', '2021-04-29 08:00:04', 'Root--PRUEBA'),
-(17, '3265789', 'mjiuyg', 'poiuy', 15, '2002-12-31', 'otr', '2021-04-29 08:00:54', 'Root--PRUEBA'),
-(18, '0254736', 'mnvcxz', 'polkijc', 23, '1985-12-31', 'otr', '2021-04-29 08:02:59', 'Root--PRUEBA'),
-(19, '0326549', 'azsxdcvfv', 'hnbfiqwe', 36, '1997-12-31', 'masc', '2021-04-29 08:04:56', 'Root--PRUEBA'),
-(20, '23548201', 'sony', 'iphone', 36, '1981-12-31', 'masc', '2021-04-29 08:09:05', 'Root--PRUEBA'),
-(21, '02365', 'rene', 'zuniga', 23, '1995-12-31', 'masc', '2021-04-29 08:11:02', 'Root--PRUEBA'),
-(22, '3205', 'jose', 'pineda', 23, '1997-12-25', 'masc', '2021-04-29 08:20:36', 'Root--PRUEBA'),
-(23, '987', 'lkkhg', 'qreca', 32, '1995-12-31', 'otr', '2021-04-29 08:29:26', 'Root--PRUEBA'),
-(24, '87965', 'kjsnckasbcjk', 'hvcjhcwskc', 23, '1997-12-31', 'otr', '2021-04-29 08:31:42', 'Root--PRUEBA'),
-(25, '0801199923456', 'kevin ', 'zela', 77, '2021-11-11', 'masc', '2021-04-29 08:35:43', 'Root--PRUEBA'),
-(26, '080199696450', 'hellen amor', 'de kevin', 36, '1996-12-31', 'fem', '2021-04-29 08:38:27', 'Root--PRUEBA'),
-(27, '2821199414321', 'EDWIN', 'ACOSTA', 27, '2021-06-16', 'Masculino', '2021-05-30 03:49:48', 'Root--HELLEN'),
-(28, '12345867465', 'ARMANDO', 'LOPEZ', 25, '2021-05-29', 'Masculino', '2021-05-30 03:59:49', 'Root--HELLEN'),
-(29, '181119999876', 'EDWIN', 'ACOSTA', 30, '2021-05-29', 'Masculino', '2021-05-30 04:13:16', 'Root--HELLEN'),
-(31, '987652341', 'EDWIN', 'ACOSTA', 20, '2021-05-28', 'Masculino', '2021-05-30 05:00:53', 'Root--HELLEN'),
-(32, '0801-2002-29376', 'Liam', 'hakja', 39, '2021-04-28', 'Masculino', '2021-05-30 02:59:39', 'HELLEN'),
-(33, '0801-2002-29377', 'jared', 'bll', 78, '2021-05-13', 'Femenino', '2021-05-30 03:09:50', 'HELLEN'),
-(34, '0987-2002-29382', 'Karla', 'hsj', 67, '2021-05-13', 'Femenino', '2021-05-30 20:48:45', 'HELLEN'),
-(35, '0801-2342-23452', 'Fer', 'ado', 34, '2000-04-23', 'm', '2012-05-30 00:00:00', 'hellen'),
-(37, '0808-2342-23452', 'Fer', 'ado', 34, '2000-04-23', 'm', '2012-05-30 00:00:00', 'hellen'),
-(39, '0808-2342-00000', 'Fer', 'ado', 34, '2000-04-23', 'm', '2012-05-30 00:00:00', 'hellen'),
-(40, '0806-3674-11111', 'joselin', 'Valle', 67, '2021-05-13', 'Femenino', '2021-05-30 21:18:29', 'HELLEN'),
-(43, '0801-1997-37482', 'Paola', 'Gonzalez', 56, '2021-06-04', 'Femenino', '2021-06-01 14:20:47', 'HELLEN'),
-(44, '0801199823451', 'Orlando', 'Sandrez', 23, '2021-05-31', 'Masculino', '2021-06-01 15:20:49', 'HELLEN'),
-(45, '243526656789', 'Orlando', 'pavon', 76, '2021-06-11', 'Masculino', '2021-06-01 15:27:17', 'HELLEN');
+(1, '0801199816447', 'Jose Manuel ', 'Pineda Galindo', 22, '1998-08-27', 'Masculino', '2021-06-11 21:22:35', 'ROOTJOSEPG'),
+(2, '0', 'Consumidor', 'Final', 18, '2000-01-01', 'Masculino', '2021-06-16 21:45:47', 'ROOTJOSEPG'),
+(3, '56546', 'Joselyn', 'asd', 6456546, '2021-06-20', 'Femenino', '2021-06-20 23:58:04', 'HELLEN'),
+(4, '122121212212121', 'GDFGDGDFGFG', 'DFGDFGFDGFG', 67, '2021-06-23', 'fem', '2021-06-23 21:25:49', 'MARIO'),
+(5, '075675675', 'Hellen', 'Valle', 25, '2021-06-23', 'Femenino', '2021-06-23 22:42:46', 'ROOTJOSEPG');
 
 -- --------------------------------------------------------
 
@@ -1706,9 +1580,11 @@ CREATE TABLE `preguntas_seguridad` (
 --
 
 INSERT INTO `preguntas_seguridad` (`id_preg_seg`, `id_user`, `preguntas`) VALUES
-(4, 1, '¿Color favorito?'),
-(5, 1, 'Casa'),
-(6, 3, 'Prueba');
+(3, 1, '¿Cual es tu color favorito?'),
+(4, 1, '¿Dirección de casa?'),
+(25, 1, 'dsadasda'),
+(26, 2, 'rwerwer'),
+(27, 2, 'Color Favorito');
 
 -- --------------------------------------------------------
 
@@ -1735,13 +1611,6 @@ CREATE TABLE `productos` (
   `usr_registro` varchar(30) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Volcado de datos para la tabla `productos`
---
-
-INSERT INTO `productos` (`id_producto`, `id_proveedor`, `id_marca`, `id_categoria`, `id_grupo`, `id_tip_impuesto`, `id_uni_medida`, `nom_producto`, `des_producto`, `pre_compra`, `pre_venta`, `pre_reventa`, `sto_minimo`, `sto_maximo`, `fec_registro`, `usr_registro`) VALUES
-(4, 1, 2, 2, 5, 1, 1, 'tenis nike', 'color azul', 300, 400, 460, 10, 30, '2021-06-04 05:23:39', 'Root--PRUEBA');
-
 -- --------------------------------------------------------
 
 --
@@ -1765,9 +1634,8 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`id_proveedor`, `rtn_empresa`, `nom_empresa`, `con_empresa`, `id_banco`, `num_cuenta`, `nacionalidad`, `fec_registro`, `usr_registro`) VALUES
-(1, 8011999230531, 'Solaris de Honduras #4', 'Kevin amaya', 2, 1020200102000000, 'Estadounidense', '2021-06-07 02:19:12', 'Root-Kevin'),
-(2, NULL, 'mercedes', 'lewis hamilton', 1, 20161005688, 'otra', '2021-06-04 04:38:35', 'Root--Kevin'),
-(4, 8011999234549, 'lotus', 'kevin garcia', 1, 2014567434565, 'Hondureño', '2021-06-07 00:34:05', 'Root-Kevin');
+(1, 98765432468878, 'Nike /_*()@', 'Joel Alexi', 1, 9223372036854775807, 'Hondureño', '2021-06-20 22:58:14', 'Root-Kevin'),
+(3, 34345454545444, 'Nikesi', 'Luis', 1, 8374657586969857, 'Hondureño', '2021-06-20 23:16:52', 'Root-Kevin');
 
 -- --------------------------------------------------------
 
@@ -1833,40 +1701,10 @@ CREATE TABLE `rel_correos_persona` (
 --
 
 INSERT INTO `rel_correos_persona` (`rel_correo_persona`, `id_correo`, `id_persona`) VALUES
-(1, 1, 1),
-(2, 3, 2),
-(3, 4, 3),
-(4, 5, 4),
-(5, 6, 5),
-(6, 7, 6),
-(7, 8, 7),
-(8, 9, 8),
-(9, 10, 9),
-(10, 11, 12),
-(11, 12, 13),
-(12, 13, 14),
-(13, 14, 15),
-(14, 15, 16),
-(15, 17, 18),
-(16, 18, 19),
-(17, 19, 20),
-(18, 20, 21),
-(19, 21, 22),
-(20, 22, 23),
-(21, 23, 24),
-(22, 24, 25),
-(23, 25, 26),
-(24, 26, 27),
-(25, 27, 28),
-(26, 30, 32),
-(27, 31, 33),
-(28, 32, 34),
-(29, 33, 35),
-(30, 35, 39),
-(31, 36, 40),
-(34, 39, 43),
-(35, 40, 44),
-(36, 41, 45);
+(1, 47, 1),
+(2, 51, 3),
+(3, 52, 4),
+(4, 53, 5);
 
 -- --------------------------------------------------------
 
@@ -1885,9 +1723,8 @@ CREATE TABLE `rel_correo_proveedores` (
 --
 
 INSERT INTO `rel_correo_proveedores` (`id_correo_proveedor`, `id_correo`, `id_proveedor`) VALUES
-(1, 2, 1),
-(2, 42, 2),
-(4, 44, 4);
+(1, 48, 1),
+(3, 50, 3);
 
 -- --------------------------------------------------------
 
@@ -1907,18 +1744,8 @@ CREATE TABLE `rel_direcciones_persona` (
 
 INSERT INTO `rel_direcciones_persona` (`rel_direccion_persona`, `id_direccion`, `id_persona`) VALUES
 (1, 1, 1),
-(2, 3, 3),
-(3, 4, 27),
-(4, 5, 28),
-(5, 6, 32),
-(6, 7, 33),
-(7, 8, 34),
-(8, 9, 35),
-(9, 10, 39),
-(10, 11, 40),
-(13, 14, 43),
-(14, 15, 44),
-(15, 16, 45);
+(2, 5, 3),
+(3, 6, 5);
 
 -- --------------------------------------------------------
 
@@ -1938,7 +1765,7 @@ CREATE TABLE `rel_direcciones_proveedores` (
 
 INSERT INTO `rel_direcciones_proveedores` (`rel_direccion_proveedor`, `id_direccion`, `id_proveedor`) VALUES
 (1, 2, 1),
-(3, 18, 4);
+(3, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -1957,40 +1784,9 @@ CREATE TABLE `rel_telefonos_persona` (
 --
 
 INSERT INTO `rel_telefonos_persona` (`rel_telefono_persona`, `id_telefono`, `id_persona`) VALUES
-(38, 1, 1),
-(39, 3, 2),
-(40, 4, 3),
-(41, 5, 4),
-(42, 6, 5),
-(43, 7, 6),
-(44, 8, 7),
-(45, 9, 8),
-(46, 10, 9),
-(47, 11, 12),
-(48, 12, 13),
-(49, 13, 14),
-(50, 14, 15),
-(51, 15, 16),
-(52, 16, 18),
-(53, 17, 19),
-(54, 18, 20),
-(55, 19, 21),
-(56, 20, 22),
-(57, 21, 23),
-(58, 22, 24),
-(59, 23, 25),
-(60, 24, 26),
-(61, 25, 27),
-(62, 26, 28),
-(63, 27, 32),
-(64, 28, 33),
-(65, 29, 34),
-(66, 30, 35),
-(67, 31, 39),
-(68, 32, 40),
-(71, 35, 43),
-(72, 36, 44),
-(73, 37, 45);
+(1, 1, 1),
+(2, 5, 3),
+(3, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -2009,8 +1805,8 @@ CREATE TABLE `rel_telefonos_proveedores` (
 --
 
 INSERT INTO `rel_telefonos_proveedores` (`id_telefono_proveedor`, `id_telefono`, `id_proveedor`) VALUES
-(21, 2, 1),
-(23, 39, 4);
+(1, 2, 1),
+(3, 4, 3);
 
 -- --------------------------------------------------------
 
@@ -2030,7 +1826,11 @@ CREATE TABLE `respuestas_seguridad` (
 --
 
 INSERT INTO `respuestas_seguridad` (`id_resp_seg`, `id_usuario`, `id_preg_seg`, `respuesta`) VALUES
-(4, 1, 4, 'Azul');
+(5, 1, 3, 'Azul'),
+(6, 1, 4, 'La Sosa'),
+(21, 1, 25, 'gdfgdfgdf'),
+(22, 2, 26, 'werwer'),
+(23, 2, 27, 'Azul');
 
 -- --------------------------------------------------------
 
@@ -2050,42 +1850,13 @@ CREATE TABLE `telefonos` (
 --
 
 INSERT INTO `telefonos` (`id_telefono`, `telefono`, `fec_registro`, `usr_registro`) VALUES
-(1, '9999-9999', '2021-04-27 10:36:14', 'Root--HELLEN'),
-(2, '33333334', '2021-06-07 02:19:12', 'Root-Kevin'),
-(3, '99999999', '2021-04-27 10:14:04', 'Root--PRUEBA'),
-(4, '90909090', '2021-05-31 01:19:06', 'HELLEN'),
-(5, '96471574', '2021-04-29 07:24:42', 'Root--PRUEBA'),
-(6, '96000102', '2021-04-29 07:30:12', 'Root--PRUEBA'),
-(7, '32125465', '2021-04-29 07:31:59', 'Root--PRUEBA'),
-(8, '98784521', '2021-04-29 07:41:59', 'Root--PRUEBA'),
-(9, '32654587', '2021-04-29 07:43:21', 'Root--PRUEBA'),
-(10, '96458745', '2021-04-29 07:49:41', 'Root--PRUEBA'),
-(11, '36458745', '2021-04-29 07:51:32', 'Root--PRUEBA'),
-(12, '32120200', '2021-04-29 07:53:55', 'Root--PRUEBA'),
-(13, '32650200', '2021-04-29 07:57:01', 'Root--PRUEBA'),
-(14, '36144758', '2021-04-29 07:58:31', 'Root--PRUEBA'),
-(15, '31020000', '2021-04-29 08:00:04', 'Root--PRUEBA'),
-(16, '32010200', '2021-04-29 08:02:59', 'Root--PRUEBA'),
-(17, '87141200', '2021-04-29 08:04:56', 'Root--PRUEBA'),
-(18, '87450000', '2021-04-29 08:09:05', 'Root--PRUEBA'),
-(19, '85254631', '2021-04-29 08:11:02', 'Root--PRUEBA'),
-(20, '88000000', '2021-04-29 08:20:36', 'Root--PRUEBA'),
-(21, '32020000', '2021-04-29 08:29:26', 'Root--PRUEBA'),
-(22, '36000001', '2021-04-29 08:31:42', 'Root--PRUEBA'),
-(23, '77889988', '2021-04-29 08:35:43', 'Root--PRUEBA'),
-(24, '96540222', '2021-04-29 08:38:27', 'Root--PRUEBA'),
-(25, '98795219', '2021-05-30 03:49:48', 'Root--HELLEN'),
-(26, '474652765', '2021-05-30 03:59:49', 'Root--HELLEN'),
-(27, '23456755', '2021-05-30 02:59:39', 'HELLEN'),
-(28, '43783256', '2021-05-30 03:09:50', 'HELLEN'),
-(29, '54345678', '2021-05-30 20:48:45', 'HELLEN'),
-(30, '6578-2345', '2012-05-30 00:00:00', 'hellen'),
-(31, '0578-0000', '2012-05-30 00:00:00', 'hellen'),
-(32, '8787-9999', '2021-05-30 21:18:29', 'HELLEN'),
-(35, '3182-3542', '2021-06-01 14:20:47', 'HELLEN'),
-(36, '12374635', '2021-06-01 15:20:49', 'HELLEN'),
-(37, '6543218', '2021-06-01 15:27:17', 'HELLEN'),
-(39, '88778877', '2021-06-07 00:34:05', 'Root-Kevin');
+(1, '99998989', '2021-06-11 21:37:58', 'ROOTJOSEPG'),
+(2, '98765343', '2021-06-20 22:58:14', 'Root-Kevin'),
+(4, '647474747', '2021-06-20 23:16:52', 'Root-Kevin'),
+(5, '34534', '2021-06-20 23:58:04', 'HELLEN'),
+(6, '756765756', '2021-06-23 21:25:49', 'MARIO'),
+(7, '435353453', '2021-06-23 22:46:01', 'ROOTJOSEPG'),
+(8, '43535534', '2021-06-23 22:46:01', 'ROOTJOSEPG');
 
 -- --------------------------------------------------------
 
@@ -2138,15 +1909,6 @@ CREATE TABLE `tipos_impuestos` (
   `fec_registro` datetime NOT NULL,
   `usr_registro` varchar(30) CHARACTER SET latin1 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `tipos_impuestos`
---
-
-INSERT INTO `tipos_impuestos` (`id_tip_impuestos`, `nom_isv`, `porcentaje`, `fec_registro`, `usr_registro`) VALUES
-(1, 'ISV', '15', '2021-04-27 09:38:35', 'Root--PRUEBA'),
-(2, 'sobre la renta', '18', '2021-05-28 13:59:01', 'Franklin'),
-(5, 'recargos', '2', '2021-05-29 23:51:22', 'Franklin');
 
 --
 -- Disparadores `tipos_impuestos`
@@ -2210,9 +1972,8 @@ CREATE TABLE `tipo_rol` (
 --
 
 INSERT INTO `tipo_rol` (`id_rol`, `rol`, `fec_registro`, `usr_registro`) VALUES
-(1, 'Administrador', '2021-04-27 01:21:37', 'SUPERADMIN'),
-(2, 'AdminCoevaluacion', '2021-06-04 00:22:44', 'prueba luis'),
-(3, 'Jefe de Bodega', '2021-06-05 00:39:36', 'Prueba Luis');
+(1, 'Desarrollo', '2021-06-11 21:39:15', 'ROOTJOSEPG'),
+(2, 'JEFE DE BODEGA', '2021-06-20 23:54:10', 'ROOTJOSEPG');
 
 --
 -- Disparadores `tipo_rol`
@@ -2248,8 +2009,7 @@ CREATE TABLE `unidades_medidas` (
 --
 
 INSERT INTO `unidades_medidas` (`id_uni_medida`, `uni_medida`, `fec_registro`, `usr_registro`) VALUES
-(1, 'Pieza', '2021-04-27 09:38:11', 'Root--PRUEBA'),
-(3, 'Kg', '2021-05-29 23:22:06', 'Franklin');
+(1, 'Caja', '2021-06-11 21:47:27', 'ROOTJOSEPG');
 
 --
 -- Disparadores `unidades_medidas`
@@ -2281,6 +2041,7 @@ CREATE TABLE `usuario` (
   `pass_usuario` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `last_session` datetime DEFAULT NULL,
   `activacion` int(11) DEFAULT NULL,
+  `intentos` int(11) NOT NULL DEFAULT 1,
   `token` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `token_password` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `pass_request` int(11) DEFAULT NULL,
@@ -2292,16 +2053,10 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `id_persona`, `id_rol`, `nom_usuario`, `pass_usuario`, `last_session`, `activacion`, `token`, `token_password`, `pass_request`, `fec_registro`, `usr_registro`) VALUES
-(1, 1, 1, 'JOSEPGMMMMMMM', 'aa917ec319b79362a5ff7332cf4c07fc4f4d4a82575c4c27c76b3d49d1ad3164', '2021-05-26 23:13:09', 1, '', '', 1, '2021-04-27 01:28:08', 'SUPERADMIN'),
-(2, 3, 2, 'EQUIPOCOE', '6945ac13c33dbef9623b33779550cfbf053f609c41f99ad80bb4e2655872a157', '2021-05-27 00:09:42', 1, '', '', 1, '2021-04-27 10:34:18', 'Root--HELLEN'),
-(3, 4, 1, 'GARCIA', 'GARCIA1234*', '2021-06-06 23:22:03', 1, NULL, '', 1, '2021-05-29 18:14:13', 'ROOT'),
-(4, 27, 2, 'EDWIN', 'EDWIN_123', '2021-06-04 02:21:32', 1, NULL, '', 1, '2021-05-30 03:49:48', 'Root--HELLEN'),
-(5, 28, 1, 'ARMANDO', 'ARMANDO_1234', NULL, 0, NULL, NULL, NULL, '2021-05-30 03:59:49', 'Root--HELLEN'),
-(6, 39, 1, 'hosdr', 'c775e7b757ede630cd0aa1113bd102661ab38829ca52a6422ab782862f268646', NULL, 1, NULL, NULL, NULL, '2012-05-30 00:00:00', 'hellen'),
-(7, 40, 1, 'jos87', '2ac3f282aecbe886366ecf5678707a49ee3836de1b5d5eb10a9c582dd16306e8', NULL, 1, NULL, NULL, NULL, '2021-05-30 21:18:29', 'HELLEN'),
-(10, 43, 1, 'HELLEN7', '5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5', NULL, 1, NULL, NULL, NULL, '2021-06-01 14:20:47', 'HELLEN'),
-(11, 45, 1, 'fran@gmail.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', NULL, 1, NULL, NULL, NULL, '2021-06-01 15:27:17', 'HELLEN');
+INSERT INTO `usuario` (`id_usuario`, `id_persona`, `id_rol`, `nom_usuario`, `pass_usuario`, `last_session`, `activacion`, `intentos`, `token`, `token_password`, `pass_request`, `fec_registro`, `usr_registro`) VALUES
+(1, 1, 1, 'ROOTJOSEPG', 'aa917ec319b79362a5ff7332cf4c07fc4f4d4a82575c4c27c76b3d49d1ad3164', NULL, 1, 0, '', NULL, 1, '2021-06-11 21:39:42', 'ROOTJOSEPG'),
+(2, 3, 2, 'JOSELYN', '8bb0cf6eb9b17d0f7d22b456f121257dc1254e1f01665370476383ea776df414', NULL, 1, 0, '', NULL, 1, '2021-06-20 23:58:04', 'HELLEN'),
+(3, 5, 1, 'HELLEN', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, 1, 0, NULL, NULL, NULL, '2021-06-23 22:50:08', 'dasdasdas');
 
 --
 -- Índices para tablas volcadas
@@ -2601,7 +2356,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `bitacora`
 --
 ALTER TABLE `bitacora`
-  MODIFY `id_bitacora` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_bitacora` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `cantidades_producto`
@@ -2613,25 +2368,25 @@ ALTER TABLE `cantidades_producto`
 -- AUTO_INCREMENT de la tabla `cargos`
 --
 ALTER TABLE `cargos`
-  MODIFY `id_cargo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_cargo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_categoria` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id_cliente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_cliente` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `correos`
 --
 ALTER TABLE `correos`
-  MODIFY `id_correo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_correo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT de la tabla `datos_exonerados`
@@ -2649,61 +2404,61 @@ ALTER TABLE `detalles_impuestos`
 -- AUTO_INCREMENT de la tabla `detalle_factura`
 --
 ALTER TABLE `detalle_factura`
-  MODIFY `id_det_fact` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id_det_fact` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `detalle_factura_temp`
 --
 ALTER TABLE `detalle_factura_temp`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `id_direccion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_direccion` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id_empleado` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_empleado` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id_empresa` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_empresa` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `entidad_banco`
 --
 ALTER TABLE `entidad_banco`
-  MODIFY `id_banco` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_banco` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `factura`
 --
 ALTER TABLE `factura`
-  MODIFY `id_factura` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_factura` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `grupos`
 --
 ALTER TABLE `grupos`
-  MODIFY `id_grupo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_grupo` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `inventarios`
 --
 ALTER TABLE `inventarios`
-  MODIFY `id_inventario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_inventario` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `marcas`
 --
 ALTER TABLE `marcas`
-  MODIFY `id_marca` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_marca` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `modulos`
@@ -2715,55 +2470,55 @@ ALTER TABLE `modulos`
 -- AUTO_INCREMENT de la tabla `permisos`
 --
 ALTER TABLE `permisos`
-  MODIFY `Idpermiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=208;
+  MODIFY `Idpermiso` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=376;
 
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
 ALTER TABLE `personas`
-  MODIFY `id_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `preguntas_seguridad`
 --
 ALTER TABLE `preguntas_seguridad`
-  MODIFY `id_preg_seg` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_preg_seg` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_producto` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedores`
 --
 ALTER TABLE `proveedores`
-  MODIFY `id_proveedor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_proveedor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `regimen_facturacion`
 --
 ALTER TABLE `regimen_facturacion`
-  MODIFY `id_regi_fact` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_regi_fact` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `rel_correos_persona`
 --
 ALTER TABLE `rel_correos_persona`
-  MODIFY `rel_correo_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `rel_correo_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `rel_correo_proveedores`
 --
 ALTER TABLE `rel_correo_proveedores`
-  MODIFY `id_correo_proveedor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_correo_proveedor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `rel_direcciones_persona`
 --
 ALTER TABLE `rel_direcciones_persona`
-  MODIFY `rel_direccion_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `rel_direccion_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `rel_direcciones_proveedores`
@@ -2775,37 +2530,37 @@ ALTER TABLE `rel_direcciones_proveedores`
 -- AUTO_INCREMENT de la tabla `rel_telefonos_persona`
 --
 ALTER TABLE `rel_telefonos_persona`
-  MODIFY `rel_telefono_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `rel_telefono_persona` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `rel_telefonos_proveedores`
 --
 ALTER TABLE `rel_telefonos_proveedores`
-  MODIFY `id_telefono_proveedor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id_telefono_proveedor` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `respuestas_seguridad`
 --
 ALTER TABLE `respuestas_seguridad`
-  MODIFY `id_resp_seg` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_resp_seg` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `telefonos`
 --
 ALTER TABLE `telefonos`
-  MODIFY `id_telefono` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id_telefono` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_empleado`
 --
 ALTER TABLE `tipos_empleado`
-  MODIFY `id_tip_empleado` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_tip_empleado` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `tipos_impuestos`
 --
 ALTER TABLE `tipos_impuestos`
-  MODIFY `id_tip_impuestos` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_tip_impuestos` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `tipo_clientes`
@@ -2817,19 +2572,19 @@ ALTER TABLE `tipo_clientes`
 -- AUTO_INCREMENT de la tabla `tipo_rol`
 --
 ALTER TABLE `tipo_rol`
-  MODIFY `id_rol` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_rol` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `unidades_medidas`
 --
 ALTER TABLE `unidades_medidas`
-  MODIFY `id_uni_medida` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_uni_medida` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_usuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

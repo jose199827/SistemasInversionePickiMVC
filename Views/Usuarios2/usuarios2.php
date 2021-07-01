@@ -26,19 +26,20 @@ getModal("modalPrimerInicioLogin", $data);
             <div class="card-box mb-30">
                 <div class="pd-20">
                     <form class="needs-validation" novalidate id="formUsuario" name="formUsuario" method="POST">
-                        <h5>Registrar Usuario</h5>
+                        <h5>REGISTRAR USUARIOS</h5>
+                        <hr>
                         <div class="row">
                             <div class="col-md-6 col-sm-12">
                                 <!-- Nombre Persona -->
                                 <div class="form-group">
-                                    <label for="Nombre">Nombre: <span class="text-red-50">*</span> </label>
+                                    <label for="NombrePer">NOMBRE: <span class="text-red-50">*</span> </label>
                                     <select class="form-control selectpicker" data-live-search="true" id="NombrePer" name="NombrePer" required>
                                         <!--Jalar datos de db -->
                                     </select>
                                 </div>
                                 <!-- Usuario -->
                                 <div class="form-group">
-                                    <label for="usuario">Usuario: <span class="text-red-50">*</span> </label>
+                                    <label for="usuario">USUARIO: <span class="text-red-50">*</span> </label>
                                     <input type="text" class="form-control valid validTextNumber" id="usuario" name="usuario" minlength="3" maxlength="50" required onkeyup="javascript:this.value=this.value.toUpperCase();">
                                 </div>
 
@@ -47,7 +48,7 @@ getModal("modalPrimerInicioLogin", $data);
                                 <!--Rol -->
                                 <div class="form-group">
                                     <div class="form-group">
-                                        <label for="Rol">Rol:<span class="text-red-50">*</span> </label>
+                                        <label for="Rol">ROL:<span class="text-red-50">*</span> </label>
                                         <select class="form-control  selectpicker" data-live-search="true" id="Rol" name="Rol" required>
 
                                         </select>
@@ -56,7 +57,7 @@ getModal("modalPrimerInicioLogin", $data);
                                 </div>
                                 <!-- Contraseña -->
                                 <div class="form-group">
-                                    <label for="password">Password: </label>
+                                    <label for="password">CONTRASEÑA: </label>
                                     <input type="password" class="form-control valid validTextNumber" id="password" name="password" minlength="5" maxlength="20" pattern="[[a-zA-Z0-9.!#$%&’+/=?^_`{|}~-]+@[a-zA-Z0-9- ]+(?:\.[a-zA-Z0-9-]+)$]+" required>
 
                                 </div>

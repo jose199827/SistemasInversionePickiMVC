@@ -70,11 +70,19 @@ document.addEventListener("DOMContentLoaded", function () {
       let rol_usuario = document.querySelector("#Rol").value;
       let password_empleado = document.querySelector("#password").value;
 
+      console.log(nombre_persona);
+      console.log(usuario_empleado);
+      console.log(rol_usuario);
+      console.log(password_empleado);
+
+    
       /* VALIDAR QUE LOS CAMPOS ESTEN LLENOS */
       if (nombre_persona == "" || usuario_empleado == "" || rol_usuario == "") {
+
         swal("Atención", "Todos los campos son obligatorios", "error");
         return false;
       }
+
 
       divLoading.style.display = "flex";
       let request = window.XMLHttpRequest
@@ -104,6 +112,53 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     };
   }
+
+  
+  if (document.querySelector("#formEditarUsuario")) {
+    let formEditarUsuario = document.querySelector("#formEditarUsuario");
+    formEditarUsuario.onsubmit = function (e) {
+      e.preventDefault();
+      let usuario_empleado = document.querySelector("#usuario").value;
+      let rol_usuario = document.querySelector("#Rolu").value;
+
+     
+      /* VALIDAR QUE LOS CAMPOS ESTEN LLENOS */
+      if (usuario_empleado == "" || rol_usuario == "") {
+        swal("Atención", "Todos los campos son obligatorios", "error");
+        return false;
+      }
+
+      divLoading.style.display = "flex";
+      let request = window.XMLHttpRequest
+        ? new XMLHttpRequest()
+        : new ActiveXObject("Microsoft.XMLHTTP");
+      let ajaxUrl = base_url + "/Usuarios2/setUpdateUsuarios2";
+      let formData = new FormData(formEditarUsuario);
+      request.open("POST", ajaxUrl, true);
+      request.send(formData);
+
+      request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          let objData = JSON.parse(request.responseText);
+          if (objData.status) {
+            swal("Exito", objData.msg, "success");
+            window.location = base_url + "/Usuarios2/Tabla";
+            document.querySelector("#formEditarUsuario").reset();
+            usuario_empleado.value = "";
+            rol_usuario.value = "";
+
+
+          } else {
+            swal("Error", objData.msg, "error");
+          }
+        }
+
+        divLoading.style.display = "none";
+        return false;
+      };
+    };
+  }
+
 });
 
 function fnt_Rol() {
@@ -144,6 +199,46 @@ function fnt_Persona() {
       }
     };
   }
+}
+
+/* ELIMINAR USUARIO */
+function fntDelUsuarios2(idpersona) {
+  swal({
+    title: "Eliminar usuario",
+    text: "¿Realmente quiere eliminar este usuario?",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Si, eliminar!",
+    cancelButtonText: "No, cancelar!",
+    preConfirm: false,
+  }).then((result) => {
+    if (result.value) {
+      let request = window.XMLHttpRequest
+        ? new XMLHttpRequest()
+        : new ActiveXObject("Microsoft.XMLHTTP");
+      let ajaxUrl = base_url + "/Usuarios2/eliminarUsuario/";
+      let strData = "idUsuario=" + idpersona;
+      request.open("POST", ajaxUrl, true);
+      request.setRequestHeader(
+        "Content-type",
+        "application/x-www-form-urlencoded"
+      );
+      request.send(strData);
+      request.onreadystatechange = function () {
+        if (request.readyState == 4 && request.status == 200) {
+          let objData = JSON.parse(request.responseText);
+          if (objData.status) {
+            swal("Eliminado!", objData.msg, "success");
+            tabla_usuarios2.api().ajax.reload(function () {});
+          } else {
+            swal("Atención!", objData.msg, "error");
+          }
+        }
+      };
+    }
+  });
 }
 
 window.addEventListener(

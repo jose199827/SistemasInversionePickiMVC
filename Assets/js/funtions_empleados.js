@@ -349,7 +349,7 @@ function fnt_pregunta() {
   }
 }
 
-// Accedemos al botón
+/* // Accedemos al botón
  var emailInput = document.querySelectorAll('.emailInput');
 
 // evento para el input radio del "si"
@@ -362,8 +362,20 @@ document.getElementById('interesadoPositivo').addEventListener('click', function
 document.getElementById('interesadoNegativo').addEventListener('click', function(e) {
   console.log('Vamos a deshabilitar el input text');
   emailInput.disabled = true;
-}); 
+}); */  
 
+/* function habilitar(value)
+		{
+			if(value=="1")
+			{
+				// habilitamos
+				document.getElementById("segundo").disabled=false;
+			}else if(value=="2"){
+				// deshabilitamos
+				document.getElementById("segundo").disabled=true;
+			}
+		}
+ */
 /* $("input[name='gender']" ).change(function() {
   if ($(this).val() == 'texto') {
   $('#imagen').show();
@@ -374,6 +386,29 @@ else {
   $('#nota').show();
 }
 }); */
+
+/* $(function(){
+  $(".op").click(function(){
+    if ($(this).val()== 'si') {
+      $("#usuario").removeAttr('disabled');
+      $("#usuario").focus();    
+      $("#password").removeAttr('disabled');
+      $("#password").focus(); 
+      $("#NombrePer").removeAttr('disabled');
+      $("#NombrePer").focus(); 
+      $("#Rol").removeAttr('disabled');
+      $("#Rol").focus();   
+    }else{
+      $("#usuario").attr('disabled','disabled');
+      $("#password").attr('disabled','disabled');
+      $("#NombrePer").attr('disabled','');
+      $("#Rol").attr('disabled','');
+    }
+
+  })
+  
+}) */
+
 
 window.addEventListener(
   "load",

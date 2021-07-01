@@ -32,7 +32,7 @@ getModal("modalPrimerInicioLogin", $data);
          <div class="card-box mb-30">
             <div class="pd-20">
                <form class="needs-validation" id="formEditarEmpleado" name="formEditarEmpleado" method="POST">
-                  <h5>Información Personal</h5>
+                  <h5>INFORMACION PERSONAL</h5>
                   <hr>
                   <div class="row">
                      <div class="col-md-6 col-sm-12">
@@ -43,7 +43,7 @@ getModal("modalPrimerInicioLogin", $data);
                         <input class="form-control " type="hidden" value="<?= $empleado['id_empleado'] ?>" id="id_emple" name="id_emple">
                         <!-- Nombre -->
                         <div class="form-group">
-                           <label for="nombreEmpleado">Nombre: <span class="danger">*</span></label>
+                           <label for="nombreEmpleado">NOMBRE: </span></label>
                            <input class="form-control valid validText" type="text" value="<?= $empleado['nom_persona'] ?>" id="nombreEmpleado" name="nombreEmpleado" required minlength="3" maxlength="50" pattern="^[A-Za-z ]*$">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -51,7 +51,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Num ID -->
                         <div class="form-group">
-                           <label for="identidad">Num. Identidad:</label>
+                           <label for="identidad">NUM. IDENTIDAD:</label>
                            <input type="text" class="form-control valid validNumber" id="identidad" value="<?= $empleado['num_id_persona'] ?>" name="identidad" required minlength="13" maxlength="15" pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -59,7 +59,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Fecha Nacimiento -->
                         <div class="form-group">
-                           <label for="nacimiento">Fecha de Nacimiento:</label>
+                           <label for="nacimiento">FECHA DE NACIMIENTO:</label>
                            <input type="date" class="form-control " value="<?= $empleado['fec_na_persona'] ?>" id="nacimiento" name="nacimiento" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -67,7 +67,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!--Correo -->
                         <div class="form-group">
-                           <label for="correo">Correo Electrónico: </label>
+                           <label for="correo">CORREO ELECTRONICO: </label>
                            <input type="email" class="form-control valid validEmail" value="<?= $empleado['correo'] ?>" id="correo" name="correo" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -77,7 +77,7 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="col-md-6 col-sm-12">
                         <!-- Apellido -->
                         <div class="form-group">
-                           <label for="apellido">Apellido:</label>
+                           <label for="apellido">APELLIDO:</label>
                            <input type="text" class="form-control valid validText" value="<?= $empleado['ape_persona'] ?>" id="apellido" name="apellido" required minlength="3" maxlength="50" pattern="^[A-Za-z ]*$">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -85,7 +85,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Edad -->
                         <div class="form-group">
-                           <label for="edad">Edad:</label>
+                           <label for="edad">EDAD:</label>
                            <input type="number" class="form-control valid validNumber" value="<?= $empleado['eda_persona'] ?>" id="edad" name="edad" required minlength="1" maxlength="3" pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -93,7 +93,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Genero -->
                         <div class="form-group">
-                           <label for="genero">Género:</label>
+                           <label for="genero">GENERO:</label>
                            <select class="form-control selectpicker" value="<?= $empleado['gen_persona'] ?>" id="genero" name="genero" required>
                               <option value="Femenino">Femenino</option>
                               <option value="Masculino">Masculino</option>
@@ -105,7 +105,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Telefono -->
                         <div class="form-group">
-                           <label for="telefono">Teléfono: </label>
+                           <label for="telefono">TELEFONO: </label>
                            <input type="text" class="form-control valid validNumber" value="<?= $empleado['telefono'] ?>" id="telefono" name="telefono" required minlength="8" maxlength="12" pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -115,7 +115,7 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="col-md-12 col-sm-12">
                         <!-- Direccion -->
                         <div class="form-group">
-                           <label for="direccion">Dirección:</label>
+                           <label for="direccion">DIRECCION:</label>
                            <textarea class="form-control valid validTextNumber" name="direccion" id="direccion" cols="30" rows="10" style="resize:vertical; height: 140px;" required minlength="3" maxlength="250" pattern="^[A-Za-z ]*$"><?= $empleado['direccion'] ?></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -123,13 +123,13 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                      </div>
                   </div>
-                  <h5>Información de Empleado</h5>
+                  <h5>INFORMACION DE EMPLEADO</h5>
                   <hr>
                   <div class="row">
                      <div class="col-md-6 col-sm-12">
                         <!-- Salario -->
                         <div class="form-group">
-                           <label for="salario">Salario: </label>
+                           <label for="salario">SALARIO: </label>
                            <input type="text" class="form-control valid validNumber" value="<?= $empleado['sal_empleado'] ?>" id="salario" name="salario" required minlength="3" maxlength="7" pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
@@ -138,7 +138,7 @@ getModal("modalPrimerInicioLogin", $data);
 
                         <!-- Tipo Empleado -->
                         <div class="form-group">
-                           <label for="tipou">Tipo de Empleado:</label>
+                           <label for="tipou">TIPO DE EMPLEADO:</label>
                            <select class="form-control selectpicker" data-live-search="true" id="tipou" name="tipou" required>
                               <!--Jalar datos de db -->
                               <?php
@@ -157,7 +157,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Fecha Ingreso -->
                         <div class="form-group">
-                           <label for="ingreso">Fecha de Ingreso: </label>
+                           <label for="ingreso">FECHA DE INGRESO: </label>
                            <input type="date" class="form-control " value="<?= $empleado['fec_ingreso'] ?>" id="ingreso" name="ingreso">
                         </div>
                      </div>
@@ -165,7 +165,7 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Cargo -->
                         <div class="form-group">
                            <div class="form-group">
-                              <label for="cargou">Cargo:</label>
+                              <label for="cargou">CARGO:</label>
                               <select class="form-control  selectpicker" data-live-search="true" id="cargou" name="cargou" required>
                                  <?php
                                  for ($i = 0; $i < count($data['cargos']); $i++) {
@@ -187,7 +187,7 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Estatus -->
                         <div class="form-group">
-                           <label for="estatus">Estatus:</label>
+                           <label for="estatus">ESTATUS:</label>
                            <select class="form-control  selectpicker" id="estatus" name="estatus" required>
                               <option value="1">Activo</option>
                               <option value="2">Inactivo</option>
@@ -198,15 +198,15 @@ getModal("modalPrimerInicioLogin", $data);
                         </div>
                         <!-- Fecha Salida -->
                         <div class="form-group">
-                           <label for="salida">Fecha de Salida: </label>
+                           <label for="salida">FECHA DE SALIDA: </label>
                            <input type="date" class="form-control " value="<?= $empleado['fec_salida'] ?>" id="salida" name="salida">
                         </div>
                      </div>
                      <div class="col-md-12 col-sm-12">
                         <!-- Motivo de salida -->
                         <div class="form-group">
-                           <label for="motivo">Motivo de salida: </label>
-                           <textarea class="form-control valid validTextNumber" onkeyup="javascript:this.value=this.value.toUpperCase();"  name="motivo" id="motivo" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required><?= $empleado['motivoSalida'] ?></textarea>
+                           <label for="motivo">MOTIVO DE SALIDA: </label>
+                           <textarea class="form-control valid validTextNumber" onkeyup="javascript:this.value=this.value.toUpperCase();" name="motivo" id="motivo" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required><?= $empleado['motivoSalida'] ?></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>

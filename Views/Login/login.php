@@ -46,7 +46,8 @@
 
                      <div class="input-group custom">
                         <input type="text" class="form-control form-control-lg valid validTextNumMayus"
-                           onkeypress="return controlTagEspacio(event);" id="txtEmail" name="txtEmail"
+                           onkeypress="return controlTagEspacio(event);"
+                           onkeyup="javascript:this.value=this.value.toUpperCase();" id="txtEmail" name="txtEmail"
                            placeholder="Usuario" minlength="5" maxlength="20">
                         <div class="input-group-append custom">
                            <span class="input-group-text"><i class="dw dw-user1"></i></span>

@@ -33,27 +33,9 @@ class Empleados extends Controllers
       $this->views->getView($this, "lista_empleados", $data);
    }
 
-   /* TITULOS DE LA TABLA USUARIOS */
-  /*  public function tabla_usuarios()
-   {
-      $data['page_tag'] = "Usuarios - Inversiones Picky";
-      $data['page_title'] = "Usuarios";
-      $data['page_name'] = "Tabla de Usuarios";
-      $data['page_funtions_js'] = "funtions_empleados.js";
-      $this->views->getView($this, "lista_usuarios", $data);
-   } */
+ 
 
-   
-   /* TITULOS DE LA REGISTRAR USUARIOS */
-  /*  public function usuarios()
-   {
-      $data['page_tag'] = "Usuarios - Inversiones Picky";
-      $data['page_title'] = "Usuarios";
-      $data['page_name'] = "Registrar Usuarios";
-      $data['page_funtions_js'] = "funtions_empleados.js";
-      $this->views->getView($this, "usuarios", $data);
-   } */
-
+ /*   TITULO DE LA TABLA UPDATE EMPLEADO */
    public function updateEmpleado($params)
    {
       if (empty($params)) {
