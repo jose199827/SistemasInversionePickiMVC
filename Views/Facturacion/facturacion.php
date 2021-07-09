@@ -20,7 +20,7 @@ getModal("modalPrimerInicioLogin", $data);
                   </nav>
                </div>
                <div class="col-6 text-right">
-                  <button class="btn btn-primary">Agregar cliente</button>
+                  <button class="btn btn-primary">AGREGAR CLIENTE</button>
                </div>
             </div>
          </div>
@@ -36,8 +36,8 @@ getModal("modalPrimerInicioLogin", $data);
                <div class="col-6 text-right">
                   <label for=""><strong>Acciones</strong></label>
                   <div id="acciones_venta">
-                     <a href="#" class="btn btn-danger btn_ok textcenter" id="btn_anular_venta">Cancelar</a>
-                     <a href="#" class="btn btn-success  btn_new textcenter" id="btn_factura_venta">Procesar</a>
+                     <a href="#" class="btn btn-success  btn_new textcenter" id="btn_factura_venta">PROCESAR</a>
+                     <a href="#" class="btn btn-danger btn_ok textcenter" id="btn_anular_venta">CANCELAR</a>
                   </div>
                </div>
             </div>
@@ -49,7 +49,7 @@ getModal("modalPrimerInicioLogin", $data);
                   <div class="form-group">
                      <label>Numero de ID</label>
                      <input type="hidden" name="idcliente" id="idcliente">
-                     <input type="text" class="form-control valid validNumber" id="id_cliente" min="15" max="15"
+                     <input type="text" class="form-control valid validNumber J" id="id_cliente" min="14" max="15"
                         name="id_cliente" placeholder="Numero de ID" required>
                   </div>
                </div>
@@ -62,7 +62,7 @@ getModal("modalPrimerInicioLogin", $data);
                <div class="col-md-4">
                   <div class="form-group">
                      <label>Telefono Cliente</label>
-                     <input type="text" class="form-control" id="nom_cliente" disabled>
+                     <input type="text" class="form-control" id="tel_cliente" disabled>
                   </div>
                </div>
                <div class="col-md-12">

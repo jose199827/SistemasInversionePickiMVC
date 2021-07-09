@@ -33,9 +33,9 @@ class Empleados extends Controllers
       $this->views->getView($this, "lista_empleados", $data);
    }
 
- 
 
- /*   TITULO DE LA TABLA UPDATE EMPLEADO */
+
+   /*   TITULO DE LA TABLA UPDATE EMPLEADO */
    public function updateEmpleado($params)
    {
       if (empty($params)) {
@@ -64,7 +64,7 @@ class Empleados extends Controllers
    {
       /*  dep($_POST); exit(); */
 
-      if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipo"]) || empty($_POST["cargo"]) || empty($_POST["estatus"]) ) {
+      if (empty($_POST["nombreEmpleado"]) || empty($_POST["identidad"]) || empty($_POST["nacimiento"]) || empty($_POST["correo"]) || empty($_POST["apellido"]) || empty($_POST["edad"]) || empty($_POST["genero"]) || empty($_POST["telefono"]) || empty($_POST["direccion"]) || empty($_POST["salario"]) || empty($_POST["tipo"]) || empty($_POST["cargo"]) || empty($_POST["estatus"])) {
 
          $arrResponse = array("status" => false, "msg" => 'Datos incorrectos.');
       } else {
@@ -134,7 +134,7 @@ class Empleados extends Controllers
       echo $htmlOptions;
       die();
    }
-   
+
    public function getSelectRol()
    {
       $htmlOptions = "";
@@ -168,7 +168,7 @@ class Empleados extends Controllers
    {
       $arrData = $this->model->selectEmpleados();
 
-   
+
       for ($i = 0; $i < count($arrData); $i++) {
          $arrData[$i]['numRegistro'] = $i + 1;
          $arrData[$i]['nom_persona'] =  $arrData[$i]['nom_persona'] . ' ' . $arrData[$i]['ape_persona'];
@@ -229,7 +229,7 @@ class Empleados extends Controllers
          $motivo_empleado = strClean($_POST["motivo"]);
          $estatus_empleado = intval($_POST["estatus"]);
          $tipo_empleado = intval($_POST["tipou"]);
-      
+
 
          $request = $this->model->Update_Empleado($id_empleado, $id_correo, $id_telefono, $id_direccion, $id_emple, $nombre_empleado, $apellido_empleado, $edad_empleado, $identidad_empleado, $nacimiento_empleado, $correo_empleado, $genero_empleado, $telefono_empleado, $direccion_empleado, $salario_empleado, $ingreso_empleado, $cargo_empleado,  $salida_empleado, $motivo_empleado, $estatus_empleado,  $tipo_empleado);
 
@@ -270,7 +270,7 @@ class Empleados extends Controllers
    }
 
    /*JALAR LOS DATOS A LA TABLA USUARIOS */
-  /*  public function  getUsuarios()
+   /*  public function  getUsuarios()
    {
       $arrData = $this->model->selectUsuarios();
 

@@ -33,7 +33,9 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Nombre -->
                         <div class="form-group">
                            <label for="nombreEmpleado">NOMBRE: <span class="text-red-50">*</span> </label>
-                           <input class="form-control valid validText" onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" id="nombreEmpleado" name="nombreEmpleado" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+                           <input class="form-control valid validText"
+                              onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" id="nombreEmpleado"
+                              name="nombreEmpleado" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -41,7 +43,8 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Num ID -->
                         <div class="form-group">
                            <label for="identidad">NUM. IDENTIDAD: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validNumber" id="identidad" name="identidad" minlength="13" maxlength="15" pattern="[0-9]+" required>
+                           <input type="text" class="form-control valid validNumber" id="identidad" name="identidad"
+                              minlength="13" maxlength="15" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -67,7 +70,9 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Apellido -->
                         <div class="form-group">
                            <label for="apellido">APELLIDO: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validText " onkeyup="javascript:this.value=this.value.toUpperCase();" id="apellido" name="apellido" minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
+                           <input type="text" class="form-control valid validText "
+                              onkeyup="javascript:this.value=this.value.toUpperCase();" id="apellido" name="apellido"
+                              minlength="3" maxlength="50" pattern="^[A-Za-z ]*$" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -75,7 +80,8 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Edad -->
                         <div class="form-group">
                            <label for="edad">EDAD: <span class="text-red-50">*</span> </label>
-                           <input type="number" value="" class="form-control valid validNumber" id="edad" name="edad" minlength="1" maxlength="3" required pattern="[0-9]+">
+                           <input type="number" value="" class="form-control valid validNumber" id="edad" name="edad"
+                              minlength="1" maxlength="3" required pattern="[0-9]+">
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -95,7 +101,8 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Telefono -->
                         <div class="form-group">
                            <label for="telefono">TELEFONO: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validNumber" id="telefono" name="telefono" minlength="8" maxlength="12" pattern="[0-9]+" required>
+                           <input type="text" class="form-control valid validNumber" id="telefono" name="telefono"
+                              minlength="8" maxlength="12" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -104,22 +111,26 @@ getModal("modalPrimerInicioLogin", $data);
                      <div class="col-md-12 col-sm-12">
                         <!-- Direccion -->
                         <div class="form-group">
-                           <label for="direccion">Dirección: <span class="text-red-50">*</span> </label>
-                           <textarea class="form-control valid validTextNumber" onkeyup="javascript:this.value=this.value.toUpperCase();" name="direccion" id="direccion" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
+                           <label for="direccion">DIRECCION: <span class="text-red-50">*</span> </label>
+                           <textarea class="form-control valid validTextNumber"
+                              onkeyup="javascript:this.value=this.value.toUpperCase();" name="direccion" id="direccion"
+                              minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;"
+                              pattern="^[A-Za-z ]*$" required></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
                         </div>
                      </div>
                   </div>
-                  <h5>INFORMACION DE EMPLEADO</h5>
+                  <h5>DATOS LABORALES</h5>
                   <hr>
                   <div class="row">
                      <div class="col-md-6 col-sm-12">
                         <!-- Salario -->
                         <div class="form-group">
                            <label for="salario">SALARIO: <span class="text-red-50">*</span> </label>
-                           <input type="text" class="form-control valid validNumber" id="salario" name="salario" minlength="3" maxlength="7" pattern="[0-9]+" required>
+                           <input type="text" class="form-control valid validNumber" id="salario" name="salario"
+                              minlength="3" maxlength="7" pattern="[0-9]+" required>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>
@@ -127,7 +138,8 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Tipo Empleado -->
                         <div class="form-group">
                            <label for="tipo">TIPO DE EMPLEADO: <span class="text-red-50">*</span> </label>
-                           <select class="form-control selectpicker" data-live-search="true" id="tipo" name="tipo" required>
+                           <select class="form-control selectpicker" data-live-search="true" id="tipo" name="tipo"
+                              required>
                               <option selected=""></option>
                               <!--Jalar datos de db -->
                            </select>
@@ -148,7 +160,8 @@ getModal("modalPrimerInicioLogin", $data);
                         <div class="form-group">
                            <div class="form-group">
                               <label for="cargo">CARGO: <span class="text-red-50">*</span> </label>
-                              <select class="form-control  selectpicker" data-live-search="true" id="cargo" name="cargo" required>
+                              <select class="form-control  selectpicker" data-live-search="true" id="cargo" name="cargo"
+                                 required>
 
                               </select>
                               <span class="msj"></span>
@@ -177,7 +190,10 @@ getModal("modalPrimerInicioLogin", $data);
                         <!-- Motivo de salida -->
                         <div class="form-group">
                            <label for="motivo">MOTIVO DE SALIDA: </label>
-                           <textarea class="form-control valid validTextNumber" onkeyup="javascript:this.value=this.value.toUpperCase();" name="motivo" id="motivo" minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;" pattern="^[A-Za-z ]*$" required></textarea>
+                           <textarea class="form-control valid validTextNumber"
+                              onkeyup="javascript:this.value=this.value.toUpperCase();" name="motivo" id="motivo"
+                              minlength="3" maxlength="250" cols="30" rows="10" style="resize:vertical; height: 140px;"
+                              pattern="^[A-Za-z ]*$"></textarea>
                            <span class="msj"></span>
                            <div class="valid-feedback">Valido</div>
                            <div class="invalid-feedback">Por favor, rellena el campo</div>

@@ -180,15 +180,12 @@ class Clientes extends Controllers
    {
       $id_cliente = intval($_POST['idUsuario']);
       $request = $this->model->Delete_Cliente($id_cliente);
-
       if ($request) {
          $arrResponse = array("status" => true, "msg" => 'Datos eliminados.');
       } else {
          $arrResponse = array("status" => false, "msg" => 'Datos no eliminados.');
       }
-
       echo json_encode($arrResponse, JSON_UNESCAPED_UNICODE);
-
       die();
    }
 }

@@ -117,14 +117,14 @@
             <?php if (!empty($_SESSION['permisos'][2]['r']) || !empty($_SESSION['permisos'][2]['w'])) { ?>
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
-                  <span class="micon dw dw-edit-file"></span><span class="mtext">Facturación</span>
+                  <span class="micon dw dw-edit-file"></span><span class="mtext">Ventas</span>
                </a>
                <ul class="submenu">
                   <?php if (!empty($_SESSION['permisos'][2]['w'])) { ?>
-                  <li><a href="<?= Base_URL(); ?>/Facturacion">Facturar</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Facturacion">Venta</a></li>
                   <?php } ?>
                   <?php if (!empty($_SESSION['permisos'][2]['r'])) { ?>
-                  <li><a href="<?= Base_URL(); ?>/Facturacion/Tabla">Tabla</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Facturacion/Tabla">Listado</a></li>
                   <?php } ?>
                </ul>
             </li>
@@ -146,7 +146,7 @@
                   <?php if (!empty($_SESSION['permisos'][3]['r'])) { ?>
                   <li>
                      <a href="<?= Base_URL(); ?>/Empleados/Tabla" class="dropdown-toggle no-arrow">
-                        <span class="mtext">Tabla</span>
+                        <span class="mtext">Listado</span>
                      </a>
                   </li>
                   <?php } ?>
@@ -171,7 +171,7 @@
                   <?php if (!empty($_SESSION['permisos'][3]['r'])) { ?>
                   <li>
                      <a href="<?= Base_URL(); ?>/Usuarios2/Tabla" class="dropdown-toggle no-arrow">
-                        <span class="mtext">Tabla</span>
+                        <span class="mtext">Listado</span>
                      </a>
                   </li>
 
@@ -192,7 +192,7 @@
                   <li><a href="<?= Base_URL(); ?>/Proveedores">Registrar</a></li>
                   <?php } ?>
                   <?php if (!empty($_SESSION['permisos'][4]['r'])) { ?>
-                  <li><a href="<?= Base_URL(); ?>/Proveedores/Tabla">Tabla</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Proveedores/Tabla">Listado</a></li>
                   <?php } ?>
                </ul>
             </li>
@@ -212,7 +212,7 @@
                   </li>
                   <?php } ?>
                   <?php if (!empty($_SESSION['permisos'][5]['r'])) { ?>
-                  <li><a href="<?= Base_URL(); ?>/Clientes/Tabla">Tabla</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Clientes/Tabla">Listado</a></li>
                   <?php } ?>
                </ul>
             </li>
@@ -223,13 +223,13 @@
             <!-- Menu Inventario -->
             <li class="dropdown">
                <a href="javascript:;" class="dropdown-toggle">
-                  <span class="micon dw dw-book1"></span><span class="mtext">Inventario</span>
+                  <span class="micon dw dw-book1"></span><span class="mtext">Productos</span>
 
                </a>
                <ul class="submenu">
                   <li><a href="<?= Base_URL(); ?>/Inventario">Inventario</a></li>
                   <li><a href="<?= Base_URL(); ?>/Productos">Registrar</a></li>
-                  <li><a href="<?= Base_URL(); ?>/Productos/Tabla">Tabla</a></li>
+                  <li><a href="<?= Base_URL(); ?>/Productos/Tabla">Listado</a></li>
                </ul>
             </li>
             <?php } ?>

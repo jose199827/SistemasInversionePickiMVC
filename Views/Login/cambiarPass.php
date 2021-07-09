@@ -16,7 +16,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
    <!-- Google Font -->
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
    <!-- CSS -->
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/core.css">
    <link rel="stylesheet" type="text/css" href="<?= vendors(); ?>/styles/icon-font.min.css">
@@ -43,23 +44,28 @@
                   <div class="login-title">
                      <h2 class="text-center text-primary">Restablecer la contraseña</h2>
                   </div>
-                  <h6 class="mb-20">Ingrese tu nueva contraseña, confirma y envía</h6>
+                  <h6 class="mb-20">Ingrese tu nueva contraseña</h6>
                   <form id="formCambiarPass" name="formCambiarPass" action="">
                      <input type="hidden" name="idUsuario" id="idUsuario" value="<?= $data['idpersona']; ?>">
                      <?php if (!empty($data['email'])) {
                      ?>
-                        <input type="hidden" name="txtEmail" id="txtEmail" value="<?= $data['email']; ?>">
+                     <input type="hidden" name="txtEmail" id="txtEmail" value="<?= $data['email']; ?>">
                      <?php
                      } ?>
                      <input type="hidden" name="txtToken" id="txtToken" value="<?= $data['token']; ?>">
                      <div class="input-group custom">
-                        <input type="password" class="form-control form-control-lg" placeholder="Nueva Password" onkeypress="return controlTagEspacio(event);" id="txtPassword" name="txtPassword" minlength="5" maxlength="20" required>
+                        <input type="password" class="form-control form-control-lg" placeholder="Nueva Password"
+                           onkeypress="return controlTagEspacio(event);" id="txtPassword" name="txtPassword"
+                           minlength="5" maxlength="20" required>
                         <div class="input-group-append custom">
                            <span class="input-group-text"><i id="verPass" class="fa fa-eye"></i></i></span>
                         </div>
                      </div>
+                     <h6 class="mb-20">Confirma la contraseña</h6>
                      <div class="input-group custom">
-                        <input type="password" class="form-control form-control-lg" placeholder="Confirmar Nueva Password" onkeypress="return controlTagEspacio(event);" id="txtPasswordConfirm" name="txtPasswordConfirm" minlength="5" maxlength="20" required>
+                        <input type="password" class="form-control form-control-lg"
+                           placeholder="Confirmar Nueva Password" onkeypress="return controlTagEspacio(event);"
+                           id="txtPasswordConfirm" name="txtPasswordConfirm" minlength="5" maxlength="20" required>
                         <div class="input-group-append custom">
                            <span class="input-group-text"></i></span>
                         </div>
@@ -79,7 +85,7 @@
    </div>
    <!-- js -->
    <script>
-      const base_url = "<?= Base_URL(); ?>"
+   const base_url = "<?= Base_URL(); ?>"
    </script>
    <script src="<?= vendors(); ?>/scripts/core.js"></script>
    <script src="<?= vendors(); ?>/scripts/script.min.js"></script>
@@ -92,28 +98,28 @@
    <script src="<?= media(); ?>/js/<?= $data['page_funtions_js']; ?>"></script>
    <script src="<?= media(); ?>/js/funtions_admin.js"></script>
    <script>
-      let verPas = document.querySelector("#verPass");
-      let txtPassword = document.querySelector('#txtPassword');
-      verPas.addEventListener('click', function() {
-         if (txtPassword.value != "") {
-            if (txtPassword.type == "password") {
-               txtPassword.type = "text";
-               verPas.classList.remove("fa-eye");
-               verPas.classList.add("fa-eye-slash");
-               setTimeout("ocultarPass()", 1500);
-            } else {
-               txtPassword.type = "password";
-               verPas.classList.remove("fa-eye-slash");
-               verPas.classList.add("fa-eye");
-            }
+   let verPas = document.querySelector("#verPass");
+   let txtPassword = document.querySelector('#txtPassword');
+   verPas.addEventListener('click', function() {
+      if (txtPassword.value != "") {
+         if (txtPassword.type == "password") {
+            txtPassword.type = "text";
+            verPas.classList.remove("fa-eye");
+            verPas.classList.add("fa-eye-slash");
+            setTimeout("ocultarPass()", 1500);
+         } else {
+            txtPassword.type = "password";
+            verPas.classList.remove("fa-eye-slash");
+            verPas.classList.add("fa-eye");
          }
-      });
-
-      function ocultarPass() {
-         txtPassword.type = "password";
-         verPas.classList.remove("fa-eye-slash");
-         verPas.classList.add("fa-eye");
       }
+   });
+
+   function ocultarPass() {
+      txtPassword.type = "password";
+      verPas.classList.remove("fa-eye-slash");
+      verPas.classList.add("fa-eye");
+   }
    </script>
 </body>
 

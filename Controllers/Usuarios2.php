@@ -69,9 +69,9 @@ class Usuarios2 extends Controllers
 
          if ($arrData[$i]['activacion'] == 1) {
             $arrData[$i]['activacion'] = '<span class="badge badge-success badge-pill">Activo</span>';
-          } else {
+         } else {
             $arrData[$i]['activacion'] = '<span class="badge badge-warning badge-pill">Inactivo</span>';
-          }
+         }
 
 
          $btnEdit = '';
@@ -93,9 +93,6 @@ class Usuarios2 extends Controllers
                                                   </div>
                                                 </div>';
       }
-
-
-
       echo json_encode($arrData, JSON_UNESCAPED_UNICODE);
       die();
    }
@@ -137,8 +134,7 @@ class Usuarios2 extends Controllers
       /*  dep($arrData); */
       if (count($arrData) > 0) {
          for ($i = 0; $i < count($arrData); $i++) {
-            $htmlOptions .= '<option value ="' . $arrData[$i]['id_persona'] . '">' . $arrData[$i]['nom_persona'] ." ". $arrData[$i]['ape_persona'] . '</option>';
-                                
+            $htmlOptions .= '<option value ="' . $arrData[$i]['id_persona'] . '">' . $arrData[$i]['nom_persona'] . " " . $arrData[$i]['ape_persona'] . '</option>';
          }
       }
       echo $htmlOptions;

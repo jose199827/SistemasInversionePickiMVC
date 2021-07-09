@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
             let strEmail = document.querySelector('#txtEmail').value;
             let strPassword = document.querySelector('#txtPassword').value;
             if (strEmail == '' || strPassword == '') {
-                swal("Atención", "Escribe un correo y contraseña.", "error");
+                swal("Atención", "Escribe un usuario y contraseña.", "error");
                 return false;
             } else {
                 let elemtedValid = document.getElementsByClassName("valid");
@@ -244,9 +244,7 @@ function buscarUser() {
                 swal({
                     title: 'Sistema',
                     html: '<p><strong>Nombre: </strong>' + objData.data.nom_persona + " " + objData.data.ape_persona +
-                        '</p>' +
-                        '<p><strong>Correo: </strong>' + objData.data.correo + '</p>' +
-                        '<p><strong>Usuario: </strong>' + objData.data.nom_usuario + '</p>',
+                        '</p>',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
